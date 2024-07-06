@@ -12,6 +12,7 @@ RM := rm -rf
 -include MCAL/TIMER1/subdir.mk
 -include MCAL/TIMER0/subdir.mk
 -include MCAL/SPI/subdir.mk
+-include MCAL/I2C/subdir.mk
 -include MCAL/GIE/subdir.mk
 -include MCAL/EXTI/subdir.mk
 -include MCAL/DIO/subdir.mk
@@ -21,6 +22,8 @@ RM := rm -rf
 -include HAL/LED/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
+-include HAL/DC_MOTOR/subdir.mk
+-include HAL/BUZZER/subdir.mk
 -include subdir.mk
 -include objects.mk
 

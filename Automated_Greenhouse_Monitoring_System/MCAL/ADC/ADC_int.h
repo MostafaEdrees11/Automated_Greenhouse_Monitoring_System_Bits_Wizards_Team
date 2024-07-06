@@ -31,6 +31,8 @@ ES_t ADC_enuReadADCValue(u16 *Copy_pu16ReadValue);
 ES_t ADC_enuEnableTrigger(u8 Copy_u8TriggerSource);
 ES_t ADC_enuDisableTrigger(void);
 
+ES_t ADC_Read_From_Ch(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID);
+
 ES_t ADC_enuCallBack(volatile void (*Copy_PFunc)(void*), volatile void *Copy_PvidAppParameter);
 
 /* Voltage Reference Selection */

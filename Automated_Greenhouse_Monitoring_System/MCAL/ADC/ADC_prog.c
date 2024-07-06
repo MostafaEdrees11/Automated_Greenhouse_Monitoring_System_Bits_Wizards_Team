@@ -285,6 +285,22 @@ ES_t ADC_enuCallBack(volatile void (*Copy_PFunc)(void*), volatile void *Copy_Pvi
 	return Local_enuErrorState;
 }
 
+ES_t ADC_Read_From_Ch(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	ADC_enuEnable();
+	ADC_enuDisableTrigger();
+	ADC_enuSelectChannel(Copy_u8ChannelID);
+	ADC_enuStartConversion();
+	ADC_enuDisableInterrupt();
+	ADC_enuPollingSystem();
+	ADC_enuReadADCValue(Copy_pu16ReadValue);
+	ADC_enuDisable();
+
+	return Local_enuErrorState;
+}
+
 ISR(VECT_ADC)
 {
 	if(ADC_PFuncISRFunc != NULL)
