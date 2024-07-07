@@ -55,6 +55,8 @@ static void LCD_vidTrigger_LATCH(void);
 /* Lines */
 #define LCD_FIRST_LINE								0
 #define LCD_SECOND_LINE								1
+#define LCD_THIRD_LINE								2
+#define LCD_FOURTH_LINE								3
 
 #define LCD_BEGIN_AT_FIRST_ROW						0x80
 #define LCD_BEGIN_AT_SECOND_ROW						0xC0
