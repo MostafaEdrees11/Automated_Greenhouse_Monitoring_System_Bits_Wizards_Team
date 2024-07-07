@@ -11,6 +11,8 @@
 #ifndef ADC_INT_H_
 #define ADC_INT_H_
 
+#include "../DIO/DIO_int.h"
+
 ES_t ADC_enuInit(void);
 
 ES_t ADC_enuEnable(void);

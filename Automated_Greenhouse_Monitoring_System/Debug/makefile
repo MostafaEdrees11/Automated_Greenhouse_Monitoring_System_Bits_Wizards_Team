@@ -20,6 +20,7 @@ RM := rm -rf
 -include HAL/SWITCH/subdir.mk
 -include HAL/SEVEN_SEG/subdir.mk
 -include HAL/LED/subdir.mk
+-include HAL/LDR/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
 -include HAL/DC_MOTOR/subdir.mk

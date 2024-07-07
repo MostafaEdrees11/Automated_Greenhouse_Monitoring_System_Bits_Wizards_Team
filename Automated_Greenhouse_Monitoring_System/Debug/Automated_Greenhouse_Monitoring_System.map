@@ -85,6 +85,8 @@ LOAD ./HAL/SEVEN_SEG/Seven_Segment_config.o
 LOAD ./HAL/SEVEN_SEG/Seven_Segment_prog.o
 LOAD ./HAL/LED/LED_config.o
 LOAD ./HAL/LED/LED_prog.o
+LOAD ./HAL/LDR/LDR_Config.o
+LOAD ./HAL/LDR/LDR_Prog.o
 LOAD ./HAL/LCD/LCD_prog.o
 LOAD ./HAL/KEYPAD/KEYPAD_prog.o
 LOAD ./HAL/DC_MOTOR/DC_MOTOR_config.o
@@ -186,7 +188,7 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x8126
+.text           0x00000000     0x825a
  *(.vectors)
  .vectors       0x00000000       0x54 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -272,6 +274,8 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
  .text          0x00000092        0x0 ./HAL/SEVEN_SEG/Seven_Segment_prog.o
  .text          0x00000092        0x0 ./HAL/LED/LED_config.o
  .text          0x00000092        0x0 ./HAL/LED/LED_prog.o
+ .text          0x00000092        0x0 ./HAL/LDR/LDR_Config.o
+ .text          0x00000092        0x0 ./HAL/LDR/LDR_Prog.o
  .text          0x00000092        0x0 ./HAL/LCD/LCD_prog.o
  .text          0x00000092        0x0 ./HAL/KEYPAD/KEYPAD_prog.o
  .text          0x00000092        0x0 ./HAL/DC_MOTOR/DC_MOTOR_config.o
@@ -611,103 +615,109 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
  .text.LED_enuTurnOFF
                 0x00006350       0x8c ./HAL/LED/LED_prog.o
                 0x00006350                LED_enuTurnOFF
+ .text.LDR_enuInit
+                0x000063dc       0x7c ./HAL/LDR/LDR_Prog.o
+                0x000063dc                LDR_enuInit
+ .text.LDR_enuGetValue
+                0x00006458       0x32 ./HAL/LDR/LDR_Prog.o
+                0x00006458                LDR_enuGetValue
  .text.LCD_enuInit
-                0x000063dc      0x794 ./HAL/LCD/LCD_prog.o
-                0x000063dc                LCD_enuInit
+                0x0000648a      0x794 ./HAL/LCD/LCD_prog.o
+                0x0000648a                LCD_enuInit
  .text.LCD_enuDisplayChar
-                0x00006b70       0x56 ./HAL/LCD/LCD_prog.o
-                0x00006b70                LCD_enuDisplayChar
+                0x00006c1e       0x56 ./HAL/LCD/LCD_prog.o
+                0x00006c1e                LCD_enuDisplayChar
  .text.LCD_enuSendCommand
-                0x00006bc6       0x52 ./HAL/LCD/LCD_prog.o
-                0x00006bc6                LCD_enuSendCommand
+                0x00006c74       0x52 ./HAL/LCD/LCD_prog.o
+                0x00006c74                LCD_enuSendCommand
  .text.LCD_enuLatch
-                0x00006c18      0x348 ./HAL/LCD/LCD_prog.o
+                0x00006cc6      0x348 ./HAL/LCD/LCD_prog.o
  .text.LCD_vidTrigger_LATCH
-                0x00006f60      0x11e ./HAL/LCD/LCD_prog.o
+                0x0000700e      0x11e ./HAL/LCD/LCD_prog.o
  .text.LCD_inlenuSendCommand
-                0x0000707e       0x52 ./HAL/LCD/LCD_prog.o
+                0x0000712c       0x52 ./HAL/LCD/LCD_prog.o
  .text.LCD_enuGoToPosition
-                0x000070d0       0x78 ./HAL/LCD/LCD_prog.o
-                0x000070d0                LCD_enuGoToPosition
+                0x0000717e       0xc6 ./HAL/LCD/LCD_prog.o
+                0x0000717e                LCD_enuGoToPosition
  .text.LCD_vidCheckPosition
-                0x00007148       0x50 ./HAL/LCD/LCD_prog.o
+                0x00007244       0x88 ./HAL/LCD/LCD_prog.o
  .text.LCD_vidClearScreen
-                0x00007198       0x18 ./HAL/LCD/LCD_prog.o
-                0x00007198                LCD_vidClearScreen
+                0x000072cc       0x18 ./HAL/LCD/LCD_prog.o
+                0x000072cc                LCD_vidClearScreen
  .text.LCD_enuWriteString
-                0x000071b0       0x68 ./HAL/LCD/LCD_prog.o
-                0x000071b0                LCD_enuWriteString
+                0x000072e4       0x68 ./HAL/LCD/LCD_prog.o
+                0x000072e4                LCD_enuWriteString
  .text.LCD_enuWriteIntNumber
-                0x00007218       0xb6 ./HAL/LCD/LCD_prog.o
-                0x00007218                LCD_enuWriteIntNumber
+                0x0000734c       0xb6 ./HAL/LCD/LCD_prog.o
+                0x0000734c                LCD_enuWriteIntNumber
  .text.LCD_enuWriteFloatNumber
-                0x000072ce       0xd6 ./HAL/LCD/LCD_prog.o
-                0x000072ce                LCD_enuWriteFloatNumber
+                0x00007402       0xd6 ./HAL/LCD/LCD_prog.o
+                0x00007402                LCD_enuWriteFloatNumber
  .text.LCD_enuCustomCharacter
-                0x000073a4       0x54 ./HAL/LCD/LCD_prog.o
-                0x000073a4                LCD_enuCustomCharacter
+                0x000074d8       0x54 ./HAL/LCD/LCD_prog.o
+                0x000074d8                LCD_enuCustomCharacter
  .text.KEYPAD_enuInit
-                0x000073f8       0xd8 ./HAL/KEYPAD/KEYPAD_prog.o
-                0x000073f8                KEYPAD_enuInit
+                0x0000752c       0xd8 ./HAL/KEYPAD/KEYPAD_prog.o
+                0x0000752c                KEYPAD_enuInit
  .text.KEYPAD_u8GetPressedKey
-                0x000074d0      0x128 ./HAL/KEYPAD/KEYPAD_prog.o
-                0x000074d0                KEYPAD_u8GetPressedKey
+                0x00007604      0x128 ./HAL/KEYPAD/KEYPAD_prog.o
+                0x00007604                KEYPAD_u8GetPressedKey
  .text.DC_MOTOR_enuInit
-                0x000075f8       0xcc ./HAL/DC_MOTOR/DC_MOTOR_prog.o
-                0x000075f8                DC_MOTOR_enuInit
+                0x0000772c       0xcc ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+                0x0000772c                DC_MOTOR_enuInit
  .text.DC_MOTOR_enuOnCW
-                0x000076c4       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
-                0x000076c4                DC_MOTOR_enuOnCW
+                0x000077f8       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+                0x000077f8                DC_MOTOR_enuOnCW
  .text.DC_MOTOR_enuOnCCW
-                0x0000775c       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
-                0x0000775c                DC_MOTOR_enuOnCCW
+                0x00007890       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+                0x00007890                DC_MOTOR_enuOnCCW
  .text.DC_MOTOR_enuOff
-                0x000077f4       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
-                0x000077f4                DC_MOTOR_enuOff
+                0x00007928       0x98 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+                0x00007928                DC_MOTOR_enuOff
  .text.DC_MOTOR_SetSpeed
-                0x0000788c       0x48 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
-                0x0000788c                DC_MOTOR_SetSpeed
+                0x000079c0       0x48 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+                0x000079c0                DC_MOTOR_SetSpeed
  .text.BUZZER_enuInit
-                0x000078d4      0x158 ./HAL/BUZZER/BUZZER_prog.o
-                0x000078d4                BUZZER_enuInit
+                0x00007a08      0x158 ./HAL/BUZZER/BUZZER_prog.o
+                0x00007a08                BUZZER_enuInit
  .text.BUZZER_enuTurnON
-                0x00007a2c       0x9e ./HAL/BUZZER/BUZZER_prog.o
-                0x00007a2c                BUZZER_enuTurnON
+                0x00007b60       0x9e ./HAL/BUZZER/BUZZER_prog.o
+                0x00007b60                BUZZER_enuTurnON
  .text.BUZZER_enuTurnOFF
-                0x00007aca       0x9e ./HAL/BUZZER/BUZZER_prog.o
-                0x00007aca                BUZZER_enuTurnOFF
- .text.main     0x00007b68        0xa ./main.o
-                0x00007b68                main
- .text.libgcc   0x00007b72        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00007b72        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00007b72        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00007b72       0x38 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00007b72                __prologue_saves__
- .text.libgcc   0x00007baa       0x36 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00007baa                __epilogue_restores__
+                0x00007bfe       0x9e ./HAL/BUZZER/BUZZER_prog.o
+                0x00007bfe                BUZZER_enuTurnOFF
+ .text.main     0x00007c9c        0xa ./main.o
+                0x00007c9c                main
+ .text.libgcc   0x00007ca6        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00007ca6        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00007ca6        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00007ca6       0x38 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00007ca6                __prologue_saves__
+ .text.libgcc   0x00007cde       0x36 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00007cde                __epilogue_restores__
  .text.avr-libc
-                0x00007be0       0x48 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x00007be0                sprintf
+                0x00007d14       0x48 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00007d14                sprintf
  .text.avr-libc
-                0x00007c28      0x3ba d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00007c28                vfprintf
+                0x00007d5c      0x3ba d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00007d5c                vfprintf
  .text.avr-libc
-                0x00007fe2       0x16 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00007fe2                strnlen_P
+                0x00008116       0x16 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00008116                strnlen_P
  .text.avr-libc
-                0x00007ff8       0x16 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00007ff8                strnlen
+                0x0000812c       0x16 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x0000812c                strnlen
  .text.avr-libc
-                0x0000800e       0x58 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x0000800e                fputc
+                0x00008142       0x58 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00008142                fputc
  .text.avr-libc
-                0x00008066       0xbc d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00008066                __ultoa_invert
-                0x00008122                . = ALIGN (0x2)
+                0x0000819a       0xbc d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x0000819a                __ultoa_invert
+                0x00008256                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00008122        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00008122                exit
-                0x00008122                _exit
+ .fini9         0x00008256        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00008256                exit
+                0x00008256                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -726,11 +736,11 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00008122        0x4 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00008256        0x4 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00008126                _etext = .
+                0x0000825a                _etext = .
 
-.data           0x00800060      0x19e load address 0x00008126
+.data           0x00800060      0x19e load address 0x0000825a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -750,6 +760,8 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
  .data          0x00800060        0x0 ./HAL/SEVEN_SEG/Seven_Segment_prog.o
  .data          0x00800060        0x0 ./HAL/LED/LED_config.o
  .data          0x00800060        0x0 ./HAL/LED/LED_prog.o
+ .data          0x00800060        0x0 ./HAL/LDR/LDR_Config.o
+ .data          0x00800060        0x0 ./HAL/LDR/LDR_Prog.o
  .data          0x00800060        0x3 ./HAL/LCD/LCD_prog.o
  .data          0x00800063        0x0 ./HAL/KEYPAD/KEYPAD_prog.o
  .data          0x00800063        0x0 ./HAL/DC_MOTOR/DC_MOTOR_config.o
@@ -826,7 +838,7 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
                 0x008001fe                _edata = .
                 0x008001fe                PROVIDE (__data_end, .)
 
-.bss            0x008001fe       0x30
+.bss            0x008001fe       0x32
                 0x008001fe                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x008001fe        0x0 d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -846,6 +858,8 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
  .bss           0x008001fe        0x0 ./HAL/SEVEN_SEG/Seven_Segment_prog.o
  .bss           0x008001fe        0x0 ./HAL/LED/LED_config.o
  .bss           0x008001fe        0x0 ./HAL/LED/LED_prog.o
+ .bss           0x008001fe        0x0 ./HAL/LDR/LDR_Config.o
+ .bss           0x008001fe        0x0 ./HAL/LDR/LDR_Prog.o
  .bss           0x008001fe        0x0 ./HAL/LCD/LCD_prog.o
  .bss           0x008001fe        0x0 ./HAL/KEYPAD/KEYPAD_prog.o
  .bss           0x008001fe        0x0 ./HAL/DC_MOTOR/DC_MOTOR_config.o
@@ -923,19 +937,22 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
                 0x00800229        0x2 ./MCAL/ADC/ADC_prog.o
  .bss.ADC_PvidISRParameter
                 0x0080022b        0x2 ./MCAL/ADC/ADC_prog.o
+ .bss.LDR_Config
+                0x0080022d        0x2 ./HAL/LDR/LDR_Config.o
+                0x0080022d                LDR_Config
  .bss.LCD_u8PosCounter
-                0x0080022d        0x1 ./HAL/LCD/LCD_prog.o
+                0x0080022f        0x1 ./HAL/LCD/LCD_prog.o
  *(COMMON)
-                0x0080022e                PROVIDE (__bss_end, .)
-                0x00008126                __data_load_start = LOADADDR (.data)
-                0x000082c4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800230                PROVIDE (__bss_end, .)
+                0x0000825a                __data_load_start = LOADADDR (.data)
+                0x000083f8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080022e        0x0
-                0x0080022e                PROVIDE (__noinit_start, .)
+.noinit         0x00800230        0x0
+                0x00800230                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080022e                PROVIDE (__noinit_end, .)
-                0x0080022e                _end = .
-                0x0080022e                PROVIDE (__heap_start, .)
+                0x00800230                PROVIDE (__noinit_end, .)
+                0x00800230                _end = .
+                0x00800230                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -953,7 +970,7 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x8c28
+.stab           0x00000000     0x91f8
  *(.stab)
  .stab          0x00000000      0x714 ./MCAL/USART/USART_prog.o
  .stab          0x00000714      0xc30 ./MCAL/TIMER1/TIMER1_prog.o
@@ -986,24 +1003,28 @@ LOAD d:/courses/avr/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\li
                                 0x1f8 (size before relaxing)
  .stab          0x00005f7c      0x4b0 ./HAL/LED/LED_prog.o
                                 0x4d4 (size before relaxing)
- .stab          0x0000642c     0x159c ./HAL/LCD/LCD_prog.o
-                               0x15a8 (size before relaxing)
- .stab          0x000079c8      0x450 ./HAL/KEYPAD/KEYPAD_prog.o
-                                0x45c (size before relaxing)
- .stab          0x00007e18      0x204 ./HAL/DC_MOTOR/DC_MOTOR_config.o
+ .stab          0x0000642c      0x204 ./HAL/LDR/LDR_Config.o
                                 0x210 (size before relaxing)
- .stab          0x0000801c      0x540 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
+ .stab          0x00006630      0x30c ./HAL/LDR/LDR_Prog.o
+                                0x318 (size before relaxing)
+ .stab          0x0000693c     0x165c ./HAL/LCD/LCD_prog.o
+                               0x1668 (size before relaxing)
+ .stab          0x00007f98      0x450 ./HAL/KEYPAD/KEYPAD_prog.o
+                                0x45c (size before relaxing)
+ .stab          0x000083e8      0x204 ./HAL/DC_MOTOR/DC_MOTOR_config.o
+                                0x210 (size before relaxing)
+ .stab          0x000085ec      0x540 ./HAL/DC_MOTOR/DC_MOTOR_prog.o
                                 0x57c (size before relaxing)
- .stab          0x0000855c      0x1ec ./HAL/BUZZER/BUZZER_config.o
+ .stab          0x00008b2c      0x1ec ./HAL/BUZZER/BUZZER_config.o
                                 0x1f8 (size before relaxing)
- .stab          0x00008748      0x3f0 ./HAL/BUZZER/BUZZER_prog.o
+ .stab          0x00008d18      0x3f0 ./HAL/BUZZER/BUZZER_prog.o
                                 0x414 (size before relaxing)
- .stab          0x00008b38       0xf0 ./main.o
+ .stab          0x00009108       0xf0 ./main.o
                                  0xfc (size before relaxing)
 
-.stabstr        0x00000000     0x395f
+.stabstr        0x00000000     0x3c96
  *(.stabstr)
- .stabstr       0x00000000     0x395f ./MCAL/USART/USART_prog.o
+ .stabstr       0x00000000     0x3c96 ./MCAL/USART/USART_prog.o
 
 .stab.excl
  *(.stab.excl)
