@@ -17,6 +17,7 @@ RM := rm -rf
 -include MCAL/EXTI/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include MCAL/ADC/subdir.mk
+-include HAL/Soil\ Moisture\ Sensor/subdir.mk
 -include HAL/SWITCH/subdir.mk
 -include HAL/SEVEN_SEG/subdir.mk
 -include HAL/LED/subdir.mk

@@ -27,6 +27,7 @@ HAL/LDR \
 HAL/LED \
 HAL/SEVEN_SEG \
 HAL/SWITCH \
+HAL/Soil\ Moisture\ Sensor \
 MCAL/ADC \
 MCAL/DIO \
 MCAL/EXTI \
