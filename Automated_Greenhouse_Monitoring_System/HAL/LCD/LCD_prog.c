@@ -336,32 +336,47 @@ static inline ES_t LCD_inlenuSendCommand(u8 Copy_u8Command)
 **/
 ES_t LCD_enuGoToPosition(u8 Copy_u8Line, u8 Copy_u8Position)
 {
-	ES_t Local_enuErrorState = ES_NOK;
-	
-	if(Copy_u8Position >= 0 && Copy_u8Position < 16)
-	{
-		if(Copy_u8Line == LCD_FIRST_LINE)
-		{
-			Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_FIRST_ROW + Copy_u8Position);
-			if(Local_enuErrorState != ES_OK)
-				return Local_enuErrorState;
-				
-			LCD_u8PosCounter = Copy_u8Position;
-		}
-		else if(Copy_u8Line == LCD_SECOND_LINE)
-		{
-			Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_SECOND_ROW + Copy_u8Position);
-			if(Local_enuErrorState != ES_OK)
-				return Local_enuErrorState;
-				
-			LCD_u8PosCounter = Copy_u8Position + 16;
-		}
-	}
-	
-	Local_enuErrorState = ES_OK;
-	return Local_enuErrorState;
-}
+    ES_t Local_enuErrorState = ES_NOK;
 
+    if (Copy_u8Position < 16) // Check if position is within the line range
+    {
+        if (Copy_u8Line == LCD_FIRST_LINE)
+        {
+            Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_FIRST_ROW + Copy_u8Position);
+            if (Local_enuErrorState != ES_OK)
+                return Local_enuErrorState;
+
+            LCD_u8PosCounter = Copy_u8Position;
+        }
+        else if (Copy_u8Line == LCD_SECOND_LINE)
+        {
+            Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_SECOND_ROW + Copy_u8Position);
+            if (Local_enuErrorState != ES_OK)
+                return Local_enuErrorState;
+
+            LCD_u8PosCounter = Copy_u8Position + 16;
+        }
+        else if (Copy_u8Line == LCD_THIRD_LINE)
+        {
+            Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_THIRD_ROW + Copy_u8Position);
+            if (Local_enuErrorState != ES_OK)
+                return Local_enuErrorState;
+
+            LCD_u8PosCounter = Copy_u8Position + 32;
+        }
+        else if (Copy_u8Line == LCD_FOURTH_LINE)
+        {
+            Local_enuErrorState = LCD_inlenuSendCommand(LCD_BEGIN_AT_FOURTH_ROW + Copy_u8Position);
+            if (Local_enuErrorState != ES_OK)
+                return Local_enuErrorState;
+
+            LCD_u8PosCounter = Copy_u8Position + 48;
+        }
+    }
+
+    Local_enuErrorState = ES_OK;
+    return Local_enuErrorState;
+}
 /**
  ******************************************************************************
  * @Fn			: LCD_enuGoToPosition
@@ -372,21 +387,31 @@ ES_t LCD_enuGoToPosition(u8 Copy_u8Line, u8 Copy_u8Position)
 **/
 static void LCD_vidCheckPosition(void)
 {
-	if(LCD_u8PosCounter == 16)
-	{
-		LCD_enuGoToPosition(LCD_SECOND_LINE, 0);
-		LCD_u8PosCounter++;
-	}
-	else if(LCD_u8PosCounter == 32)
-	{
-		LCD_inlenuSendCommand(LCD_Clear_Display);
-		LCD_enuGoToPosition(LCD_FIRST_LINE, 0);
-		LCD_u8PosCounter = 0;
-	}
-	else
-	{
-		LCD_u8PosCounter++;
-	}
+    if (LCD_u8PosCounter == 16)
+    {
+        LCD_enuGoToPosition(LCD_SECOND_LINE, 0);
+        LCD_u8PosCounter++;
+    }
+    else if (LCD_u8PosCounter == 32)
+    {
+        LCD_enuGoToPosition(LCD_THIRD_LINE, 0);
+        LCD_u8PosCounter++;
+    }
+    else if (LCD_u8PosCounter == 48)
+    {
+        LCD_enuGoToPosition(LCD_FOURTH_LINE, 0);
+        LCD_u8PosCounter++;
+    }
+    else if (LCD_u8PosCounter == 64)
+    {
+        LCD_inlenuSendCommand(LCD_Clear_Display);
+        LCD_enuGoToPosition(LCD_FIRST_LINE, 0);
+        LCD_u8PosCounter = 0;
+    }
+    else
+    {
+        LCD_u8PosCounter++;
+    }
 }
 
 /**
