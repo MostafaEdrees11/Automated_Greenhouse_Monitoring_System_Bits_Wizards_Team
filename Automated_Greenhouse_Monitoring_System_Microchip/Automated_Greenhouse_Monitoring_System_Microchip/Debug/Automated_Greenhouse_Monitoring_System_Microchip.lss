@@ -1,0 +1,4510 @@
+
+Automated_Greenhouse_Monitoring_System_Microchip.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000016c0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000002c  00800060  000016c0  00001754  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000002a  0080008c  0080008c  00001780  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001780  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000017b0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000005f8  00000000  00000000  000017ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00005209  00000000  00000000  00001de4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00001f03  00000000  00000000  00006fed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000035c3  00000000  00000000  00008ef0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000d00  00000000  00000000  0000c4b4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00001b84  00000000  00000000  0000d1b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000372a  00000000  00000000  0000ed38  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000004f0  00000000  00000000  00012462  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+       4:	0c 94 f0 07 	jmp	0xfe0	; 0xfe0 <__vector_1>
+       8:	0c 94 1d 08 	jmp	0x103a	; 0x103a <__vector_2>
+       c:	0c 94 4a 08 	jmp	0x1094	; 0x1094 <__vector_3>
+      10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      40:	0c 94 cd 05 	jmp	0xb9a	; 0xb9a <__vector_16>
+      44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+      54:	11 24       	eor	r1, r1
+      56:	1f be       	out	0x3f, r1	; 63
+      58:	cf e5       	ldi	r28, 0x5F	; 95
+      5a:	d8 e0       	ldi	r29, 0x08	; 8
+      5c:	de bf       	out	0x3e, r29	; 62
+      5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+      60:	10 e0       	ldi	r17, 0x00	; 0
+      62:	a0 e6       	ldi	r26, 0x60	; 96
+      64:	b0 e0       	ldi	r27, 0x00	; 0
+      66:	e0 ec       	ldi	r30, 0xC0	; 192
+      68:	f6 e1       	ldi	r31, 0x16	; 22
+      6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+      6c:	05 90       	lpm	r0, Z+
+      6e:	0d 92       	st	X+, r0
+      70:	ac 38       	cpi	r26, 0x8C	; 140
+      72:	b1 07       	cpc	r27, r17
+      74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+      76:	20 e0       	ldi	r18, 0x00	; 0
+      78:	ac e8       	ldi	r26, 0x8C	; 140
+      7a:	b0 e0       	ldi	r27, 0x00	; 0
+      7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+      7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+      80:	a6 3b       	cpi	r26, 0xB6	; 182
+      82:	b2 07       	cpc	r27, r18
+      84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+      86:	0e 94 56 05 	call	0xaac	; 0xaac <main>
+      8a:	0c 94 5e 0b 	jmp	0x16bc	; 0x16bc <_exit>
+
+0000008e <__bad_interrupt>:
+      8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <AGMS_enuInit_AutomaticControl>:
+ES_t AGMS_enuInit_AutomaticControl(void)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	/* initialize sensors */
+	Sensors_enuInit();
+      92:	0e 94 93 01 	call	0x326	; 0x326 <Sensors_enuInit>
+
+	/* initialize communication */
+	Communication_enuInitMaster();
+      96:	0e 94 97 09 	call	0x132e	; 0x132e <Communication_enuInitMaster>
+
+	/* initialize automatic control */
+	AC_enuInitSystem();
+      9a:	0e 94 8f 00 	call	0x11e	; 0x11e <AC_enuInitSystem>
+
+	return Local_enuErrorState;
+}
+      9e:	81 e0       	ldi	r24, 0x01	; 1
+      a0:	08 95       	ret
+
+000000a2 <AGMS_enuRunning_AutomaticControl>:
+
+ES_t AGMS_enuRunning_AutomaticControl(void)
+{
+      a2:	0f 93       	push	r16
+      a4:	1f 93       	push	r17
+      a6:	cf 93       	push	r28
+      a8:	df 93       	push	r29
+      aa:	00 d0       	rcall	.+0      	; 0xac <AGMS_enuRunning_AutomaticControl+0xa>
+      ac:	00 d0       	rcall	.+0      	; 0xae <AGMS_enuRunning_AutomaticControl+0xc>
+      ae:	00 d0       	rcall	.+0      	; 0xb0 <AGMS_enuRunning_AutomaticControl+0xe>
+      b0:	cd b7       	in	r28, 0x3d	; 61
+      b2:	de b7       	in	r29, 0x3e	; 62
+	ES_t Local_enuErrorState = ES_NOK;
+
+	Communication_Frame_t Local_uniCommFrame;
+
+	/* Get Sensor Reading */
+	Sensors_enuGetReadings(&AC_Sensors_Reading);
+      b4:	8c ea       	ldi	r24, 0xAC	; 172
+      b6:	90 e0       	ldi	r25, 0x00	; 0
+      b8:	0e 94 a1 01 	call	0x342	; 0x342 <Sensors_enuGetReadings>
+
+	Local_uniCommFrame.Temp = AC_Sensors_Reading.Temperture;
+      bc:	0c ea       	ldi	r16, 0xAC	; 172
+      be:	10 e0       	ldi	r17, 0x00	; 0
+      c0:	f8 01       	movw	r30, r16
+      c2:	80 81       	ld	r24, Z
+      c4:	89 83       	std	Y+1, r24	; 0x01
+	Local_uniCommFrame.Humi = AC_Sensors_Reading.Humidity;
+      c6:	81 81       	ldd	r24, Z+1	; 0x01
+      c8:	8a 83       	std	Y+2, r24	; 0x02
+	Local_uniCommFrame.Soil = AC_Sensors_Reading.Soil_Moisture;
+      ca:	82 81       	ldd	r24, Z+2	; 0x02
+      cc:	8b 83       	std	Y+3, r24	; 0x03
+	Local_uniCommFrame.LDRI = AC_Sensors_Reading.Light_Intensity;
+      ce:	83 81       	ldd	r24, Z+3	; 0x03
+      d0:	8c 83       	std	Y+4, r24	; 0x04
+	Local_uniCommFrame.State = AC_Sensors_Reading.State;
+      d2:	84 81       	ldd	r24, Z+4	; 0x04
+      d4:	8d 83       	std	Y+5, r24	; 0x05
+
+
+	/* Send Reading to MCU2 */
+	Communication_enuSendFrame(&Local_uniCommFrame);
+      d6:	ce 01       	movw	r24, r28
+      d8:	01 96       	adiw	r24, 0x01	; 1
+      da:	0e 94 9a 09 	call	0x1334	; 0x1334 <Communication_enuSendFrame>
+
+	/* Control depend on Reading */
+	/* Control Heat System */
+	AC_enuControlHeatSystem(AC_Sensors_Reading.Temperture, AC_Sensors_Reading.Humidity);
+      de:	f8 01       	movw	r30, r16
+      e0:	61 81       	ldd	r22, Z+1	; 0x01
+      e2:	80 81       	ld	r24, Z
+      e4:	0e 94 c7 00 	call	0x18e	; 0x18e <AC_enuControlHeatSystem>
+
+	/* Control Irrigation System */
+	AC_enuControlIrrigationSystem(AC_Sensors_Reading.Soil_Moisture);
+      e8:	f8 01       	movw	r30, r16
+      ea:	82 81       	ldd	r24, Z+2	; 0x02
+      ec:	0e 94 11 01 	call	0x222	; 0x222 <AC_enuControlIrrigationSystem>
+
+	/* Control Light System */
+	AC_enuControlLightIntensitySystem(AC_Sensors_Reading.Light_Intensity);
+      f0:	f8 01       	movw	r30, r16
+      f2:	83 81       	ldd	r24, Z+3	; 0x03
+      f4:	0e 94 34 01 	call	0x268	; 0x268 <AC_enuControlLightIntensitySystem>
+
+	/* Control Alert System */
+	AC_enuControlAlertSystem(&AC_Sensors_Reading);
+      f8:	c8 01       	movw	r24, r16
+      fa:	0e 94 55 01 	call	0x2aa	; 0x2aa <AC_enuControlAlertSystem>
+
+	return Local_enuErrorState;
+}
+      fe:	81 e0       	ldi	r24, 0x01	; 1
+     100:	26 96       	adiw	r28, 0x06	; 6
+     102:	0f b6       	in	r0, 0x3f	; 63
+     104:	f8 94       	cli
+     106:	de bf       	out	0x3e, r29	; 62
+     108:	0f be       	out	0x3f, r0	; 63
+     10a:	cd bf       	out	0x3d, r28	; 61
+     10c:	df 91       	pop	r29
+     10e:	cf 91       	pop	r28
+     110:	1f 91       	pop	r17
+     112:	0f 91       	pop	r16
+     114:	08 95       	ret
+
+00000116 <AC_Buzzer_stvidCallBack>:
+	return Local_enuErrorState;
+}
+
+static void AC_Buzzer_stvidCallBack(void *Copy_pvidAppPara)
+{
+	Buzzer_State = SW_BUZZER_PRESSED;
+     116:	81 e0       	ldi	r24, 0x01	; 1
+     118:	80 93 8c 00 	sts	0x008C, r24	; 0x80008c <__data_end>
+     11c:	08 95       	ret
+
+0000011e <AC_enuInitSystem>:
+ES_t AC_enuInitSystem(void)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	/* initialize LED System & Lamp of LDR */
+	LED_enuINIT(&LED_AstrLedConfig);
+     11e:	82 e7       	ldi	r24, 0x72	; 114
+     120:	90 e0       	ldi	r25, 0x00	; 0
+     122:	0e 94 0a 04 	call	0x814	; 0x814 <LED_enuINIT>
+
+	/* initialize DC Motors */
+	DC_MOTOR_enuInit(&DC_MOTOR_AstrDcMotorConfig);
+     126:	83 e6       	ldi	r24, 0x63	; 99
+     128:	90 e0       	ldi	r25, 0x00	; 0
+     12a:	0e 94 57 02 	call	0x4ae	; 0x4ae <DC_MOTOR_enuInit>
+
+	/* initialize Buzzer of System*/
+	BUZZER_enuInit(&BUZZER_AstrBuzzerConfig);
+     12e:	80 e6       	ldi	r24, 0x60	; 96
+     130:	90 e0       	ldi	r25, 0x00	; 0
+     132:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <BUZZER_enuInit>
+	 * OC0  --> PB3
+	 * OC1A --> PD5
+	 * OC1B --> PD4
+	 * OC2  --> PD7
+	 */
+	DIO_enuSetPinDirection(DIO_u8PORTB, DIO_u8PIN3, DIO_u8OUTPUT);
+     136:	41 e0       	ldi	r20, 0x01	; 1
+     138:	63 e0       	ldi	r22, 0x03	; 3
+     13a:	81 e0       	ldi	r24, 0x01	; 1
+     13c:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+	DIO_enuSetPinDirection(DIO_u8PORTD, DIO_u8PIN4, DIO_u8OUTPUT);
+     140:	41 e0       	ldi	r20, 0x01	; 1
+     142:	64 e0       	ldi	r22, 0x04	; 4
+     144:	83 e0       	ldi	r24, 0x03	; 3
+     146:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+	DIO_enuSetPinDirection(DIO_u8PORTD, DIO_u8PIN5, DIO_u8OUTPUT);
+     14a:	41 e0       	ldi	r20, 0x01	; 1
+     14c:	65 e0       	ldi	r22, 0x05	; 5
+     14e:	83 e0       	ldi	r24, 0x03	; 3
+     150:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+	DIO_enuSetPinDirection(DIO_u8PORTD, DIO_u8PIN7, DIO_u8OUTPUT);
+     154:	41 e0       	ldi	r20, 0x01	; 1
+     156:	67 e0       	ldi	r22, 0x07	; 7
+     158:	83 e0       	ldi	r24, 0x03	; 3
+     15a:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+
+	/* initialize Timers
+	 * Timer0 --> Lamp of LDR --> Fast PWM
+	 * Timer1 --> Fan & Heaters --> Fast PWM (Top Not OCR1A or OCR1B)
+	 * Timer2 --> Pumb --> Fast PWM*/
+	TIMER0_enuInit();
+     15e:	0e 94 d1 08 	call	0x11a2	; 0x11a2 <TIMER0_enuInit>
+	TIMER1_enuInit();
+     162:	0e 94 0d 09 	call	0x121a	; 0x121a <TIMER1_enuInit>
+	TIMER2_enuInit();
+     166:	0e 94 5b 09 	call	0x12b6	; 0x12b6 <TIMER2_enuInit>
+
+	/* initialize EXTI1 for Buzzer */
+	EXTI_enuInit(&EXTI_AStrEXTI_Config);
+     16a:	82 e8       	ldi	r24, 0x82	; 130
+     16c:	90 e0       	ldi	r25, 0x00	; 0
+     16e:	0e 94 25 07 	call	0xe4a	; 0xe4a <EXTI_enuInit>
+	EXTI_enuCallBackFunc(AC_Buzzer_stvidCallBack, NULL, EXTI1);
+     172:	41 e0       	ldi	r20, 0x01	; 1
+     174:	60 e0       	ldi	r22, 0x00	; 0
+     176:	70 e0       	ldi	r23, 0x00	; 0
+     178:	8b e8       	ldi	r24, 0x8B	; 139
+     17a:	90 e0       	ldi	r25, 0x00	; 0
+     17c:	0e 94 d9 07 	call	0xfb2	; 0xfb2 <EXTI_enuCallBackFunc>
+	EXTI_enuEnable(EXTI1);
+     180:	81 e0       	ldi	r24, 0x01	; 1
+     182:	0e 94 b5 07 	call	0xf6a	; 0xf6a <EXTI_enuEnable>
+
+	/* enable GIE */
+	GIE_enuGloable_Interrupt_Enable();
+     186:	0e 94 77 08 	call	0x10ee	; 0x10ee <GIE_enuGloable_Interrupt_Enable>
+
+	Local_enuErrorState = ES_OK;
+
+	return Local_enuErrorState;
+}
+     18a:	80 e0       	ldi	r24, 0x00	; 0
+     18c:	08 95       	ret
+
+0000018e <AC_enuControlHeatSystem>:
+
+ES_t AC_enuControlHeatSystem(u8 Copy_u8Temp, u8 Copy_u8Hemu)
+{
+     18e:	0f 93       	push	r16
+     190:	1f 93       	push	r17
+     192:	cf 93       	push	r28
+     194:	df 93       	push	r29
+     196:	c8 2f       	mov	r28, r24
+     198:	d6 2f       	mov	r29, r22
+	ES_t Local_enuErrorState = ES_NOK;
+	u8 Heater_u8Duty = 0, Fan_u8Duty;
+
+	if(Copy_u8Temp < TEMP_MIN && Copy_u8Hemu < HUMI_MIN)
+     19a:	82 31       	cpi	r24, 0x12	; 18
+     19c:	b0 f4       	brcc	.+44     	; 0x1ca <AC_enuControlHeatSystem+0x3c>
+     19e:	68 32       	cpi	r22, 0x28	; 40
+     1a0:	a0 f4       	brcc	.+40     	; 0x1ca <AC_enuControlHeatSystem+0x3c>
+	{
+		//Heater On
+		/*
+		 * map the value of temp between 10-->18 to out duty 50-->100 to turn on the heater
+		 */
+		DC_MOTOR_enuOnCW(HEATER_MOTOR);
+     1a2:	81 e0       	ldi	r24, 0x01	; 1
+     1a4:	0e 94 82 02 	call	0x504	; 0x504 <DC_MOTOR_enuOnCW>
+		Heater_u8Duty = Math_Mapping(50, 100, TEMP_MIN, TEMP_ERROR_MIN, Copy_u8Temp);
+     1a8:	0c 2f       	mov	r16, r28
+     1aa:	10 e0       	ldi	r17, 0x00	; 0
+     1ac:	2a e0       	ldi	r18, 0x0A	; 10
+     1ae:	30 e0       	ldi	r19, 0x00	; 0
+     1b0:	42 e1       	ldi	r20, 0x12	; 18
+     1b2:	50 e0       	ldi	r21, 0x00	; 0
+     1b4:	64 e6       	ldi	r22, 0x64	; 100
+     1b6:	70 e0       	ldi	r23, 0x00	; 0
+     1b8:	82 e3       	ldi	r24, 0x32	; 50
+     1ba:	90 e0       	ldi	r25, 0x00	; 0
+     1bc:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+		DC_MOTOR_SetSpeed(HEATER_MOTOR, Heater_u8Duty);
+     1c0:	68 2f       	mov	r22, r24
+     1c2:	81 e0       	ldi	r24, 0x01	; 1
+     1c4:	0e 94 be 02 	call	0x57c	; 0x57c <DC_MOTOR_SetSpeed>
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	u8 Heater_u8Duty = 0, Fan_u8Duty;
+
+	if(Copy_u8Temp < TEMP_MIN && Copy_u8Hemu < HUMI_MIN)
+	{
+     1c8:	07 c0       	rjmp	.+14     	; 0x1d8 <AC_enuControlHeatSystem+0x4a>
+		 */
+		DC_MOTOR_enuOnCW(HEATER_MOTOR);
+		Heater_u8Duty = Math_Mapping(50, 100, TEMP_MIN, TEMP_ERROR_MIN, Copy_u8Temp);
+		DC_MOTOR_SetSpeed(HEATER_MOTOR, Heater_u8Duty);
+	}
+	else if(Copy_u8Temp > (TEMP_MIN+TEMP_HYS) && Copy_u8Hemu > (HUMI_MIN+HUMI_HYS))
+     1ca:	c5 31       	cpi	r28, 0x15	; 21
+     1cc:	28 f0       	brcs	.+10     	; 0x1d8 <AC_enuControlHeatSystem+0x4a>
+     1ce:	de 32       	cpi	r29, 0x2E	; 46
+     1d0:	18 f0       	brcs	.+6      	; 0x1d8 <AC_enuControlHeatSystem+0x4a>
+	{
+		//Heater Off
+		DC_MOTOR_enuOff(HEATER_MOTOR);
+     1d2:	81 e0       	ldi	r24, 0x01	; 1
+     1d4:	0e 94 a0 02 	call	0x540	; 0x540 <DC_MOTOR_enuOff>
+	else
+	{
+		/* Do Nothing */
+	}
+	
+	if(Copy_u8Temp > TEMP_MAX && Copy_u8Hemu > HUMI_MAX)
+     1d8:	cb 31       	cpi	r28, 0x1B	; 27
+     1da:	b0 f0       	brcs	.+44     	; 0x208 <AC_enuControlHeatSystem+0x7a>
+     1dc:	d7 34       	cpi	r29, 0x47	; 71
+     1de:	a0 f0       	brcs	.+40     	; 0x208 <AC_enuControlHeatSystem+0x7a>
+	{
+		//Fan On
+		/*
+		 * map the value of temp between 26-->40 to out duty 50-->100 to turn on the on
+		 */
+		DC_MOTOR_enuOnCW(FAN_MOTOR);
+     1e0:	80 e0       	ldi	r24, 0x00	; 0
+     1e2:	0e 94 82 02 	call	0x504	; 0x504 <DC_MOTOR_enuOnCW>
+		Fan_u8Duty = Math_Mapping(50, 100, TEMP_MAX, TEMP_ERROR_MAX, Copy_u8Temp);
+     1e6:	0c 2f       	mov	r16, r28
+     1e8:	10 e0       	ldi	r17, 0x00	; 0
+     1ea:	28 e2       	ldi	r18, 0x28	; 40
+     1ec:	30 e0       	ldi	r19, 0x00	; 0
+     1ee:	4a e1       	ldi	r20, 0x1A	; 26
+     1f0:	50 e0       	ldi	r21, 0x00	; 0
+     1f2:	64 e6       	ldi	r22, 0x64	; 100
+     1f4:	70 e0       	ldi	r23, 0x00	; 0
+     1f6:	82 e3       	ldi	r24, 0x32	; 50
+     1f8:	90 e0       	ldi	r25, 0x00	; 0
+     1fa:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+		DC_MOTOR_SetSpeed(FAN_MOTOR, Fan_u8Duty);
+     1fe:	68 2f       	mov	r22, r24
+     200:	80 e0       	ldi	r24, 0x00	; 0
+     202:	0e 94 be 02 	call	0x57c	; 0x57c <DC_MOTOR_SetSpeed>
+	{
+		/* Do Nothing */
+	}
+	
+	if(Copy_u8Temp > TEMP_MAX && Copy_u8Hemu > HUMI_MAX)
+	{
+     206:	07 c0       	rjmp	.+14     	; 0x216 <AC_enuControlHeatSystem+0x88>
+		 */
+		DC_MOTOR_enuOnCW(FAN_MOTOR);
+		Fan_u8Duty = Math_Mapping(50, 100, TEMP_MAX, TEMP_ERROR_MAX, Copy_u8Temp);
+		DC_MOTOR_SetSpeed(FAN_MOTOR, Fan_u8Duty);
+	}
+	else if(Copy_u8Temp < (TEMP_MAX+TEMP_HYS) && Copy_u8Hemu < (HUMI_MAX+HUMI_HYS))
+     208:	cc 31       	cpi	r28, 0x1C	; 28
+     20a:	28 f4       	brcc	.+10     	; 0x216 <AC_enuControlHeatSystem+0x88>
+     20c:	db 34       	cpi	r29, 0x4B	; 75
+     20e:	18 f4       	brcc	.+6      	; 0x216 <AC_enuControlHeatSystem+0x88>
+	{
+		//Fan Off
+		DC_MOTOR_enuOff(FAN_MOTOR);
+     210:	80 e0       	ldi	r24, 0x00	; 0
+     212:	0e 94 a0 02 	call	0x540	; 0x540 <DC_MOTOR_enuOff>
+	{
+		/* Do Nothing */
+	}
+
+	return Local_enuErrorState;
+}
+     216:	81 e0       	ldi	r24, 0x01	; 1
+     218:	df 91       	pop	r29
+     21a:	cf 91       	pop	r28
+     21c:	1f 91       	pop	r17
+     21e:	0f 91       	pop	r16
+     220:	08 95       	ret
+
+00000222 <AC_enuControlIrrigationSystem>:
+
+ES_t AC_enuControlIrrigationSystem(u8 Copy_u8SoilMoisture)
+{
+     222:	0f 93       	push	r16
+     224:	1f 93       	push	r17
+     226:	08 2f       	mov	r16, r24
+	ES_t Local_enuErrorState = ES_NOK;
+	u8 Pump_u8Duty = 0;
+
+	if(Copy_u8SoilMoisture < SOIL_MIN && Copy_u8SoilMoisture > SOIL_ERROR_MIN)
+     228:	85 ef       	ldi	r24, 0xF5	; 245
+     22a:	80 0f       	add	r24, r16
+     22c:	83 31       	cpi	r24, 0x13	; 19
+     22e:	98 f4       	brcc	.+38     	; 0x256 <AC_enuControlIrrigationSystem+0x34>
+	{
+		//Pump On
+		/*
+		 * map the value of soil moisture between 10-->30 to out duty 50-->100 to turn on the pump
+		 */
+		DC_MOTOR_enuOnCW(PUMP_MOTOR);
+     230:	82 e0       	ldi	r24, 0x02	; 2
+     232:	0e 94 82 02 	call	0x504	; 0x504 <DC_MOTOR_enuOnCW>
+		Pump_u8Duty = Math_Mapping(50, 100, SOIL_MIN, SOIL_ERROR_MIN, Copy_u8SoilMoisture);
+     236:	10 e0       	ldi	r17, 0x00	; 0
+     238:	2a e0       	ldi	r18, 0x0A	; 10
+     23a:	30 e0       	ldi	r19, 0x00	; 0
+     23c:	4e e1       	ldi	r20, 0x1E	; 30
+     23e:	50 e0       	ldi	r21, 0x00	; 0
+     240:	64 e6       	ldi	r22, 0x64	; 100
+     242:	70 e0       	ldi	r23, 0x00	; 0
+     244:	82 e3       	ldi	r24, 0x32	; 50
+     246:	90 e0       	ldi	r25, 0x00	; 0
+     248:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+		DC_MOTOR_SetSpeed(PUMP_MOTOR, Pump_u8Duty);
+     24c:	68 2f       	mov	r22, r24
+     24e:	82 e0       	ldi	r24, 0x02	; 2
+     250:	0e 94 be 02 	call	0x57c	; 0x57c <DC_MOTOR_SetSpeed>
+     254:	05 c0       	rjmp	.+10     	; 0x260 <AC_enuControlIrrigationSystem+0x3e>
+	}
+	else if(Copy_u8SoilMoisture > SOIL_MAX)
+     256:	0d 33       	cpi	r16, 0x3D	; 61
+     258:	18 f0       	brcs	.+6      	; 0x260 <AC_enuControlIrrigationSystem+0x3e>
+	{
+		//Pump Off
+		DC_MOTOR_enuOff(PUMP_MOTOR);
+     25a:	82 e0       	ldi	r24, 0x02	; 2
+     25c:	0e 94 a0 02 	call	0x540	; 0x540 <DC_MOTOR_enuOff>
+	{
+		/* Do Nothing */
+	}
+
+	return Local_enuErrorState;
+}
+     260:	81 e0       	ldi	r24, 0x01	; 1
+     262:	1f 91       	pop	r17
+     264:	0f 91       	pop	r16
+     266:	08 95       	ret
+
+00000268 <AC_enuControlLightIntensitySystem>:
+
+ES_t AC_enuControlLightIntensitySystem(u8 Copy_u8LDR)
+{
+     268:	0f 93       	push	r16
+     26a:	1f 93       	push	r17
+	ES_t Local_enuErrorState = ES_NOK;
+	u8 LDRI_u8Duty = 0;
+
+	if(Copy_u8LDR < LDRI_MIN && Copy_u8LDR > LDRI_ERROR_MIN)
+     26c:	9b ee       	ldi	r25, 0xEB	; 235
+     26e:	98 0f       	add	r25, r24
+     270:	98 31       	cpi	r25, 0x18	; 24
+     272:	88 f4       	brcc	.+34     	; 0x296 <AC_enuControlLightIntensitySystem+0x2e>
+	{
+		//Lamp On
+		/*
+		 * map the value of soil moisture between 10-->30 to out duty 50-->100 to turn on the pump
+		 */
+		LDRI_u8Duty = Math_Mapping(50, 100, LDRI_MIN, LDRI_ERROR_MIN, Copy_u8LDR);
+     274:	08 2f       	mov	r16, r24
+     276:	10 e0       	ldi	r17, 0x00	; 0
+     278:	24 e1       	ldi	r18, 0x14	; 20
+     27a:	30 e0       	ldi	r19, 0x00	; 0
+     27c:	4d e2       	ldi	r20, 0x2D	; 45
+     27e:	50 e0       	ldi	r21, 0x00	; 0
+     280:	64 e6       	ldi	r22, 0x64	; 100
+     282:	70 e0       	ldi	r23, 0x00	; 0
+     284:	82 e3       	ldi	r24, 0x32	; 50
+     286:	90 e0       	ldi	r25, 0x00	; 0
+     288:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+		LED_enuSetIntensity(LAMP_LED, LDRI_u8Duty);
+     28c:	68 2f       	mov	r22, r24
+     28e:	81 e0       	ldi	r24, 0x01	; 1
+     290:	0e 94 a0 04 	call	0x940	; 0x940 <LED_enuSetIntensity>
+     294:	06 c0       	rjmp	.+12     	; 0x2a2 <AC_enuControlLightIntensitySystem+0x3a>
+	}
+	else if(Copy_u8LDR > LDRI_MAX)
+     296:	8c 34       	cpi	r24, 0x4C	; 76
+     298:	20 f0       	brcs	.+8      	; 0x2a2 <AC_enuControlLightIntensitySystem+0x3a>
+	{
+		//Pump Off
+		LED_enuSetIntensity(LAMP_LED, 0);
+     29a:	60 e0       	ldi	r22, 0x00	; 0
+     29c:	81 e0       	ldi	r24, 0x01	; 1
+     29e:	0e 94 a0 04 	call	0x940	; 0x940 <LED_enuSetIntensity>
+	{
+		/* Do Nothing */
+	}
+
+	return Local_enuErrorState;
+}
+     2a2:	81 e0       	ldi	r24, 0x01	; 1
+     2a4:	1f 91       	pop	r17
+     2a6:	0f 91       	pop	r16
+     2a8:	08 95       	ret
+
+000002aa <AC_enuControlAlertSystem>:
+
+Buzzer_Forced_stop_t Buzzer_State = SW_BUZZER_NOT_PRESSED;
+
+ES_t AC_enuControlAlertSystem(Data_Reading_t *Copy_PstrSystemReadings)
+{
+     2aa:	cf 93       	push	r28
+     2ac:	df 93       	push	r29
+     2ae:	ec 01       	movw	r28, r24
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_PstrSystemReadings->Temperture < TEMP_ERROR_MIN || Copy_PstrSystemReadings->Temperture > TEMP_ERROR_MAX
+     2b0:	88 81       	ld	r24, Y
+     2b2:	8a 50       	subi	r24, 0x0A	; 10
+     2b4:	8f 31       	cpi	r24, 0x1F	; 31
+     2b6:	78 f4       	brcc	.+30     	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+			|| Copy_PstrSystemReadings->Humidity < HUMI_ERROR_MIN || Copy_PstrSystemReadings->Humidity > HUMI_ERROR_MAX
+     2b8:	89 81       	ldd	r24, Y+1	; 0x01
+     2ba:	84 31       	cpi	r24, 0x14	; 20
+     2bc:	60 f0       	brcs	.+24     	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+     2be:	81 35       	cpi	r24, 0x51	; 81
+     2c0:	50 f4       	brcc	.+20     	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+			|| Copy_PstrSystemReadings->Soil_Moisture < SOIL_ERROR_MIN || Copy_PstrSystemReadings->Soil_Moisture > SOIL_ERROR_MAX
+     2c2:	8a 81       	ldd	r24, Y+2	; 0x02
+     2c4:	8a 30       	cpi	r24, 0x0A	; 10
+     2c6:	38 f0       	brcs	.+14     	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+     2c8:	81 35       	cpi	r24, 0x51	; 81
+     2ca:	28 f4       	brcc	.+10     	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+			|| Copy_PstrSystemReadings->Light_Intensity < LDRI_ERROR_MIN || Copy_PstrSystemReadings->Light_Intensity > LDRI_ERROR_MAX)
+     2cc:	8b 81       	ldd	r24, Y+3	; 0x03
+     2ce:	84 31       	cpi	r24, 0x14	; 20
+     2d0:	10 f0       	brcs	.+4      	; 0x2d6 <AC_enuControlAlertSystem+0x2c>
+     2d2:	8b 35       	cpi	r24, 0x5B	; 91
+     2d4:	a8 f0       	brcs	.+42     	; 0x300 <AC_enuControlAlertSystem+0x56>
+	{
+		if(Buzzer_State == SW_BUZZER_PRESSED)
+     2d6:	80 91 8c 00 	lds	r24, 0x008C	; 0x80008c <__data_end>
+     2da:	81 30       	cpi	r24, 0x01	; 1
+     2dc:	21 f4       	brne	.+8      	; 0x2e6 <AC_enuControlAlertSystem+0x3c>
+		{
+			BUZZER_enuTurnOFF(SYSTEM_BUZZER);
+     2de:	80 e0       	ldi	r24, 0x00	; 0
+     2e0:	0e 94 3c 02 	call	0x478	; 0x478 <BUZZER_enuTurnOFF>
+     2e4:	03 c0       	rjmp	.+6      	; 0x2ec <AC_enuControlAlertSystem+0x42>
+		}
+		else
+		{
+			BUZZER_enuTurnON(SYSTEM_BUZZER);
+     2e6:	80 e0       	ldi	r24, 0x00	; 0
+     2e8:	0e 94 21 02 	call	0x442	; 0x442 <BUZZER_enuTurnON>
+		}
+
+		Copy_PstrSystemReadings->State = AGMS_ERROR;
+     2ec:	1c 82       	std	Y+4, r1	; 0x04
+		LED_enuTurnOFF(&LED_AstrLedConfig[STATE_LED]);
+     2ee:	82 e7       	ldi	r24, 0x72	; 114
+     2f0:	90 e0       	ldi	r25, 0x00	; 0
+     2f2:	0e 94 7f 04 	call	0x8fe	; 0x8fe <LED_enuTurnOFF>
+		LED_enuTurnON(&LED_AstrLedConfig[ERROR_LED]);
+     2f6:	8c e7       	ldi	r24, 0x7C	; 124
+     2f8:	90 e0       	ldi	r25, 0x00	; 0
+     2fa:	0e 94 5e 04 	call	0x8bc	; 0x8bc <LED_enuTurnON>
+     2fe:	0f c0       	rjmp	.+30     	; 0x31e <AC_enuControlAlertSystem+0x74>
+	}
+	else
+	{
+		Copy_PstrSystemReadings->State = AGMS_NORMAL;
+     300:	81 e0       	ldi	r24, 0x01	; 1
+     302:	8c 83       	std	Y+4, r24	; 0x04
+		Buzzer_State = SW_BUZZER_NOT_PRESSED;
+     304:	10 92 8c 00 	sts	0x008C, r1	; 0x80008c <__data_end>
+		BUZZER_enuTurnOFF(SYSTEM_BUZZER);
+     308:	80 e0       	ldi	r24, 0x00	; 0
+     30a:	0e 94 3c 02 	call	0x478	; 0x478 <BUZZER_enuTurnOFF>
+		LED_enuTurnON(&LED_AstrLedConfig[STATE_LED]);
+     30e:	82 e7       	ldi	r24, 0x72	; 114
+     310:	90 e0       	ldi	r25, 0x00	; 0
+     312:	0e 94 5e 04 	call	0x8bc	; 0x8bc <LED_enuTurnON>
+		LED_enuTurnOFF(&LED_AstrLedConfig[ERROR_LED]);
+     316:	8c e7       	ldi	r24, 0x7C	; 124
+     318:	90 e0       	ldi	r25, 0x00	; 0
+     31a:	0e 94 7f 04 	call	0x8fe	; 0x8fe <LED_enuTurnOFF>
+	}
+
+	return Local_enuErrorState;
+}
+     31e:	81 e0       	ldi	r24, 0x01	; 1
+     320:	df 91       	pop	r29
+     322:	cf 91       	pop	r28
+     324:	08 95       	ret
+
+00000326 <Sensors_enuInit>:
+ES_t Sensors_enuInit(void)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	/* Initialize ADC */
+	ADC_enuInit();
+     326:	0e 94 5b 05 	call	0xab6	; 0xab6 <ADC_enuInit>
+
+	/* Initialize LDR --> PORTA PIN0 */
+	LDR_enuInit(&LDR_Config);
+     32a:	8d e8       	ldi	r24, 0x8D	; 141
+     32c:	90 e0       	ldi	r25, 0x00	; 0
+     32e:	0e 94 e5 03 	call	0x7ca	; 0x7ca <LDR_enuInit>
+
+	/* Initialize Soil Moisture --> PORTA PIN1 */
+	Soil_Moisture_enuInit(&Soil_Moisture_AstrSoilMoistureConfig);
+     332:	81 e8       	ldi	r24, 0x81	; 129
+     334:	90 e0       	ldi	r25, 0x00	; 0
+     336:	0e 94 00 05 	call	0xa00	; 0xa00 <Soil_Moisture_enuInit>
+
+	/* Initialize DHT11 --> PORTA PIN2 */
+	DHT11_Init();
+     33a:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <DHT11_Init>
+
+	Local_enuErrorState = ES_OK;
+
+	return Local_enuErrorState;
+}
+     33e:	80 e0       	ldi	r24, 0x00	; 0
+     340:	08 95       	ret
+
+00000342 <Sensors_enuGetReadings>:
+
+ES_t Sensors_enuGetReadings(Data_Reading_t *Copy_PstrSensorsReading)
+{
+     342:	ef 92       	push	r14
+     344:	ff 92       	push	r15
+     346:	0f 93       	push	r16
+     348:	1f 93       	push	r17
+     34a:	cf 93       	push	r28
+     34c:	df 93       	push	r29
+     34e:	00 d0       	rcall	.+0      	; 0x350 <Sensors_enuGetReadings+0xe>
+     350:	00 d0       	rcall	.+0      	; 0x352 <Sensors_enuGetReadings+0x10>
+     352:	cd b7       	in	r28, 0x3d	; 61
+     354:	de b7       	in	r29, 0x3e	; 62
+	ES_t Local_enuErrorState = ES_NOK;
+
+	u16 Local_u16ADCvalue_LDR = 0, Local_u16ADCvalue_Soil;
+     356:	1a 82       	std	Y+2, r1	; 0x02
+     358:	19 82       	std	Y+1, r1	; 0x01
+
+	if(Copy_PstrSensorsReading != NULL)
+     35a:	00 97       	sbiw	r24, 0x00	; 0
+     35c:	81 f1       	breq	.+96     	; 0x3be <Sensors_enuGetReadings+0x7c>
+     35e:	7c 01       	movw	r14, r24
+	{
+		/* Get LDR value */
+		LDR_enuGetValue(&Local_u16ADCvalue_LDR, LDR_1);
+     360:	60 e0       	ldi	r22, 0x00	; 0
+     362:	ce 01       	movw	r24, r28
+     364:	01 96       	adiw	r24, 0x01	; 1
+     366:	0e 94 02 04 	call	0x804	; 0x804 <LDR_enuGetValue>
+		Copy_PstrSensorsReading->Light_Intensity = Math_Mapping(0, 100, 0, 1023, Local_u16ADCvalue_LDR);
+     36a:	09 81       	ldd	r16, Y+1	; 0x01
+     36c:	1a 81       	ldd	r17, Y+2	; 0x02
+     36e:	2f ef       	ldi	r18, 0xFF	; 255
+     370:	33 e0       	ldi	r19, 0x03	; 3
+     372:	40 e0       	ldi	r20, 0x00	; 0
+     374:	50 e0       	ldi	r21, 0x00	; 0
+     376:	64 e6       	ldi	r22, 0x64	; 100
+     378:	70 e0       	ldi	r23, 0x00	; 0
+     37a:	80 e0       	ldi	r24, 0x00	; 0
+     37c:	90 e0       	ldi	r25, 0x00	; 0
+     37e:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+     382:	f7 01       	movw	r30, r14
+     384:	83 83       	std	Z+3, r24	; 0x03
+
+		/* Get Soil Moisture value */
+		Soil_Moisture_enuGetMoisureVal(SOIL_MOISTURE_1, &Local_u16ADCvalue_Soil);
+     386:	be 01       	movw	r22, r28
+     388:	6d 5f       	subi	r22, 0xFD	; 253
+     38a:	7f 4f       	sbci	r23, 0xFF	; 255
+     38c:	80 e0       	ldi	r24, 0x00	; 0
+     38e:	0e 94 23 05 	call	0xa46	; 0xa46 <Soil_Moisture_enuGetMoisureVal>
+		Copy_PstrSensorsReading->Soil_Moisture = Math_Mapping(0, 100, 0, 1023, Local_u16ADCvalue_Soil);
+     392:	0b 81       	ldd	r16, Y+3	; 0x03
+     394:	1c 81       	ldd	r17, Y+4	; 0x04
+     396:	2f ef       	ldi	r18, 0xFF	; 255
+     398:	33 e0       	ldi	r19, 0x03	; 3
+     39a:	40 e0       	ldi	r20, 0x00	; 0
+     39c:	50 e0       	ldi	r21, 0x00	; 0
+     39e:	64 e6       	ldi	r22, 0x64	; 100
+     3a0:	70 e0       	ldi	r23, 0x00	; 0
+     3a2:	80 e0       	ldi	r24, 0x00	; 0
+     3a4:	90 e0       	ldi	r25, 0x00	; 0
+     3a6:	0e 94 37 05 	call	0xa6e	; 0xa6e <Math_Mapping>
+     3aa:	f7 01       	movw	r30, r14
+     3ac:	82 83       	std	Z+2, r24	; 0x02
+
+		/* Get Temp & Humi value */
+		DHT_GetReadings(&Copy_PstrSensorsReading->Temperture, &Copy_PstrSensorsReading->Humidity);
+     3ae:	b7 01       	movw	r22, r14
+     3b0:	6f 5f       	subi	r22, 0xFF	; 255
+     3b2:	7f 4f       	sbci	r23, 0xFF	; 255
+     3b4:	c7 01       	movw	r24, r14
+     3b6:	0e 94 90 03 	call	0x720	; 0x720 <DHT_GetReadings>
+
+		Local_enuErrorState = ES_OK;
+     3ba:	80 e0       	ldi	r24, 0x00	; 0
+     3bc:	01 c0       	rjmp	.+2      	; 0x3c0 <Sensors_enuGetReadings+0x7e>
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     3be:	82 e0       	ldi	r24, 0x02	; 2
+	}
+
+	return Local_enuErrorState;
+}
+     3c0:	0f 90       	pop	r0
+     3c2:	0f 90       	pop	r0
+     3c4:	0f 90       	pop	r0
+     3c6:	0f 90       	pop	r0
+     3c8:	df 91       	pop	r29
+     3ca:	cf 91       	pop	r28
+     3cc:	1f 91       	pop	r17
+     3ce:	0f 91       	pop	r16
+     3d0:	ff 90       	pop	r15
+     3d2:	ef 90       	pop	r14
+     3d4:	08 95       	ret
+
+000003d6 <BUZZER_enuInit>:
+#include "BUZZER_config.h"
+
+extern BUZZER_t BUZZER_AstrBuzzerConfig[BUZZER_NUM];
+
+ES_t BUZZER_enuInit(BUZZER_t *Copy_pAstrBuzzerConfig)
+{
+     3d6:	ef 92       	push	r14
+     3d8:	ff 92       	push	r15
+     3da:	1f 93       	push	r17
+     3dc:	cf 93       	push	r28
+     3de:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pAstrBuzzerConfig != NULL)
+     3e0:	00 97       	sbiw	r24, 0x00	; 0
+     3e2:	21 f5       	brne	.+72     	; 0x42c <__EEPROM_REGION_LENGTH__+0x2c>
+			}
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     3e4:	82 e0       	ldi	r24, 0x02	; 2
+     3e6:	27 c0       	rjmp	.+78     	; 0x436 <__EEPROM_REGION_LENGTH__+0x36>
+	if(Copy_pAstrBuzzerConfig != NULL)
+	{
+		u8 Local_u8Iterator;
+		for(Local_u8Iterator = 0; Local_u8Iterator < BUZZER_NUM; Local_u8Iterator++)
+		{
+			DIO_enuSetPinDirection(Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PortID, Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PinID, DIO_u8OUTPUT);
+     3e8:	c1 2f       	mov	r28, r17
+     3ea:	d0 e0       	ldi	r29, 0x00	; 0
+     3ec:	ce 01       	movw	r24, r28
+     3ee:	88 0f       	add	r24, r24
+     3f0:	99 1f       	adc	r25, r25
+     3f2:	c8 0f       	add	r28, r24
+     3f4:	d9 1f       	adc	r29, r25
+     3f6:	ce 0d       	add	r28, r14
+     3f8:	df 1d       	adc	r29, r15
+     3fa:	41 e0       	ldi	r20, 0x01	; 1
+     3fc:	69 81       	ldd	r22, Y+1	; 0x01
+     3fe:	88 81       	ld	r24, Y
+     400:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+			if(Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8InitState == BUZZER_u8ON)
+     404:	9a 81       	ldd	r25, Y+2	; 0x02
+     406:	9a 30       	cpi	r25, 0x0A	; 10
+     408:	31 f4       	brne	.+12     	; 0x416 <__EEPROM_REGION_LENGTH__+0x16>
+			{
+				Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PortID, Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PinID, DIO_u8HIGH);
+     40a:	69 81       	ldd	r22, Y+1	; 0x01
+     40c:	41 e0       	ldi	r20, 0x01	; 1
+     40e:	88 81       	ld	r24, Y
+     410:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     414:	09 c0       	rjmp	.+18     	; 0x428 <__EEPROM_REGION_LENGTH__+0x28>
+			}
+			else if(Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8InitState == BUZZER_u8OFF)
+     416:	9b 30       	cpi	r25, 0x0B	; 11
+     418:	31 f4       	brne	.+12     	; 0x426 <__EEPROM_REGION_LENGTH__+0x26>
+			{
+				Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PortID, Copy_pAstrBuzzerConfig[Local_u8Iterator].BUZZER_u8PinID, DIO_u8LOW);
+     41a:	69 81       	ldd	r22, Y+1	; 0x01
+     41c:	40 e0       	ldi	r20, 0x00	; 0
+     41e:	88 81       	ld	r24, Y
+     420:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     424:	01 c0       	rjmp	.+2      	; 0x428 <__EEPROM_REGION_LENGTH__+0x28>
+			}
+			else
+			{
+				Local_enuErrorState = ES_OUT_OF_RANGE;
+     426:	83 e0       	ldi	r24, 0x03	; 3
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pAstrBuzzerConfig != NULL)
+	{
+		u8 Local_u8Iterator;
+		for(Local_u8Iterator = 0; Local_u8Iterator < BUZZER_NUM; Local_u8Iterator++)
+     428:	1f 5f       	subi	r17, 0xFF	; 255
+     42a:	03 c0       	rjmp	.+6      	; 0x432 <__EEPROM_REGION_LENGTH__+0x32>
+     42c:	7c 01       	movw	r14, r24
+     42e:	10 e0       	ldi	r17, 0x00	; 0
+     430:	81 e0       	ldi	r24, 0x01	; 1
+     432:	11 23       	and	r17, r17
+     434:	c9 f2       	breq	.-78     	; 0x3e8 <BUZZER_enuInit+0x12>
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
+	return Local_enuErrorState;
+}
+     436:	df 91       	pop	r29
+     438:	cf 91       	pop	r28
+     43a:	1f 91       	pop	r17
+     43c:	ff 90       	pop	r15
+     43e:	ef 90       	pop	r14
+     440:	08 95       	ret
+
+00000442 <BUZZER_enuTurnON>:
+
+ES_t BUZZER_enuTurnON(u8 Copy_u8BuzzerID)
+{
+     442:	cf 93       	push	r28
+     444:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_u8BuzzerID < BUZZER_NUM)
+     446:	81 11       	cpse	r24, r1
+     448:	13 c0       	rjmp	.+38     	; 0x470 <BUZZER_enuTurnON+0x2e>
+	{
+		DIO_enuSetPinDirection(BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PortID, BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PinID, DIO_u8OUTPUT);
+     44a:	90 e0       	ldi	r25, 0x00	; 0
+     44c:	ec 01       	movw	r28, r24
+     44e:	cc 0f       	add	r28, r28
+     450:	dd 1f       	adc	r29, r29
+     452:	c8 0f       	add	r28, r24
+     454:	d9 1f       	adc	r29, r25
+     456:	c0 5a       	subi	r28, 0xA0	; 160
+     458:	df 4f       	sbci	r29, 0xFF	; 255
+     45a:	41 e0       	ldi	r20, 0x01	; 1
+     45c:	69 81       	ldd	r22, Y+1	; 0x01
+     45e:	88 81       	ld	r24, Y
+     460:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+		Local_enuErrorState = DIO_enuSetPinVal(BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PortID, BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PinID, DIO_u8HIGH);
+     464:	69 81       	ldd	r22, Y+1	; 0x01
+     466:	41 e0       	ldi	r20, 0x01	; 1
+     468:	88 81       	ld	r24, Y
+     46a:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     46e:	01 c0       	rjmp	.+2      	; 0x472 <BUZZER_enuTurnON+0x30>
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     470:	83 e0       	ldi	r24, 0x03	; 3
+	}
+
+	return Local_enuErrorState;
+}
+     472:	df 91       	pop	r29
+     474:	cf 91       	pop	r28
+     476:	08 95       	ret
+
+00000478 <BUZZER_enuTurnOFF>:
+
+ES_t BUZZER_enuTurnOFF(u8 Copy_u8BuzzerID)
+{
+     478:	cf 93       	push	r28
+     47a:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_u8BuzzerID < BUZZER_NUM)
+     47c:	81 11       	cpse	r24, r1
+     47e:	13 c0       	rjmp	.+38     	; 0x4a6 <BUZZER_enuTurnOFF+0x2e>
+	{
+		DIO_enuSetPinDirection(BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PortID, BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PinID, DIO_u8OUTPUT);
+     480:	90 e0       	ldi	r25, 0x00	; 0
+     482:	ec 01       	movw	r28, r24
+     484:	cc 0f       	add	r28, r28
+     486:	dd 1f       	adc	r29, r29
+     488:	c8 0f       	add	r28, r24
+     48a:	d9 1f       	adc	r29, r25
+     48c:	c0 5a       	subi	r28, 0xA0	; 160
+     48e:	df 4f       	sbci	r29, 0xFF	; 255
+     490:	41 e0       	ldi	r20, 0x01	; 1
+     492:	69 81       	ldd	r22, Y+1	; 0x01
+     494:	88 81       	ld	r24, Y
+     496:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+		Local_enuErrorState = DIO_enuSetPinVal(BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PortID, BUZZER_AstrBuzzerConfig[Copy_u8BuzzerID].BUZZER_u8PinID, DIO_u8LOW);
+     49a:	69 81       	ldd	r22, Y+1	; 0x01
+     49c:	40 e0       	ldi	r20, 0x00	; 0
+     49e:	88 81       	ld	r24, Y
+     4a0:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     4a4:	01 c0       	rjmp	.+2      	; 0x4a8 <BUZZER_enuTurnOFF+0x30>
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     4a6:	83 e0       	ldi	r24, 0x03	; 3
+	}
+
+	return Local_enuErrorState;
+}
+     4a8:	df 91       	pop	r29
+     4aa:	cf 91       	pop	r28
+     4ac:	08 95       	ret
+
+000004ae <DC_MOTOR_enuInit>:
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+
+	return Local_enuErrorState;
+}
+     4ae:	ef 92       	push	r14
+     4b0:	ff 92       	push	r15
+     4b2:	1f 93       	push	r17
+     4b4:	cf 93       	push	r28
+     4b6:	df 93       	push	r29
+     4b8:	00 97       	sbiw	r24, 0x00	; 0
+     4ba:	c9 f4       	brne	.+50     	; 0x4ee <DC_MOTOR_enuInit+0x40>
+     4bc:	82 e0       	ldi	r24, 0x02	; 2
+     4be:	1c c0       	rjmp	.+56     	; 0x4f8 <DC_MOTOR_enuInit+0x4a>
+     4c0:	c1 2f       	mov	r28, r17
+     4c2:	d0 e0       	ldi	r29, 0x00	; 0
+     4c4:	ce 01       	movw	r24, r28
+     4c6:	88 0f       	add	r24, r24
+     4c8:	99 1f       	adc	r25, r25
+     4ca:	88 0f       	add	r24, r24
+     4cc:	99 1f       	adc	r25, r25
+     4ce:	c8 0f       	add	r28, r24
+     4d0:	d9 1f       	adc	r29, r25
+     4d2:	ce 0d       	add	r28, r14
+     4d4:	df 1d       	adc	r29, r15
+     4d6:	41 e0       	ldi	r20, 0x01	; 1
+     4d8:	69 81       	ldd	r22, Y+1	; 0x01
+     4da:	88 81       	ld	r24, Y
+     4dc:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+     4e0:	41 e0       	ldi	r20, 0x01	; 1
+     4e2:	6b 81       	ldd	r22, Y+3	; 0x03
+     4e4:	8a 81       	ldd	r24, Y+2	; 0x02
+     4e6:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+     4ea:	1f 5f       	subi	r17, 0xFF	; 255
+     4ec:	02 c0       	rjmp	.+4      	; 0x4f2 <DC_MOTOR_enuInit+0x44>
+     4ee:	7c 01       	movw	r14, r24
+     4f0:	10 e0       	ldi	r17, 0x00	; 0
+     4f2:	13 30       	cpi	r17, 0x03	; 3
+     4f4:	28 f3       	brcs	.-54     	; 0x4c0 <DC_MOTOR_enuInit+0x12>
+     4f6:	80 e0       	ldi	r24, 0x00	; 0
+     4f8:	df 91       	pop	r29
+     4fa:	cf 91       	pop	r28
+     4fc:	1f 91       	pop	r17
+     4fe:	ff 90       	pop	r15
+     500:	ef 90       	pop	r14
+     502:	08 95       	ret
+
+00000504 <DC_MOTOR_enuOnCW>:
+     504:	cf 93       	push	r28
+     506:	df 93       	push	r29
+     508:	83 30       	cpi	r24, 0x03	; 3
+     50a:	b0 f4       	brcc	.+44     	; 0x538 <DC_MOTOR_enuOnCW+0x34>
+     50c:	90 e0       	ldi	r25, 0x00	; 0
+     50e:	ec 01       	movw	r28, r24
+     510:	cc 0f       	add	r28, r28
+     512:	dd 1f       	adc	r29, r29
+     514:	cc 0f       	add	r28, r28
+     516:	dd 1f       	adc	r29, r29
+     518:	c8 0f       	add	r28, r24
+     51a:	d9 1f       	adc	r29, r25
+     51c:	cd 59       	subi	r28, 0x9D	; 157
+     51e:	df 4f       	sbci	r29, 0xFF	; 255
+     520:	41 e0       	ldi	r20, 0x01	; 1
+     522:	69 81       	ldd	r22, Y+1	; 0x01
+     524:	88 81       	ld	r24, Y
+     526:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     52a:	40 e0       	ldi	r20, 0x00	; 0
+     52c:	6b 81       	ldd	r22, Y+3	; 0x03
+     52e:	8a 81       	ldd	r24, Y+2	; 0x02
+     530:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     534:	80 e0       	ldi	r24, 0x00	; 0
+     536:	01 c0       	rjmp	.+2      	; 0x53a <DC_MOTOR_enuOnCW+0x36>
+     538:	83 e0       	ldi	r24, 0x03	; 3
+     53a:	df 91       	pop	r29
+     53c:	cf 91       	pop	r28
+     53e:	08 95       	ret
+
+00000540 <DC_MOTOR_enuOff>:
+
+ES_t DC_MOTOR_enuOff(u8 Copy_u8DcMotorID)
+{
+     540:	cf 93       	push	r28
+     542:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_u8DcMotorID < DC_MOTOR_NUM)
+     544:	83 30       	cpi	r24, 0x03	; 3
+     546:	b0 f4       	brcc	.+44     	; 0x574 <DC_MOTOR_enuOff+0x34>
+	{
+		DIO_enuSetPinVal(DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_u8In1PortID,DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_u8In1PinID,DIO_u8LOW);
+     548:	90 e0       	ldi	r25, 0x00	; 0
+     54a:	ec 01       	movw	r28, r24
+     54c:	cc 0f       	add	r28, r28
+     54e:	dd 1f       	adc	r29, r29
+     550:	cc 0f       	add	r28, r28
+     552:	dd 1f       	adc	r29, r29
+     554:	c8 0f       	add	r28, r24
+     556:	d9 1f       	adc	r29, r25
+     558:	cd 59       	subi	r28, 0x9D	; 157
+     55a:	df 4f       	sbci	r29, 0xFF	; 255
+     55c:	40 e0       	ldi	r20, 0x00	; 0
+     55e:	69 81       	ldd	r22, Y+1	; 0x01
+     560:	88 81       	ld	r24, Y
+     562:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+		DIO_enuSetPinVal(DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_u8In2PortID,DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_u8In2PinID,DIO_u8LOW);
+     566:	40 e0       	ldi	r20, 0x00	; 0
+     568:	6b 81       	ldd	r22, Y+3	; 0x03
+     56a:	8a 81       	ldd	r24, Y+2	; 0x02
+     56c:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+		Local_enuErrorState = ES_OK;
+     570:	80 e0       	ldi	r24, 0x00	; 0
+     572:	01 c0       	rjmp	.+2      	; 0x576 <DC_MOTOR_enuOff+0x36>
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     574:	83 e0       	ldi	r24, 0x03	; 3
+	}
+
+	return Local_enuErrorState;
+}
+     576:	df 91       	pop	r29
+     578:	cf 91       	pop	r28
+     57a:	08 95       	ret
+
+0000057c <DC_MOTOR_SetSpeed>:
+/*Speed 0:100*/
+ES_t DC_MOTOR_SetSpeed(u8 Copy_u8DcMotorID, u8 Copy_u8DcMotorSpeed)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_u8DcMotorID < DC_MOTOR_NUM && Copy_u8DcMotorSpeed <= 100)
+     57c:	83 30       	cpi	r24, 0x03	; 3
+     57e:	70 f5       	brcc	.+92     	; 0x5dc <DC_MOTOR_SetSpeed+0x60>
+     580:	65 36       	cpi	r22, 0x65	; 101
+     582:	70 f5       	brcc	.+92     	; 0x5e0 <DC_MOTOR_SetSpeed+0x64>
+	{
+		switch(DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_enuEnPin)
+     584:	28 2f       	mov	r18, r24
+     586:	30 e0       	ldi	r19, 0x00	; 0
+     588:	f9 01       	movw	r30, r18
+     58a:	ee 0f       	add	r30, r30
+     58c:	ff 1f       	adc	r31, r31
+     58e:	ee 0f       	add	r30, r30
+     590:	ff 1f       	adc	r31, r31
+     592:	2e 0f       	add	r18, r30
+     594:	3f 1f       	adc	r19, r31
+     596:	f9 01       	movw	r30, r18
+     598:	ed 59       	subi	r30, 0x9D	; 157
+     59a:	ff 4f       	sbci	r31, 0xFF	; 255
+     59c:	84 81       	ldd	r24, Z+4	; 0x04
+     59e:	82 30       	cpi	r24, 0x02	; 2
+     5a0:	71 f0       	breq	.+28     	; 0x5be <DC_MOTOR_SetSpeed+0x42>
+     5a2:	18 f4       	brcc	.+6      	; 0x5aa <DC_MOTOR_SetSpeed+0x2e>
+     5a4:	81 30       	cpi	r24, 0x01	; 1
+     5a6:	31 f0       	breq	.+12     	; 0x5b4 <DC_MOTOR_SetSpeed+0x38>
+     5a8:	1d c0       	rjmp	.+58     	; 0x5e4 <DC_MOTOR_SetSpeed+0x68>
+     5aa:	83 30       	cpi	r24, 0x03	; 3
+     5ac:	69 f0       	breq	.+26     	; 0x5c8 <DC_MOTOR_SetSpeed+0x4c>
+     5ae:	84 30       	cpi	r24, 0x04	; 4
+     5b0:	81 f0       	breq	.+32     	; 0x5d2 <DC_MOTOR_SetSpeed+0x56>
+     5b2:	18 c0       	rjmp	.+48     	; 0x5e4 <DC_MOTOR_SetSpeed+0x68>
+		case PWM_NONE:
+			Local_enuErrorState = ES_NOK;
+			break;
+
+		case PWM_OC0:
+			TIMER0_enuGeneratePWM(Copy_u8DcMotorSpeed);
+     5b4:	86 2f       	mov	r24, r22
+     5b6:	0e 94 f1 08 	call	0x11e2	; 0x11e2 <TIMER0_enuGeneratePWM>
+			Local_enuErrorState = ES_OK;
+     5ba:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+     5bc:	08 95       	ret
+
+		case PWM_OC1A:
+			TIMER1_enuGeneratePWM_OCR1A(Copy_u8DcMotorSpeed);
+     5be:	86 2f       	mov	r24, r22
+     5c0:	0e 94 39 09 	call	0x1272	; 0x1272 <TIMER1_enuGeneratePWM_OCR1A>
+			Local_enuErrorState = ES_OK;
+     5c4:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+     5c6:	08 95       	ret
+
+		case PWM_OC1B:
+			TIMER1_enuGeneratePWM_OCR1B(Copy_u8DcMotorSpeed);
+     5c8:	86 2f       	mov	r24, r22
+     5ca:	0e 94 4a 09 	call	0x1294	; 0x1294 <TIMER1_enuGeneratePWM_OCR1B>
+			Local_enuErrorState = ES_OK;
+     5ce:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+     5d0:	08 95       	ret
+
+		case PWM_OC2:
+			TIMER2_enuGeneratePWM(Copy_u8DcMotorSpeed);
+     5d2:	86 2f       	mov	r24, r22
+     5d4:	0e 94 7b 09 	call	0x12f6	; 0x12f6 <TIMER2_enuGeneratePWM>
+			Local_enuErrorState = ES_OK;
+     5d8:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+     5da:	08 95       	ret
+			break;
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     5dc:	83 e0       	ldi	r24, 0x03	; 3
+     5de:	08 95       	ret
+     5e0:	83 e0       	ldi	r24, 0x03	; 3
+     5e2:	08 95       	ret
+	if(Copy_u8DcMotorID < DC_MOTOR_NUM && Copy_u8DcMotorSpeed <= 100)
+	{
+		switch(DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_enuEnPin)
+		{
+		case PWM_NONE:
+			Local_enuErrorState = ES_NOK;
+     5e4:	81 e0       	ldi	r24, 0x01	; 1
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+
+	return Local_enuErrorState;
+}
+     5e6:	08 95       	ret
+
+000005e8 <DHT11_CheckResponse>:
+}
+
+
+// Private function to check for response from DHT11
+static u8 DHT11_CheckResponse(void)
+{
+     5e8:	1f 93       	push	r17
+     5ea:	cf 93       	push	r28
+     5ec:	df 93       	push	r29
+     5ee:	1f 92       	push	r1
+     5f0:	cd b7       	in	r28, 0x3d	; 61
+     5f2:	de b7       	in	r29, 0x3e	; 62
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     5f4:	8a e6       	ldi	r24, 0x6A	; 106
+     5f6:	8a 95       	dec	r24
+     5f8:	f1 f7       	brne	.-4      	; 0x5f6 <DHT11_CheckResponse+0xe>
+     5fa:	00 c0       	rjmp	.+0      	; 0x5fc <DHT11_CheckResponse+0x14>
+	u8 Local_Response = 0,Local_PinValue;
+	_delay_us(40);
+
+	DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     5fc:	ae 01       	movw	r20, r28
+     5fe:	4f 5f       	subi	r20, 0xFF	; 255
+     600:	5f 4f       	sbci	r21, 0xFF	; 255
+     602:	66 e0       	ldi	r22, 0x06	; 6
+     604:	83 e0       	ldi	r24, 0x03	; 3
+     606:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+
+	if (Local_PinValue == DIO_u8LOW)
+     60a:	89 81       	ldd	r24, Y+1	; 0x01
+     60c:	81 11       	cpse	r24, r1
+     60e:	1d c0       	rjmp	.+58     	; 0x64a <DHT11_CheckResponse+0x62>
+     610:	85 ed       	ldi	r24, 0xD5	; 213
+     612:	8a 95       	dec	r24
+     614:	f1 f7       	brne	.-4      	; 0x612 <DHT11_CheckResponse+0x2a>
+     616:	00 00       	nop
+	{
+		_delay_us(80);
+		DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     618:	ae 01       	movw	r20, r28
+     61a:	4f 5f       	subi	r20, 0xFF	; 255
+     61c:	5f 4f       	sbci	r21, 0xFF	; 255
+     61e:	66 e0       	ldi	r22, 0x06	; 6
+     620:	83 e0       	ldi	r24, 0x03	; 3
+     622:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+		if (Local_PinValue == DIO_u8HIGH)
+     626:	89 81       	ldd	r24, Y+1	; 0x01
+     628:	81 30       	cpi	r24, 0x01	; 1
+     62a:	11 f0       	breq	.+4      	; 0x630 <DHT11_CheckResponse+0x48>
+
+
+// Private function to check for response from DHT11
+static u8 DHT11_CheckResponse(void)
+{
+	u8 Local_Response = 0,Local_PinValue;
+     62c:	10 e0       	ldi	r17, 0x00	; 0
+     62e:	09 c0       	rjmp	.+18     	; 0x642 <DHT11_CheckResponse+0x5a>
+	{
+		_delay_us(80);
+		DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+		if (Local_PinValue == DIO_u8HIGH)
+		{
+			Local_Response = 1;
+     630:	11 e0       	ldi	r17, 0x01	; 1
+     632:	07 c0       	rjmp	.+14     	; 0x642 <DHT11_CheckResponse+0x5a>
+		}
+		while (Local_PinValue == DIO_u8HIGH)
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     634:	ae 01       	movw	r20, r28
+     636:	4f 5f       	subi	r20, 0xFF	; 255
+     638:	5f 4f       	sbci	r21, 0xFF	; 255
+     63a:	66 e0       	ldi	r22, 0x06	; 6
+     63c:	83 e0       	ldi	r24, 0x03	; 3
+     63e:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+		DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+		if (Local_PinValue == DIO_u8HIGH)
+		{
+			Local_Response = 1;
+		}
+		while (Local_PinValue == DIO_u8HIGH)
+     642:	89 81       	ldd	r24, Y+1	; 0x01
+     644:	81 30       	cpi	r24, 0x01	; 1
+     646:	b1 f3       	breq	.-20     	; 0x634 <DHT11_CheckResponse+0x4c>
+     648:	01 c0       	rjmp	.+2      	; 0x64c <DHT11_CheckResponse+0x64>
+
+
+// Private function to check for response from DHT11
+static u8 DHT11_CheckResponse(void)
+{
+	u8 Local_Response = 0,Local_PinValue;
+     64a:	10 e0       	ldi	r17, 0x00	; 0
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+		}
+	}
+	return Local_Response;
+}
+     64c:	81 2f       	mov	r24, r17
+     64e:	0f 90       	pop	r0
+     650:	df 91       	pop	r29
+     652:	cf 91       	pop	r28
+     654:	1f 91       	pop	r17
+     656:	08 95       	ret
+
+00000658 <DHT11_ReadByte>:
+
+// Private function to read a byte from DHT11
+static u8 DHT11_ReadByte(void)
+{
+     658:	0f 93       	push	r16
+     65a:	1f 93       	push	r17
+     65c:	cf 93       	push	r28
+     65e:	df 93       	push	r29
+     660:	1f 92       	push	r1
+     662:	cd b7       	in	r28, 0x3d	; 61
+     664:	de b7       	in	r29, 0x3e	; 62
+	u8 Local_Data = 0,Local_PinValue;
+	for (u8 i = 0; i < 8; i++)
+     666:	10 e0       	ldi	r17, 0x00	; 0
+}
+
+// Private function to read a byte from DHT11
+static u8 DHT11_ReadByte(void)
+{
+	u8 Local_Data = 0,Local_PinValue;
+     668:	00 e0       	ldi	r16, 0x00	; 0
+	for (u8 i = 0; i < 8; i++)
+     66a:	3d c0       	rjmp	.+122    	; 0x6e6 <DHT11_ReadByte+0x8e>
+	{
+
+		while (Local_PinValue == DIO_u8LOW) // Wait for pin to go high
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     66c:	ae 01       	movw	r20, r28
+     66e:	4f 5f       	subi	r20, 0xFF	; 255
+     670:	5f 4f       	sbci	r21, 0xFF	; 255
+     672:	66 e0       	ldi	r22, 0x06	; 6
+     674:	83 e0       	ldi	r24, 0x03	; 3
+     676:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+{
+	u8 Local_Data = 0,Local_PinValue;
+	for (u8 i = 0; i < 8; i++)
+	{
+
+		while (Local_PinValue == DIO_u8LOW) // Wait for pin to go high
+     67a:	89 81       	ldd	r24, Y+1	; 0x01
+     67c:	88 23       	and	r24, r24
+     67e:	b1 f3       	breq	.-20     	; 0x66c <DHT11_ReadByte+0x14>
+     680:	80 e5       	ldi	r24, 0x50	; 80
+     682:	8a 95       	dec	r24
+     684:	f1 f7       	brne	.-4      	; 0x682 <DHT11_ReadByte+0x2a>
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+		}
+		_delay_us(30); // Wait for 30 us
+
+		DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     686:	ae 01       	movw	r20, r28
+     688:	4f 5f       	subi	r20, 0xFF	; 255
+     68a:	5f 4f       	sbci	r21, 0xFF	; 255
+     68c:	66 e0       	ldi	r22, 0x06	; 6
+     68e:	83 e0       	ldi	r24, 0x03	; 3
+     690:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+		if (Local_PinValue == DIO_u8HIGH)
+     694:	89 81       	ldd	r24, Y+1	; 0x01
+     696:	81 30       	cpi	r24, 0x01	; 1
+     698:	69 f4       	brne	.+26     	; 0x6b4 <DHT11_ReadByte+0x5c>
+		{
+			Local_Data |= (1 << (7 - i));
+     69a:	27 e0       	ldi	r18, 0x07	; 7
+     69c:	30 e0       	ldi	r19, 0x00	; 0
+     69e:	21 1b       	sub	r18, r17
+     6a0:	31 09       	sbc	r19, r1
+     6a2:	81 e0       	ldi	r24, 0x01	; 1
+     6a4:	90 e0       	ldi	r25, 0x00	; 0
+     6a6:	02 c0       	rjmp	.+4      	; 0x6ac <DHT11_ReadByte+0x54>
+     6a8:	88 0f       	add	r24, r24
+     6aa:	99 1f       	adc	r25, r25
+     6ac:	2a 95       	dec	r18
+     6ae:	e2 f7       	brpl	.-8      	; 0x6a8 <DHT11_ReadByte+0x50>
+     6b0:	08 2b       	or	r16, r24
+     6b2:	15 c0       	rjmp	.+42     	; 0x6de <DHT11_ReadByte+0x86>
+		}
+		else
+		{
+			Local_Data &= (~(1 << (7 - i)));
+     6b4:	27 e0       	ldi	r18, 0x07	; 7
+     6b6:	30 e0       	ldi	r19, 0x00	; 0
+     6b8:	21 1b       	sub	r18, r17
+     6ba:	31 09       	sbc	r19, r1
+     6bc:	81 e0       	ldi	r24, 0x01	; 1
+     6be:	90 e0       	ldi	r25, 0x00	; 0
+     6c0:	02 c0       	rjmp	.+4      	; 0x6c6 <DHT11_ReadByte+0x6e>
+     6c2:	88 0f       	add	r24, r24
+     6c4:	99 1f       	adc	r25, r25
+     6c6:	2a 95       	dec	r18
+     6c8:	e2 f7       	brpl	.-8      	; 0x6c2 <DHT11_ReadByte+0x6a>
+     6ca:	80 95       	com	r24
+     6cc:	08 23       	and	r16, r24
+     6ce:	07 c0       	rjmp	.+14     	; 0x6de <DHT11_ReadByte+0x86>
+		}
+		while (Local_PinValue == DIO_u8HIGH) // Wait for pin to go low
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+     6d0:	ae 01       	movw	r20, r28
+     6d2:	4f 5f       	subi	r20, 0xFF	; 255
+     6d4:	5f 4f       	sbci	r21, 0xFF	; 255
+     6d6:	66 e0       	ldi	r22, 0x06	; 6
+     6d8:	83 e0       	ldi	r24, 0x03	; 3
+     6da:	0e 94 de 06 	call	0xdbc	; 0xdbc <DIO_enuGetPinVal>
+		}
+		else
+		{
+			Local_Data &= (~(1 << (7 - i)));
+		}
+		while (Local_PinValue == DIO_u8HIGH) // Wait for pin to go low
+     6de:	89 81       	ldd	r24, Y+1	; 0x01
+     6e0:	81 30       	cpi	r24, 0x01	; 1
+     6e2:	b1 f3       	breq	.-20     	; 0x6d0 <DHT11_ReadByte+0x78>
+
+// Private function to read a byte from DHT11
+static u8 DHT11_ReadByte(void)
+{
+	u8 Local_Data = 0,Local_PinValue;
+	for (u8 i = 0; i < 8; i++)
+     6e4:	1f 5f       	subi	r17, 0xFF	; 255
+     6e6:	18 30       	cpi	r17, 0x08	; 8
+     6e8:	40 f2       	brcs	.-112    	; 0x67a <DHT11_ReadByte+0x22>
+		{
+			DIO_enuGetPinVal(DHT_PORT,DHT_PIN,&Local_PinValue);
+		}
+	}
+	return Local_Data;
+}
+     6ea:	80 2f       	mov	r24, r16
+     6ec:	0f 90       	pop	r0
+     6ee:	df 91       	pop	r29
+     6f0:	cf 91       	pop	r28
+     6f2:	1f 91       	pop	r17
+     6f4:	0f 91       	pop	r16
+     6f6:	08 95       	ret
+
+000006f8 <DHT11_Init>:
+
+
+void DHT11_Init(void)
+{
+	// Set pin direction as output
+	DIO_enuSetPinDirection(DHT_PORT,DHT_PIN,DIO_u8OUTPUT);
+     6f8:	41 e0       	ldi	r20, 0x01	; 1
+     6fa:	66 e0       	ldi	r22, 0x06	; 6
+     6fc:	83 e0       	ldi	r24, 0x03	; 3
+     6fe:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+	// set pin value to 1 as the steady state of the bus
+	DIO_enuSetPinVal(DHT_PORT,DHT_PIN,DIO_u8HIGH);
+     702:	41 e0       	ldi	r20, 0x01	; 1
+     704:	66 e0       	ldi	r22, 0x06	; 6
+     706:	83 e0       	ldi	r24, 0x03	; 3
+     708:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     70c:	2f ef       	ldi	r18, 0xFF	; 255
+     70e:	89 e6       	ldi	r24, 0x69	; 105
+     710:	98 e1       	ldi	r25, 0x18	; 24
+     712:	21 50       	subi	r18, 0x01	; 1
+     714:	80 40       	sbci	r24, 0x00	; 0
+     716:	90 40       	sbci	r25, 0x00	; 0
+     718:	e1 f7       	brne	.-8      	; 0x712 <DHT11_Init+0x1a>
+     71a:	00 c0       	rjmp	.+0      	; 0x71c <DHT11_Init+0x24>
+     71c:	00 00       	nop
+     71e:	08 95       	ret
+
+00000720 <DHT_GetReadings>:
+	// delay 1 second in order to pass the unstable status.
+	_delay_ms(1000);
+}
+
+ES_t DHT_GetReadings(u8*Temp,u8*Humidity)
+{
+     720:	cf 92       	push	r12
+     722:	df 92       	push	r13
+     724:	ef 92       	push	r14
+     726:	ff 92       	push	r15
+     728:	0f 93       	push	r16
+     72a:	1f 93       	push	r17
+     72c:	cf 93       	push	r28
+     72e:	6c 01       	movw	r12, r24
+     730:	7b 01       	movw	r14, r22
+	ES_t Local_Status=ES_OK;
+	// Set pin direction as output
+	DIO_enuSetPinDirection(DHT_PORT,DHT_PIN,DIO_u8OUTPUT);
+     732:	41 e0       	ldi	r20, 0x01	; 1
+     734:	66 e0       	ldi	r22, 0x06	; 6
+     736:	83 e0       	ldi	r24, 0x03	; 3
+     738:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+	// set pin value to 1 as the steady state of the bus
+	//Initiates the communication
+	DIO_enuSetPinVal(DHT_PORT,DHT_PIN,DIO_u8LOW);
+     73c:	40 e0       	ldi	r20, 0x00	; 0
+     73e:	66 e0       	ldi	r22, 0x06	; 6
+     740:	83 e0       	ldi	r24, 0x03	; 3
+     742:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     746:	8f e9       	ldi	r24, 0x9F	; 159
+     748:	9c e8       	ldi	r25, 0x8C	; 140
+     74a:	01 97       	sbiw	r24, 0x01	; 1
+     74c:	f1 f7       	brne	.-4      	; 0x74a <DHT_GetReadings+0x2a>
+     74e:	00 c0       	rjmp	.+0      	; 0x750 <DHT_GetReadings+0x30>
+     750:	00 00       	nop
+	// Waits for at least 18ms to let DHT11 detects the signal
+	_delay_ms(18);
+	// set pin value to 1
+	DIO_enuSetPinVal(DHT_PORT,DHT_PIN,DIO_u8HIGH);
+     752:	41 e0       	ldi	r20, 0x01	; 1
+     754:	66 e0       	ldi	r22, 0x06	; 6
+     756:	83 e0       	ldi	r24, 0x03	; 3
+     758:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+
+	// Set pin direction as input
+	DIO_enuSetPinDirection(DHT_PORT,DHT_PIN,DIO_u8INPUT);
+     75c:	40 e0       	ldi	r20, 0x00	; 0
+     75e:	66 e0       	ldi	r22, 0x06	; 6
+     760:	83 e0       	ldi	r24, 0x03	; 3
+     762:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+
+	// Check the response from DHT11
+	if (DHT11_CheckResponse() == 0)
+     766:	0e 94 f4 02 	call	0x5e8	; 0x5e8 <DHT11_CheckResponse>
+     76a:	88 23       	and	r24, r24
+     76c:	d9 f0       	breq	.+54     	; 0x7a4 <DHT_GetReadings+0x84>
+     76e:	c0 e0       	ldi	r28, 0x00	; 0
+     770:	09 c0       	rjmp	.+18     	; 0x784 <DHT_GetReadings+0x64>
+	else
+	{
+		// Read 5 bytes of data
+		for (u8 i = 0; i < 5; i++)
+		{
+			 DHT_Reading.arr[i] = DHT11_ReadByte();
+     772:	0c 2f       	mov	r16, r28
+     774:	10 e0       	ldi	r17, 0x00	; 0
+     776:	0e 94 2c 03 	call	0x658	; 0x658 <DHT11_ReadByte>
+     77a:	f8 01       	movw	r30, r16
+     77c:	ef 54       	subi	r30, 0x4F	; 79
+     77e:	ff 4f       	sbci	r31, 0xFF	; 255
+     780:	80 83       	st	Z, r24
+		Local_Status=ES_NOK;      // No response
+	}
+	else
+	{
+		// Read 5 bytes of data
+		for (u8 i = 0; i < 5; i++)
+     782:	cf 5f       	subi	r28, 0xFF	; 255
+     784:	c5 30       	cpi	r28, 0x05	; 5
+     786:	a8 f3       	brcs	.-22     	; 0x772 <DHT_GetReadings+0x52>
+		{
+			 DHT_Reading.arr[i] = DHT11_ReadByte();
+		}
+	    // Verify checksum
+		if (DHT_Reading.arr[4] != (u8)((DHT_Reading.arr[0] + DHT_Reading.arr[1] + DHT_Reading.arr[2] + DHT_Reading.arr[3])) )
+     788:	e1 eb       	ldi	r30, 0xB1	; 177
+     78a:	f0 e0       	ldi	r31, 0x00	; 0
+     78c:	34 81       	ldd	r19, Z+4	; 0x04
+     78e:	40 81       	ld	r20, Z
+     790:	81 81       	ldd	r24, Z+1	; 0x01
+     792:	22 81       	ldd	r18, Z+2	; 0x02
+     794:	93 81       	ldd	r25, Z+3	; 0x03
+     796:	84 0f       	add	r24, r20
+     798:	82 0f       	add	r24, r18
+     79a:	89 0f       	add	r24, r25
+     79c:	38 13       	cpse	r19, r24
+     79e:	04 c0       	rjmp	.+8      	; 0x7a8 <DHT_GetReadings+0x88>
+	_delay_ms(1000);
+}
+
+ES_t DHT_GetReadings(u8*Temp,u8*Humidity)
+{
+	ES_t Local_Status=ES_OK;
+     7a0:	80 e0       	ldi	r24, 0x00	; 0
+     7a2:	03 c0       	rjmp	.+6      	; 0x7aa <DHT_GetReadings+0x8a>
+	DIO_enuSetPinDirection(DHT_PORT,DHT_PIN,DIO_u8INPUT);
+
+	// Check the response from DHT11
+	if (DHT11_CheckResponse() == 0)
+	{
+		Local_Status=ES_NOK;      // No response
+     7a4:	81 e0       	ldi	r24, 0x01	; 1
+     7a6:	01 c0       	rjmp	.+2      	; 0x7aa <DHT_GetReadings+0x8a>
+			 DHT_Reading.arr[i] = DHT11_ReadByte();
+		}
+	    // Verify checksum
+		if (DHT_Reading.arr[4] != (u8)((DHT_Reading.arr[0] + DHT_Reading.arr[1] + DHT_Reading.arr[2] + DHT_Reading.arr[3])) )
+		{
+			 Local_Status=ES_NOK; // Checksum error
+     7a8:	81 e0       	ldi	r24, 0x01	; 1
+		}
+	}
+
+	*Temp = DHT_Reading.TempInt;
+     7aa:	e1 eb       	ldi	r30, 0xB1	; 177
+     7ac:	f0 e0       	ldi	r31, 0x00	; 0
+     7ae:	92 81       	ldd	r25, Z+2	; 0x02
+     7b0:	d6 01       	movw	r26, r12
+     7b2:	9c 93       	st	X, r25
+	*Humidity = DHT_Reading.humidityInt;
+     7b4:	90 81       	ld	r25, Z
+     7b6:	f7 01       	movw	r30, r14
+     7b8:	90 83       	st	Z, r25
+
+	return Local_Status;
+
+}
+     7ba:	cf 91       	pop	r28
+     7bc:	1f 91       	pop	r17
+     7be:	0f 91       	pop	r16
+     7c0:	ff 90       	pop	r15
+     7c2:	ef 90       	pop	r14
+     7c4:	df 90       	pop	r13
+     7c6:	cf 90       	pop	r12
+     7c8:	08 95       	ret
+
+000007ca <LDR_enuInit>:
+/** Return Type     : ES_t enum.                                            **/
+/** Arguments       : LDR_t* Copy_PstrLDRconfig.                            **/
+/** Brief           : Initializing LDR configuration (Config of pin)        **/
+/*****************************************************************************/
+/*****************************************************************************/
+ES_t LDR_enuInit(LDR_t* Copy_PstrLDRconfig) {
+     7ca:	0f 93       	push	r16
+     7cc:	1f 93       	push	r17
+     7ce:	cf 93       	push	r28
+     7d0:	8c 01       	movw	r16, r24
+    ES_t Local_enuErrorState = ES_NOK;
+
+    // Iterate through each LDR configuration
+    for (u8 Local_u8Iterator = 0; Local_u8Iterator < LDRNUM; Local_u8Iterator++) {
+     7d2:	c0 e0       	ldi	r28, 0x00	; 0
+/** Arguments       : LDR_t* Copy_PstrLDRconfig.                            **/
+/** Brief           : Initializing LDR configuration (Config of pin)        **/
+/*****************************************************************************/
+/*****************************************************************************/
+ES_t LDR_enuInit(LDR_t* Copy_PstrLDRconfig) {
+    ES_t Local_enuErrorState = ES_NOK;
+     7d4:	81 e0       	ldi	r24, 0x01	; 1
+
+    // Iterate through each LDR configuration
+    for (u8 Local_u8Iterator = 0; Local_u8Iterator < LDRNUM; Local_u8Iterator++) {
+     7d6:	10 c0       	rjmp	.+32     	; 0x7f8 <LDR_enuInit+0x2e>
+        if (Copy_PstrLDRconfig[Local_u8Iterator].LDR_Channel != NOTCONNECTED) {
+     7d8:	ec 2f       	mov	r30, r28
+     7da:	f0 e0       	ldi	r31, 0x00	; 0
+     7dc:	ee 0f       	add	r30, r30
+     7de:	ff 1f       	adc	r31, r31
+     7e0:	e0 0f       	add	r30, r16
+     7e2:	f1 1f       	adc	r31, r17
+     7e4:	60 81       	ld	r22, Z
+     7e6:	71 81       	ldd	r23, Z+1	; 0x01
+     7e8:	6f 3f       	cpi	r22, 0xFF	; 255
+     7ea:	71 05       	cpc	r23, r1
+     7ec:	21 f0       	breq	.+8      	; 0x7f6 <LDR_enuInit+0x2c>
+            // Set pin direction
+            Local_enuErrorState=DIO_enuSetPinDirection(DIO_u8PORTA, Copy_PstrLDRconfig[Local_u8Iterator].LDR_Channel, DIO_u8INPUT);
+     7ee:	40 e0       	ldi	r20, 0x00	; 0
+     7f0:	80 e0       	ldi	r24, 0x00	; 0
+     7f2:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+/*****************************************************************************/
+ES_t LDR_enuInit(LDR_t* Copy_PstrLDRconfig) {
+    ES_t Local_enuErrorState = ES_NOK;
+
+    // Iterate through each LDR configuration
+    for (u8 Local_u8Iterator = 0; Local_u8Iterator < LDRNUM; Local_u8Iterator++) {
+     7f6:	cf 5f       	subi	r28, 0xFF	; 255
+     7f8:	cc 23       	and	r28, r28
+     7fa:	71 f3       	breq	.-36     	; 0x7d8 <LDR_enuInit+0xe>
+        }
+    }
+
+
+    return Local_enuErrorState;
+}
+     7fc:	cf 91       	pop	r28
+     7fe:	1f 91       	pop	r17
+     800:	0f 91       	pop	r16
+     802:	08 95       	ret
+
+00000804 <LDR_enuGetValue>:
+/*****************************************************************************/
+ES_t LDR_enuGetValue(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pu16ReadValue != NULL)
+     804:	00 97       	sbiw	r24, 0x00	; 0
+     806:	21 f0       	breq	.+8      	; 0x810 <LDR_enuGetValue+0xc>
+	{
+		ADC_Read_From_Ch(Copy_pu16ReadValue,Copy_u8ChannelID);
+     808:	0e 94 b1 05 	call	0xb62	; 0xb62 <ADC_Read_From_Ch>
+
+		Local_enuErrorState = ES_OK;
+     80c:	80 e0       	ldi	r24, 0x00	; 0
+     80e:	08 95       	ret
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     810:	82 e0       	ldi	r24, 0x02	; 2
+	}
+
+
+	return Local_enuErrorState;
+}
+     812:	08 95       	ret
+
+00000814 <LED_enuINIT>:
+#include "LED_int.h"
+#include "LED_config.h"
+#include "LED_priv.h"
+
+ES_t LED_enuINIT(LED_t *Copy_pAstrLedConfig)
+{
+     814:	ef 92       	push	r14
+     816:	ff 92       	push	r15
+     818:	1f 93       	push	r17
+     81a:	cf 93       	push	r28
+     81c:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pAstrLedConfig != NULL)
+     81e:	00 97       	sbiw	r24, 0x00	; 0
+     820:	09 f0       	breq	.+2      	; 0x824 <LED_enuINIT+0x10>
+     822:	40 c0       	rjmp	.+128    	; 0x8a4 <__stack+0x45>
+			}
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     824:	82 e0       	ldi	r24, 0x02	; 2
+     826:	44 c0       	rjmp	.+136    	; 0x8b0 <__stack+0x51>
+	if(Copy_pAstrLedConfig != NULL)
+	{
+		u8 Local_u8Iterator;
+		for(Local_u8Iterator = 0; Local_u8Iterator < LED_NUM; Local_u8Iterator++)
+		{
+			DIO_enuSetPinDirection(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8OUTPUT);
+     828:	c1 2f       	mov	r28, r17
+     82a:	d0 e0       	ldi	r29, 0x00	; 0
+     82c:	ce 01       	movw	r24, r28
+     82e:	88 0f       	add	r24, r24
+     830:	99 1f       	adc	r25, r25
+     832:	88 0f       	add	r24, r24
+     834:	99 1f       	adc	r25, r25
+     836:	c8 0f       	add	r28, r24
+     838:	d9 1f       	adc	r29, r25
+     83a:	ce 0d       	add	r28, r14
+     83c:	df 1d       	adc	r29, r15
+     83e:	41 e0       	ldi	r20, 0x01	; 1
+     840:	69 81       	ldd	r22, Y+1	; 0x01
+     842:	88 81       	ld	r24, Y
+     844:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+			if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8Connection == LED_u8SINK)
+     848:	9a 81       	ldd	r25, Y+2	; 0x02
+     84a:	9c 30       	cpi	r25, 0x0C	; 12
+     84c:	89 f4       	brne	.+34     	; 0x870 <__stack+0x11>
+			{
+				if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8InitState == LED_u8ON)
+     84e:	8b 81       	ldd	r24, Y+3	; 0x03
+     850:	8a 30       	cpi	r24, 0x0A	; 10
+     852:	31 f4       	brne	.+12     	; 0x860 <__stack+0x1>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8LOW);
+     854:	69 81       	ldd	r22, Y+1	; 0x01
+     856:	40 e0       	ldi	r20, 0x00	; 0
+     858:	88 81       	ld	r24, Y
+     85a:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     85e:	20 c0       	rjmp	.+64     	; 0x8a0 <__stack+0x41>
+				}
+				else if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8InitState == LED_u8OFF)
+     860:	8b 30       	cpi	r24, 0x0B	; 11
+     862:	c9 f4       	brne	.+50     	; 0x896 <__stack+0x37>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8HIGH);
+     864:	69 81       	ldd	r22, Y+1	; 0x01
+     866:	41 e0       	ldi	r20, 0x01	; 1
+     868:	88 81       	ld	r24, Y
+     86a:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     86e:	18 c0       	rjmp	.+48     	; 0x8a0 <__stack+0x41>
+				else
+				{
+					Local_enuErrorState = ES_OUT_OF_RANGE;
+				}
+			}
+			else if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8Connection == LED_u8SOURCE)
+     870:	9d 30       	cpi	r25, 0x0D	; 13
+     872:	99 f4       	brne	.+38     	; 0x89a <__stack+0x3b>
+			{
+				if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8InitState == LED_u8ON)
+     874:	8b 81       	ldd	r24, Y+3	; 0x03
+     876:	8a 30       	cpi	r24, 0x0A	; 10
+     878:	31 f4       	brne	.+12     	; 0x886 <__stack+0x27>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8HIGH);
+     87a:	69 81       	ldd	r22, Y+1	; 0x01
+     87c:	41 e0       	ldi	r20, 0x01	; 1
+     87e:	88 81       	ld	r24, Y
+     880:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     884:	0d c0       	rjmp	.+26     	; 0x8a0 <__stack+0x41>
+				}
+				else if(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8InitState == LED_u8OFF)
+     886:	8b 30       	cpi	r24, 0x0B	; 11
+     888:	51 f4       	brne	.+20     	; 0x89e <__stack+0x3f>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8LOW);
+     88a:	69 81       	ldd	r22, Y+1	; 0x01
+     88c:	40 e0       	ldi	r20, 0x00	; 0
+     88e:	88 81       	ld	r24, Y
+     890:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     894:	05 c0       	rjmp	.+10     	; 0x8a0 <__stack+0x41>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8HIGH);
+				}
+				else
+				{
+					Local_enuErrorState = ES_OUT_OF_RANGE;
+     896:	83 e0       	ldi	r24, 0x03	; 3
+     898:	03 c0       	rjmp	.+6      	; 0x8a0 <__stack+0x41>
+					Local_enuErrorState = ES_OUT_OF_RANGE;
+				}
+			}
+			else
+			{
+				Local_enuErrorState = ES_OUT_OF_RANGE;
+     89a:	83 e0       	ldi	r24, 0x03	; 3
+     89c:	01 c0       	rjmp	.+2      	; 0x8a0 <__stack+0x41>
+				{
+					Local_enuErrorState = DIO_enuSetPinVal(Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PortID, Copy_pAstrLedConfig[Local_u8Iterator].LED_u8PinID, DIO_u8LOW);
+				}
+				else
+				{
+					Local_enuErrorState = ES_OUT_OF_RANGE;
+     89e:	83 e0       	ldi	r24, 0x03	; 3
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pAstrLedConfig != NULL)
+	{
+		u8 Local_u8Iterator;
+		for(Local_u8Iterator = 0; Local_u8Iterator < LED_NUM; Local_u8Iterator++)
+     8a0:	1f 5f       	subi	r17, 0xFF	; 255
+     8a2:	03 c0       	rjmp	.+6      	; 0x8aa <__stack+0x4b>
+     8a4:	7c 01       	movw	r14, r24
+     8a6:	10 e0       	ldi	r17, 0x00	; 0
+     8a8:	81 e0       	ldi	r24, 0x01	; 1
+     8aa:	13 30       	cpi	r17, 0x03	; 3
+     8ac:	08 f4       	brcc	.+2      	; 0x8b0 <__stack+0x51>
+     8ae:	bc cf       	rjmp	.-136    	; 0x828 <LED_enuINIT+0x14>
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
+	return Local_enuErrorState;
+}
+     8b0:	df 91       	pop	r29
+     8b2:	cf 91       	pop	r28
+     8b4:	1f 91       	pop	r17
+     8b6:	ff 90       	pop	r15
+     8b8:	ef 90       	pop	r14
+     8ba:	08 95       	ret
+
+000008bc <LED_enuTurnON>:
+
+ES_t LED_enuTurnON(LED_t *Copy_pstrLedID)
+{
+     8bc:	cf 93       	push	r28
+     8be:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pstrLedID != NULL)
+     8c0:	00 97       	sbiw	r24, 0x00	; 0
+     8c2:	b9 f0       	breq	.+46     	; 0x8f2 <LED_enuTurnON+0x36>
+     8c4:	ec 01       	movw	r28, r24
+	{
+		DIO_enuSetPinDirection(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8OUTPUT);
+     8c6:	41 e0       	ldi	r20, 0x01	; 1
+     8c8:	69 81       	ldd	r22, Y+1	; 0x01
+     8ca:	88 81       	ld	r24, Y
+     8cc:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+		if(Copy_pstrLedID->LED_u8Connection == LED_u8SINK)
+     8d0:	8a 81       	ldd	r24, Y+2	; 0x02
+     8d2:	8c 30       	cpi	r24, 0x0C	; 12
+     8d4:	31 f4       	brne	.+12     	; 0x8e2 <LED_enuTurnON+0x26>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8LOW);
+     8d6:	69 81       	ldd	r22, Y+1	; 0x01
+     8d8:	40 e0       	ldi	r20, 0x00	; 0
+     8da:	88 81       	ld	r24, Y
+     8dc:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     8e0:	0b c0       	rjmp	.+22     	; 0x8f8 <LED_enuTurnON+0x3c>
+		}
+		else if(Copy_pstrLedID->LED_u8Connection == LED_u8SOURCE)
+     8e2:	8d 30       	cpi	r24, 0x0D	; 13
+     8e4:	41 f4       	brne	.+16     	; 0x8f6 <LED_enuTurnON+0x3a>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8HIGH);
+     8e6:	69 81       	ldd	r22, Y+1	; 0x01
+     8e8:	41 e0       	ldi	r20, 0x01	; 1
+     8ea:	88 81       	ld	r24, Y
+     8ec:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     8f0:	03 c0       	rjmp	.+6      	; 0x8f8 <LED_enuTurnON+0x3c>
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     8f2:	82 e0       	ldi	r24, 0x02	; 2
+     8f4:	01 c0       	rjmp	.+2      	; 0x8f8 <LED_enuTurnON+0x3c>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8HIGH);
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+     8f6:	83 e0       	ldi	r24, 0x03	; 3
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
+	return Local_enuErrorState;
+}
+     8f8:	df 91       	pop	r29
+     8fa:	cf 91       	pop	r28
+     8fc:	08 95       	ret
+
+000008fe <LED_enuTurnOFF>:
+
+ES_t LED_enuTurnOFF(LED_t *Copy_pstrLedID)
+{
+     8fe:	cf 93       	push	r28
+     900:	df 93       	push	r29
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pstrLedID != NULL)
+     902:	00 97       	sbiw	r24, 0x00	; 0
+     904:	b9 f0       	breq	.+46     	; 0x934 <LED_enuTurnOFF+0x36>
+     906:	ec 01       	movw	r28, r24
+	{
+		DIO_enuSetPinDirection(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8OUTPUT);
+     908:	41 e0       	ldi	r20, 0x01	; 1
+     90a:	69 81       	ldd	r22, Y+1	; 0x01
+     90c:	88 81       	ld	r24, Y
+     90e:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+		if(Copy_pstrLedID->LED_u8Connection == LED_u8SINK)
+     912:	8a 81       	ldd	r24, Y+2	; 0x02
+     914:	8c 30       	cpi	r24, 0x0C	; 12
+     916:	31 f4       	brne	.+12     	; 0x924 <LED_enuTurnOFF+0x26>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8HIGH);
+     918:	69 81       	ldd	r22, Y+1	; 0x01
+     91a:	41 e0       	ldi	r20, 0x01	; 1
+     91c:	88 81       	ld	r24, Y
+     91e:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     922:	0b c0       	rjmp	.+22     	; 0x93a <LED_enuTurnOFF+0x3c>
+		}
+		else if(Copy_pstrLedID->LED_u8Connection == LED_u8SOURCE)
+     924:	8d 30       	cpi	r24, 0x0D	; 13
+     926:	41 f4       	brne	.+16     	; 0x938 <LED_enuTurnOFF+0x3a>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8LOW);
+     928:	69 81       	ldd	r22, Y+1	; 0x01
+     92a:	40 e0       	ldi	r20, 0x00	; 0
+     92c:	88 81       	ld	r24, Y
+     92e:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+     932:	03 c0       	rjmp	.+6      	; 0x93a <LED_enuTurnOFF+0x3c>
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     934:	82 e0       	ldi	r24, 0x02	; 2
+     936:	01 c0       	rjmp	.+2      	; 0x93a <LED_enuTurnOFF+0x3c>
+		{
+			Local_enuErrorState = DIO_enuSetPinVal(Copy_pstrLedID->LED_u8PortID, Copy_pstrLedID->LED_u8PinID, DIO_u8LOW);
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+     938:	83 e0       	ldi	r24, 0x03	; 3
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
+	return Local_enuErrorState;
+}
+     93a:	df 91       	pop	r29
+     93c:	cf 91       	pop	r28
+     93e:	08 95       	ret
+
+00000940 <LED_enuSetIntensity>:
+
+ES_t LED_enuSetIntensity(u8 Copy_u8LedID, u8 Copy_u8LightIntensity)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_u8LedID < LED_NUM && Copy_u8LightIntensity <= 100)
+     940:	83 30       	cpi	r24, 0x03	; 3
+     942:	08 f0       	brcs	.+2      	; 0x946 <LED_enuSetIntensity+0x6>
+     944:	57 c0       	rjmp	.+174    	; 0x9f4 <LED_enuSetIntensity+0xb4>
+     946:	65 36       	cpi	r22, 0x65	; 101
+     948:	08 f0       	brcs	.+2      	; 0x94c <LED_enuSetIntensity+0xc>
+     94a:	56 c0       	rjmp	.+172    	; 0x9f8 <LED_enuSetIntensity+0xb8>
+	{
+		if(Copy_u8LightIntensity == 0)
+     94c:	61 11       	cpse	r22, r1
+     94e:	13 c0       	rjmp	.+38     	; 0x976 <LED_enuSetIntensity+0x36>
+			DIO_enuSetPinVal(LED_AstrLedConfig[Copy_u8LedID].LED_u8PortID, LED_AstrLedConfig[Copy_u8LedID].LED_u8PinID, DIO_u8LOW);
+     950:	28 2f       	mov	r18, r24
+     952:	30 e0       	ldi	r19, 0x00	; 0
+     954:	f9 01       	movw	r30, r18
+     956:	ee 0f       	add	r30, r30
+     958:	ff 1f       	adc	r31, r31
+     95a:	ee 0f       	add	r30, r30
+     95c:	ff 1f       	adc	r31, r31
+     95e:	2e 0f       	add	r18, r30
+     960:	3f 1f       	adc	r19, r31
+     962:	f9 01       	movw	r30, r18
+     964:	ee 58       	subi	r30, 0x8E	; 142
+     966:	ff 4f       	sbci	r31, 0xFF	; 255
+     968:	40 e0       	ldi	r20, 0x00	; 0
+     96a:	61 81       	ldd	r22, Z+1	; 0x01
+     96c:	80 81       	ld	r24, Z
+     96e:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+	return Local_enuErrorState;
+}
+
+ES_t LED_enuSetIntensity(u8 Copy_u8LedID, u8 Copy_u8LightIntensity)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+     972:	81 e0       	ldi	r24, 0x01	; 1
+     974:	08 95       	ret
+
+	if(Copy_u8LedID < LED_NUM && Copy_u8LightIntensity <= 100)
+	{
+		if(Copy_u8LightIntensity == 0)
+			DIO_enuSetPinVal(LED_AstrLedConfig[Copy_u8LedID].LED_u8PortID, LED_AstrLedConfig[Copy_u8LedID].LED_u8PinID, DIO_u8LOW);
+		else if(Copy_u8LightIntensity == 100)
+     976:	64 36       	cpi	r22, 0x64	; 100
+     978:	89 f4       	brne	.+34     	; 0x99c <LED_enuSetIntensity+0x5c>
+			DIO_enuSetPinVal(LED_AstrLedConfig[Copy_u8LedID].LED_u8PortID, LED_AstrLedConfig[Copy_u8LedID].LED_u8PinID, DIO_u8HIGH);
+     97a:	90 e0       	ldi	r25, 0x00	; 0
+     97c:	fc 01       	movw	r30, r24
+     97e:	ee 0f       	add	r30, r30
+     980:	ff 1f       	adc	r31, r31
+     982:	ee 0f       	add	r30, r30
+     984:	ff 1f       	adc	r31, r31
+     986:	e8 0f       	add	r30, r24
+     988:	f9 1f       	adc	r31, r25
+     98a:	ee 58       	subi	r30, 0x8E	; 142
+     98c:	ff 4f       	sbci	r31, 0xFF	; 255
+     98e:	41 e0       	ldi	r20, 0x01	; 1
+     990:	61 81       	ldd	r22, Z+1	; 0x01
+     992:	80 81       	ld	r24, Z
+     994:	0e 94 6c 06 	call	0xcd8	; 0xcd8 <DIO_enuSetPinVal>
+	return Local_enuErrorState;
+}
+
+ES_t LED_enuSetIntensity(u8 Copy_u8LedID, u8 Copy_u8LightIntensity)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+     998:	81 e0       	ldi	r24, 0x01	; 1
+     99a:	08 95       	ret
+			DIO_enuSetPinVal(LED_AstrLedConfig[Copy_u8LedID].LED_u8PortID, LED_AstrLedConfig[Copy_u8LedID].LED_u8PinID, DIO_u8LOW);
+		else if(Copy_u8LightIntensity == 100)
+			DIO_enuSetPinVal(LED_AstrLedConfig[Copy_u8LedID].LED_u8PortID, LED_AstrLedConfig[Copy_u8LedID].LED_u8PinID, DIO_u8HIGH);
+		else
+		{
+			switch(LED_AstrLedConfig[Copy_u8LedID].LED_enuPWM)
+     99c:	28 2f       	mov	r18, r24
+     99e:	30 e0       	ldi	r19, 0x00	; 0
+     9a0:	f9 01       	movw	r30, r18
+     9a2:	ee 0f       	add	r30, r30
+     9a4:	ff 1f       	adc	r31, r31
+     9a6:	ee 0f       	add	r30, r30
+     9a8:	ff 1f       	adc	r31, r31
+     9aa:	2e 0f       	add	r18, r30
+     9ac:	3f 1f       	adc	r19, r31
+     9ae:	f9 01       	movw	r30, r18
+     9b0:	ee 58       	subi	r30, 0x8E	; 142
+     9b2:	ff 4f       	sbci	r31, 0xFF	; 255
+     9b4:	84 81       	ldd	r24, Z+4	; 0x04
+     9b6:	82 30       	cpi	r24, 0x02	; 2
+     9b8:	71 f0       	breq	.+28     	; 0x9d6 <LED_enuSetIntensity+0x96>
+     9ba:	18 f4       	brcc	.+6      	; 0x9c2 <LED_enuSetIntensity+0x82>
+     9bc:	81 30       	cpi	r24, 0x01	; 1
+     9be:	31 f0       	breq	.+12     	; 0x9cc <LED_enuSetIntensity+0x8c>
+     9c0:	1d c0       	rjmp	.+58     	; 0x9fc <LED_enuSetIntensity+0xbc>
+     9c2:	83 30       	cpi	r24, 0x03	; 3
+     9c4:	69 f0       	breq	.+26     	; 0x9e0 <LED_enuSetIntensity+0xa0>
+     9c6:	84 30       	cpi	r24, 0x04	; 4
+     9c8:	81 f0       	breq	.+32     	; 0x9ea <LED_enuSetIntensity+0xaa>
+     9ca:	18 c0       	rjmp	.+48     	; 0x9fc <LED_enuSetIntensity+0xbc>
+			case LED_PWM_NONE:
+				Local_enuErrorState = ES_NOK;
+				break;
+
+			case LED_PWM_OC0:
+				TIMER0_enuGeneratePWM(Copy_u8LightIntensity);
+     9cc:	86 2f       	mov	r24, r22
+     9ce:	0e 94 f1 08 	call	0x11e2	; 0x11e2 <TIMER0_enuGeneratePWM>
+				Local_enuErrorState = ES_OK;
+     9d2:	80 e0       	ldi	r24, 0x00	; 0
+				break;
+     9d4:	08 95       	ret
+
+			case LED_PWM_OC1A:
+				TIMER1_enuGeneratePWM_OCR1A(Copy_u8LightIntensity);
+     9d6:	86 2f       	mov	r24, r22
+     9d8:	0e 94 39 09 	call	0x1272	; 0x1272 <TIMER1_enuGeneratePWM_OCR1A>
+				Local_enuErrorState = ES_OK;
+     9dc:	80 e0       	ldi	r24, 0x00	; 0
+				break;
+     9de:	08 95       	ret
+
+			case LED_PWM_OC1B:
+				TIMER1_enuGeneratePWM_OCR1B(Copy_u8LightIntensity);
+     9e0:	86 2f       	mov	r24, r22
+     9e2:	0e 94 4a 09 	call	0x1294	; 0x1294 <TIMER1_enuGeneratePWM_OCR1B>
+				Local_enuErrorState = ES_OK;
+     9e6:	80 e0       	ldi	r24, 0x00	; 0
+				break;
+     9e8:	08 95       	ret
+
+			case LED_PWM_OC2:
+				TIMER2_enuGeneratePWM(Copy_u8LightIntensity);
+     9ea:	86 2f       	mov	r24, r22
+     9ec:	0e 94 7b 09 	call	0x12f6	; 0x12f6 <TIMER2_enuGeneratePWM>
+				Local_enuErrorState = ES_OK;
+     9f0:	80 e0       	ldi	r24, 0x00	; 0
+				break;
+     9f2:	08 95       	ret
+			}
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     9f4:	83 e0       	ldi	r24, 0x03	; 3
+     9f6:	08 95       	ret
+     9f8:	83 e0       	ldi	r24, 0x03	; 3
+     9fa:	08 95       	ret
+		else
+		{
+			switch(LED_AstrLedConfig[Copy_u8LedID].LED_enuPWM)
+			{
+			case LED_PWM_NONE:
+				Local_enuErrorState = ES_NOK;
+     9fc:	81 e0       	ldi	r24, 0x01	; 1
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+
+	return Local_enuErrorState;
+}
+     9fe:	08 95       	ret
+
+00000a00 <Soil_Moisture_enuInit>:
+#include "Soil_Moisture_priv.h"
+
+extern Soil_Moisture_Configuration_t Soil_Moisture_AstrSoilMoistureConfig[Soil_Moisture_NUM];
+
+ES_t Soil_Moisture_enuInit(Soil_Moisture_Configuration_t *Copy_PstrSoilMoistureConfig)
+{
+     a00:	ef 92       	push	r14
+     a02:	ff 92       	push	r15
+     a04:	0f 93       	push	r16
+     a06:	1f 93       	push	r17
+     a08:	cf 93       	push	r28
+     a0a:	7c 01       	movw	r14, r24
+	ES_t Local_enuErrorState = ES_NOK;
+
+	ADC_enuInit();
+     a0c:	0e 94 5b 05 	call	0xab6	; 0xab6 <ADC_enuInit>
+
+	u8 Local_u8Iterrator = 0;
+	for(Local_u8Iterrator = 0; Local_u8Iterrator < Soil_Moisture_NUM; Local_u8Iterrator++)
+     a10:	c0 e0       	ldi	r28, 0x00	; 0
+     a12:	0e c0       	rjmp	.+28     	; 0xa30 <Soil_Moisture_enuInit+0x30>
+	{
+		DIO_enuSetPinDirection(DIO_u8PORTA, Copy_PstrSoilMoistureConfig[Local_u8Iterrator].Soil_Moisture_CHANNEL, DIO_u8INPUT);
+     a14:	87 01       	movw	r16, r14
+     a16:	0c 0f       	add	r16, r28
+     a18:	11 1d       	adc	r17, r1
+     a1a:	40 e0       	ldi	r20, 0x00	; 0
+     a1c:	f8 01       	movw	r30, r16
+     a1e:	60 81       	ld	r22, Z
+     a20:	80 e0       	ldi	r24, 0x00	; 0
+     a22:	0e 94 fa 05 	call	0xbf4	; 0xbf4 <DIO_enuSetPinDirection>
+		ADC_enuSelectChannel(Copy_PstrSoilMoistureConfig[Local_u8Iterrator].Soil_Moisture_CHANNEL);
+     a26:	f8 01       	movw	r30, r16
+     a28:	80 81       	ld	r24, Z
+     a2a:	0e 94 87 05 	call	0xb0e	; 0xb0e <ADC_enuSelectChannel>
+	ES_t Local_enuErrorState = ES_NOK;
+
+	ADC_enuInit();
+
+	u8 Local_u8Iterrator = 0;
+	for(Local_u8Iterrator = 0; Local_u8Iterrator < Soil_Moisture_NUM; Local_u8Iterrator++)
+     a2e:	cf 5f       	subi	r28, 0xFF	; 255
+     a30:	cc 23       	and	r28, r28
+     a32:	81 f3       	breq	.-32     	; 0xa14 <Soil_Moisture_enuInit+0x14>
+	{
+		DIO_enuSetPinDirection(DIO_u8PORTA, Copy_PstrSoilMoistureConfig[Local_u8Iterrator].Soil_Moisture_CHANNEL, DIO_u8INPUT);
+		ADC_enuSelectChannel(Copy_PstrSoilMoistureConfig[Local_u8Iterrator].Soil_Moisture_CHANNEL);
+	}
+
+	ADC_enuEnable();
+     a34:	0e 94 78 05 	call	0xaf0	; 0xaf0 <ADC_enuEnable>
+
+	Local_enuErrorState = ES_OK;
+
+	return Local_enuErrorState;
+}
+     a38:	80 e0       	ldi	r24, 0x00	; 0
+     a3a:	cf 91       	pop	r28
+     a3c:	1f 91       	pop	r17
+     a3e:	0f 91       	pop	r16
+     a40:	ff 90       	pop	r15
+     a42:	ef 90       	pop	r14
+     a44:	08 95       	ret
+
+00000a46 <Soil_Moisture_enuGetMoisureVal>:
+
+ES_t Soil_Moisture_enuGetMoisureVal(u8 Copy_u8Soil_Moisture_ID, u16 *Copy_Pu16MoistureValue)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_Pu16MoistureValue != NULL)
+     a46:	61 15       	cp	r22, r1
+     a48:	71 05       	cpc	r23, r1
+     a4a:	69 f0       	breq	.+26     	; 0xa66 <Soil_Moisture_enuGetMoisureVal+0x20>
+	{
+		if(Copy_u8Soil_Moisture_ID < Soil_Moisture_NUM)
+     a4c:	81 11       	cpse	r24, r1
+     a4e:	0d c0       	rjmp	.+26     	; 0xa6a <Soil_Moisture_enuGetMoisureVal+0x24>
+     a50:	9b 01       	movw	r18, r22
+		{
+			ADC_Read_From_Ch(Copy_Pu16MoistureValue, Soil_Moisture_AstrSoilMoistureConfig[Copy_u8Soil_Moisture_ID].Soil_Moisture_CHANNEL);
+     a52:	e8 2f       	mov	r30, r24
+     a54:	f0 e0       	ldi	r31, 0x00	; 0
+     a56:	ef 57       	subi	r30, 0x7F	; 127
+     a58:	ff 4f       	sbci	r31, 0xFF	; 255
+     a5a:	60 81       	ld	r22, Z
+     a5c:	c9 01       	movw	r24, r18
+     a5e:	0e 94 b1 05 	call	0xb62	; 0xb62 <ADC_Read_From_Ch>
+	return Local_enuErrorState;
+}
+
+ES_t Soil_Moisture_enuGetMoisureVal(u8 Copy_u8Soil_Moisture_ID, u16 *Copy_Pu16MoistureValue)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+     a62:	81 e0       	ldi	r24, 0x01	; 1
+     a64:	08 95       	ret
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     a66:	82 e0       	ldi	r24, 0x02	; 2
+     a68:	08 95       	ret
+		{
+			ADC_Read_From_Ch(Copy_Pu16MoistureValue, Soil_Moisture_AstrSoilMoistureConfig[Copy_u8Soil_Moisture_ID].Soil_Moisture_CHANNEL);
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+     a6a:	83 e0       	ldi	r24, 0x03	; 3
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
+
+	return Local_enuErrorState;
+}
+     a6c:	08 95       	ret
+
+00000a6e <Math_Mapping>:
+
+
+#include "stdTypes.h"
+
+s16 Math_Mapping (s16 y1,s16 y2,s16 x1,s16 x2,s16 x)
+{
+     a6e:	0f 93       	push	r16
+     a70:	1f 93       	push	r17
+     a72:	cf 93       	push	r28
+     a74:	df 93       	push	r29
+     a76:	ec 01       	movw	r28, r24
+     a78:	f9 01       	movw	r30, r18
+	s16 y;
+	y = ( ((s32)(y2-y1)*(x-x1))/(x2-x1) ) + y1;
+     a7a:	9b 01       	movw	r18, r22
+     a7c:	28 1b       	sub	r18, r24
+     a7e:	39 0b       	sbc	r19, r25
+     a80:	d8 01       	movw	r26, r16
+     a82:	a4 1b       	sub	r26, r20
+     a84:	b5 0b       	sbc	r27, r21
+     a86:	0e 94 40 0b 	call	0x1680	; 0x1680 <__mulhisi3>
+     a8a:	9f 01       	movw	r18, r30
+     a8c:	24 1b       	sub	r18, r20
+     a8e:	35 0b       	sbc	r19, r21
+     a90:	03 2e       	mov	r0, r19
+     a92:	00 0c       	add	r0, r0
+     a94:	44 0b       	sbc	r20, r20
+     a96:	55 0b       	sbc	r21, r21
+     a98:	0e 94 21 0b 	call	0x1642	; 0x1642 <__divmodsi4>
+     a9c:	ce 01       	movw	r24, r28
+     a9e:	82 0f       	add	r24, r18
+     aa0:	93 1f       	adc	r25, r19
+
+	return y;
+}
+     aa2:	df 91       	pop	r29
+     aa4:	cf 91       	pop	r28
+     aa6:	1f 91       	pop	r17
+     aa8:	0f 91       	pop	r16
+     aaa:	08 95       	ret
+
+00000aac <main>:
+
+
+#if Code == Master
+int main()
+{
+	AGMS_enuInit_AutomaticControl();
+     aac:	0e 94 49 00 	call	0x92	; 0x92 <AGMS_enuInit_AutomaticControl>
+
+	while(1)
+	{
+		AGMS_enuRunning_AutomaticControl();
+     ab0:	0e 94 51 00 	call	0xa2	; 0xa2 <AGMS_enuRunning_AutomaticControl>
+     ab4:	fd cf       	rjmp	.-6      	; 0xab0 <main+0x4>
+
+00000ab6 <ADC_enuInit>:
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+	return Local_enuErrorState;
+}
+     ab6:	87 b1       	in	r24, 0x07	; 7
+     ab8:	8f 73       	andi	r24, 0x3F	; 63
+     aba:	87 b9       	out	0x07, r24	; 7
+     abc:	87 b1       	in	r24, 0x07	; 7
+     abe:	8f 7b       	andi	r24, 0xBF	; 191
+     ac0:	87 b9       	out	0x07, r24	; 7
+     ac2:	87 b1       	in	r24, 0x07	; 7
+     ac4:	8f 77       	andi	r24, 0x7F	; 127
+     ac6:	87 b9       	out	0x07, r24	; 7
+     ac8:	87 b1       	in	r24, 0x07	; 7
+     aca:	8f 7d       	andi	r24, 0xDF	; 223
+     acc:	87 b9       	out	0x07, r24	; 7
+     ace:	87 b1       	in	r24, 0x07	; 7
+     ad0:	8f 7d       	andi	r24, 0xDF	; 223
+     ad2:	87 b9       	out	0x07, r24	; 7
+     ad4:	86 b1       	in	r24, 0x06	; 6
+     ad6:	88 7f       	andi	r24, 0xF8	; 248
+     ad8:	86 b9       	out	0x06, r24	; 6
+     ada:	86 b1       	in	r24, 0x06	; 6
+     adc:	81 60       	ori	r24, 0x01	; 1
+     ade:	86 b9       	out	0x06, r24	; 6
+     ae0:	86 b1       	in	r24, 0x06	; 6
+     ae2:	82 60       	ori	r24, 0x02	; 2
+     ae4:	86 b9       	out	0x06, r24	; 6
+     ae6:	86 b1       	in	r24, 0x06	; 6
+     ae8:	8b 7f       	andi	r24, 0xFB	; 251
+     aea:	86 b9       	out	0x06, r24	; 6
+     aec:	81 e0       	ldi	r24, 0x01	; 1
+     aee:	08 95       	ret
+
+00000af0 <ADC_enuEnable>:
+     af0:	86 b1       	in	r24, 0x06	; 6
+     af2:	80 68       	ori	r24, 0x80	; 128
+     af4:	86 b9       	out	0x06, r24	; 6
+     af6:	81 e0       	ldi	r24, 0x01	; 1
+     af8:	08 95       	ret
+
+00000afa <ADC_enuDisable>:
+     afa:	86 b1       	in	r24, 0x06	; 6
+     afc:	8f 77       	andi	r24, 0x7F	; 127
+     afe:	86 b9       	out	0x06, r24	; 6
+     b00:	81 e0       	ldi	r24, 0x01	; 1
+     b02:	08 95       	ret
+
+00000b04 <ADC_enuStartConversion>:
+     b04:	86 b1       	in	r24, 0x06	; 6
+     b06:	80 64       	ori	r24, 0x40	; 64
+     b08:	86 b9       	out	0x06, r24	; 6
+     b0a:	81 e0       	ldi	r24, 0x01	; 1
+     b0c:	08 95       	ret
+
+00000b0e <ADC_enuSelectChannel>:
+     b0e:	97 b1       	in	r25, 0x07	; 7
+     b10:	90 7e       	andi	r25, 0xE0	; 224
+     b12:	97 b9       	out	0x07, r25	; 7
+     b14:	97 b1       	in	r25, 0x07	; 7
+     b16:	89 2b       	or	r24, r25
+     b18:	87 b9       	out	0x07, r24	; 7
+     b1a:	81 e0       	ldi	r24, 0x01	; 1
+     b1c:	08 95       	ret
+
+00000b1e <ADC_enuPollingSystem>:
+     b1e:	34 9b       	sbis	0x06, 4	; 6
+     b20:	fe cf       	rjmp	.-4      	; 0xb1e <ADC_enuPollingSystem>
+     b22:	86 b1       	in	r24, 0x06	; 6
+     b24:	80 61       	ori	r24, 0x10	; 16
+     b26:	86 b9       	out	0x06, r24	; 6
+     b28:	81 e0       	ldi	r24, 0x01	; 1
+     b2a:	08 95       	ret
+
+00000b2c <ADC_enuDisableInterrupt>:
+     b2c:	86 b1       	in	r24, 0x06	; 6
+     b2e:	87 7f       	andi	r24, 0xF7	; 247
+     b30:	86 b9       	out	0x06, r24	; 6
+     b32:	81 e0       	ldi	r24, 0x01	; 1
+     b34:	08 95       	ret
+
+00000b36 <ADC_enuReadADCValue>:
+     b36:	fc 01       	movw	r30, r24
+     b38:	24 b1       	in	r18, 0x04	; 4
+     b3a:	42 2f       	mov	r20, r18
+     b3c:	50 e0       	ldi	r21, 0x00	; 0
+     b3e:	51 83       	std	Z+1, r21	; 0x01
+     b40:	40 83       	st	Z, r20
+     b42:	95 b1       	in	r25, 0x05	; 5
+     b44:	29 2f       	mov	r18, r25
+     b46:	30 e0       	ldi	r19, 0x00	; 0
+     b48:	32 2f       	mov	r19, r18
+     b4a:	22 27       	eor	r18, r18
+     b4c:	24 2b       	or	r18, r20
+     b4e:	35 2b       	or	r19, r21
+     b50:	31 83       	std	Z+1, r19	; 0x01
+     b52:	20 83       	st	Z, r18
+     b54:	81 e0       	ldi	r24, 0x01	; 1
+     b56:	08 95       	ret
+
+00000b58 <ADC_enuDisableTrigger>:
+     b58:	86 b1       	in	r24, 0x06	; 6
+     b5a:	8f 7d       	andi	r24, 0xDF	; 223
+     b5c:	86 b9       	out	0x06, r24	; 6
+     b5e:	81 e0       	ldi	r24, 0x01	; 1
+     b60:	08 95       	ret
+
+00000b62 <ADC_Read_From_Ch>:
+
+ES_t ADC_Read_From_Ch(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID)
+{
+     b62:	1f 93       	push	r17
+     b64:	cf 93       	push	r28
+     b66:	df 93       	push	r29
+     b68:	ec 01       	movw	r28, r24
+     b6a:	16 2f       	mov	r17, r22
+	ES_t Local_enuErrorState = ES_NOK;
+
+	ADC_enuEnable();
+     b6c:	0e 94 78 05 	call	0xaf0	; 0xaf0 <ADC_enuEnable>
+	ADC_enuDisableTrigger();
+     b70:	0e 94 ac 05 	call	0xb58	; 0xb58 <ADC_enuDisableTrigger>
+	ADC_enuSelectChannel(Copy_u8ChannelID);
+     b74:	81 2f       	mov	r24, r17
+     b76:	0e 94 87 05 	call	0xb0e	; 0xb0e <ADC_enuSelectChannel>
+	ADC_enuStartConversion();
+     b7a:	0e 94 82 05 	call	0xb04	; 0xb04 <ADC_enuStartConversion>
+	ADC_enuDisableInterrupt();
+     b7e:	0e 94 96 05 	call	0xb2c	; 0xb2c <ADC_enuDisableInterrupt>
+	ADC_enuPollingSystem();
+     b82:	0e 94 8f 05 	call	0xb1e	; 0xb1e <ADC_enuPollingSystem>
+	ADC_enuReadADCValue(Copy_pu16ReadValue);
+     b86:	ce 01       	movw	r24, r28
+     b88:	0e 94 9b 05 	call	0xb36	; 0xb36 <ADC_enuReadADCValue>
+	ADC_enuDisable();
+     b8c:	0e 94 7d 05 	call	0xafa	; 0xafa <ADC_enuDisable>
+
+	return Local_enuErrorState;
+}
+     b90:	81 e0       	ldi	r24, 0x01	; 1
+     b92:	df 91       	pop	r29
+     b94:	cf 91       	pop	r28
+     b96:	1f 91       	pop	r17
+     b98:	08 95       	ret
+
+00000b9a <__vector_16>:
+
+ISR(VECT_ADC)
+{
+     b9a:	1f 92       	push	r1
+     b9c:	0f 92       	push	r0
+     b9e:	0f b6       	in	r0, 0x3f	; 63
+     ba0:	0f 92       	push	r0
+     ba2:	11 24       	eor	r1, r1
+     ba4:	2f 93       	push	r18
+     ba6:	3f 93       	push	r19
+     ba8:	4f 93       	push	r20
+     baa:	5f 93       	push	r21
+     bac:	6f 93       	push	r22
+     bae:	7f 93       	push	r23
+     bb0:	8f 93       	push	r24
+     bb2:	9f 93       	push	r25
+     bb4:	af 93       	push	r26
+     bb6:	bf 93       	push	r27
+     bb8:	ef 93       	push	r30
+     bba:	ff 93       	push	r31
+	if(ADC_PFuncISRFunc != NULL)
+     bbc:	e0 91 91 00 	lds	r30, 0x0091	; 0x800091 <ADC_PFuncISRFunc>
+     bc0:	f0 91 92 00 	lds	r31, 0x0092	; 0x800092 <ADC_PFuncISRFunc+0x1>
+     bc4:	30 97       	sbiw	r30, 0x00	; 0
+     bc6:	29 f0       	breq	.+10     	; 0xbd2 <__vector_16+0x38>
+	{
+		ADC_PFuncISRFunc(ADC_PvidISRParameter);
+     bc8:	80 91 8f 00 	lds	r24, 0x008F	; 0x80008f <ADC_PvidISRParameter>
+     bcc:	90 91 90 00 	lds	r25, 0x0090	; 0x800090 <ADC_PvidISRParameter+0x1>
+     bd0:	09 95       	icall
+	}
+}
+     bd2:	ff 91       	pop	r31
+     bd4:	ef 91       	pop	r30
+     bd6:	bf 91       	pop	r27
+     bd8:	af 91       	pop	r26
+     bda:	9f 91       	pop	r25
+     bdc:	8f 91       	pop	r24
+     bde:	7f 91       	pop	r23
+     be0:	6f 91       	pop	r22
+     be2:	5f 91       	pop	r21
+     be4:	4f 91       	pop	r20
+     be6:	3f 91       	pop	r19
+     be8:	2f 91       	pop	r18
+     bea:	0f 90       	pop	r0
+     bec:	0f be       	out	0x3f, r0	; 63
+     bee:	0f 90       	pop	r0
+     bf0:	1f 90       	pop	r1
+     bf2:	18 95       	reti
+
+00000bf4 <DIO_enuSetPinDirection>:
+**/
+ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID, u8 Copy_u8PinID, u8 Copy_u8Value)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	if(Copy_u8PortID <= DIO_PORTD && Copy_u8PinID <= DIO_PIN7 && Copy_u8Value <= OUTPUT)
+     bf4:	84 30       	cpi	r24, 0x04	; 4
+     bf6:	08 f0       	brcs	.+2      	; 0xbfa <DIO_enuSetPinDirection+0x6>
+     bf8:	67 c0       	rjmp	.+206    	; 0xcc8 <DIO_enuSetPinDirection+0xd4>
+     bfa:	68 30       	cpi	r22, 0x08	; 8
+     bfc:	08 f0       	brcs	.+2      	; 0xc00 <DIO_enuSetPinDirection+0xc>
+     bfe:	66 c0       	rjmp	.+204    	; 0xccc <DIO_enuSetPinDirection+0xd8>
+     c00:	42 30       	cpi	r20, 0x02	; 2
+     c02:	08 f0       	brcs	.+2      	; 0xc06 <DIO_enuSetPinDirection+0x12>
+     c04:	65 c0       	rjmp	.+202    	; 0xcd0 <DIO_enuSetPinDirection+0xdc>
+	{
+		switch(Copy_u8PortID)
+     c06:	81 30       	cpi	r24, 0x01	; 1
+     c08:	e9 f0       	breq	.+58     	; 0xc44 <DIO_enuSetPinDirection+0x50>
+     c0a:	30 f0       	brcs	.+12     	; 0xc18 <DIO_enuSetPinDirection+0x24>
+     c0c:	82 30       	cpi	r24, 0x02	; 2
+     c0e:	81 f1       	breq	.+96     	; 0xc70 <DIO_enuSetPinDirection+0x7c>
+     c10:	83 30       	cpi	r24, 0x03	; 3
+     c12:	09 f4       	brne	.+2      	; 0xc16 <DIO_enuSetPinDirection+0x22>
+     c14:	43 c0       	rjmp	.+134    	; 0xc9c <DIO_enuSetPinDirection+0xa8>
+     c16:	5e c0       	rjmp	.+188    	; 0xcd4 <DIO_enuSetPinDirection+0xe0>
+		{
+			case DIO_PORTA:
+			DDRA &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     c18:	81 e0       	ldi	r24, 0x01	; 1
+     c1a:	90 e0       	ldi	r25, 0x00	; 0
+     c1c:	06 2e       	mov	r0, r22
+     c1e:	02 c0       	rjmp	.+4      	; 0xc24 <DIO_enuSetPinDirection+0x30>
+     c20:	88 0f       	add	r24, r24
+     c22:	99 1f       	adc	r25, r25
+     c24:	0a 94       	dec	r0
+     c26:	e2 f7       	brpl	.-8      	; 0xc20 <DIO_enuSetPinDirection+0x2c>
+     c28:	80 95       	com	r24
+     c2a:	2a b3       	in	r18, 0x1a	; 26
+     c2c:	28 23       	and	r18, r24
+			DDRA |=  (Copy_u8Value << Copy_u8PinID);
+     c2e:	84 2f       	mov	r24, r20
+     c30:	90 e0       	ldi	r25, 0x00	; 0
+     c32:	02 c0       	rjmp	.+4      	; 0xc38 <DIO_enuSetPinDirection+0x44>
+     c34:	88 0f       	add	r24, r24
+     c36:	99 1f       	adc	r25, r25
+     c38:	6a 95       	dec	r22
+     c3a:	e2 f7       	brpl	.-8      	; 0xc34 <DIO_enuSetPinDirection+0x40>
+     c3c:	82 2b       	or	r24, r18
+     c3e:	8a bb       	out	0x1a, r24	; 26
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     c40:	80 e0       	ldi	r24, 0x00	; 0
+		switch(Copy_u8PortID)
+		{
+			case DIO_PORTA:
+			DDRA &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRA |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     c42:	08 95       	ret
+			
+			case DIO_PORTB:
+			DDRB &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     c44:	21 e0       	ldi	r18, 0x01	; 1
+     c46:	30 e0       	ldi	r19, 0x00	; 0
+     c48:	06 2e       	mov	r0, r22
+     c4a:	02 c0       	rjmp	.+4      	; 0xc50 <DIO_enuSetPinDirection+0x5c>
+     c4c:	22 0f       	add	r18, r18
+     c4e:	33 1f       	adc	r19, r19
+     c50:	0a 94       	dec	r0
+     c52:	e2 f7       	brpl	.-8      	; 0xc4c <DIO_enuSetPinDirection+0x58>
+     c54:	20 95       	com	r18
+     c56:	87 b3       	in	r24, 0x17	; 23
+     c58:	28 23       	and	r18, r24
+			DDRB |=  (Copy_u8Value << Copy_u8PinID);
+     c5a:	84 2f       	mov	r24, r20
+     c5c:	90 e0       	ldi	r25, 0x00	; 0
+     c5e:	02 c0       	rjmp	.+4      	; 0xc64 <DIO_enuSetPinDirection+0x70>
+     c60:	88 0f       	add	r24, r24
+     c62:	99 1f       	adc	r25, r25
+     c64:	6a 95       	dec	r22
+     c66:	e2 f7       	brpl	.-8      	; 0xc60 <DIO_enuSetPinDirection+0x6c>
+     c68:	82 2b       	or	r24, r18
+     c6a:	87 bb       	out	0x17, r24	; 23
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     c6c:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTB:
+			DDRB &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRB |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     c6e:	08 95       	ret
+			
+			case DIO_PORTC:
+			DDRC &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     c70:	21 e0       	ldi	r18, 0x01	; 1
+     c72:	30 e0       	ldi	r19, 0x00	; 0
+     c74:	06 2e       	mov	r0, r22
+     c76:	02 c0       	rjmp	.+4      	; 0xc7c <DIO_enuSetPinDirection+0x88>
+     c78:	22 0f       	add	r18, r18
+     c7a:	33 1f       	adc	r19, r19
+     c7c:	0a 94       	dec	r0
+     c7e:	e2 f7       	brpl	.-8      	; 0xc78 <DIO_enuSetPinDirection+0x84>
+     c80:	20 95       	com	r18
+     c82:	84 b3       	in	r24, 0x14	; 20
+     c84:	28 23       	and	r18, r24
+			DDRC |=  (Copy_u8Value << Copy_u8PinID);
+     c86:	84 2f       	mov	r24, r20
+     c88:	90 e0       	ldi	r25, 0x00	; 0
+     c8a:	02 c0       	rjmp	.+4      	; 0xc90 <DIO_enuSetPinDirection+0x9c>
+     c8c:	88 0f       	add	r24, r24
+     c8e:	99 1f       	adc	r25, r25
+     c90:	6a 95       	dec	r22
+     c92:	e2 f7       	brpl	.-8      	; 0xc8c <DIO_enuSetPinDirection+0x98>
+     c94:	82 2b       	or	r24, r18
+     c96:	84 bb       	out	0x14, r24	; 20
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     c98:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTC:
+			DDRC &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRC |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     c9a:	08 95       	ret
+			
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     c9c:	21 e0       	ldi	r18, 0x01	; 1
+     c9e:	30 e0       	ldi	r19, 0x00	; 0
+     ca0:	06 2e       	mov	r0, r22
+     ca2:	02 c0       	rjmp	.+4      	; 0xca8 <DIO_enuSetPinDirection+0xb4>
+     ca4:	22 0f       	add	r18, r18
+     ca6:	33 1f       	adc	r19, r19
+     ca8:	0a 94       	dec	r0
+     caa:	e2 f7       	brpl	.-8      	; 0xca4 <DIO_enuSetPinDirection+0xb0>
+     cac:	20 95       	com	r18
+     cae:	81 b3       	in	r24, 0x11	; 17
+     cb0:	28 23       	and	r18, r24
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+     cb2:	84 2f       	mov	r24, r20
+     cb4:	90 e0       	ldi	r25, 0x00	; 0
+     cb6:	02 c0       	rjmp	.+4      	; 0xcbc <DIO_enuSetPinDirection+0xc8>
+     cb8:	88 0f       	add	r24, r24
+     cba:	99 1f       	adc	r25, r25
+     cbc:	6a 95       	dec	r22
+     cbe:	e2 f7       	brpl	.-8      	; 0xcb8 <DIO_enuSetPinDirection+0xc4>
+     cc0:	82 2b       	or	r24, r18
+     cc2:	81 bb       	out	0x11, r24	; 17
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     cc4:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     cc6:	08 95       	ret
+		}
+		Local_enuErrorState = ES_OK;
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     cc8:	83 e0       	ldi	r24, 0x03	; 3
+     cca:	08 95       	ret
+     ccc:	83 e0       	ldi	r24, 0x03	; 3
+     cce:	08 95       	ret
+     cd0:	83 e0       	ldi	r24, 0x03	; 3
+     cd2:	08 95       	ret
+			case DIO_PORTD:
+			DDRD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			DDRD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     cd4:	80 e0       	ldi	r24, 0x00	; 0
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+	
+	return Local_enuErrorState;
+}
+     cd6:	08 95       	ret
+
+00000cd8 <DIO_enuSetPinVal>:
+**/
+ES_t DIO_enuSetPinVal(u8 Copy_u8PortID, u8 Copy_u8PinID, u8 Copy_u8Value)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	if(Copy_u8PortID <= DIO_PORTD && Copy_u8PinID <= DIO_PIN7 && Copy_u8Value <= OUTPUT)
+     cd8:	84 30       	cpi	r24, 0x04	; 4
+     cda:	08 f0       	brcs	.+2      	; 0xcde <DIO_enuSetPinVal+0x6>
+     cdc:	67 c0       	rjmp	.+206    	; 0xdac <DIO_enuSetPinVal+0xd4>
+     cde:	68 30       	cpi	r22, 0x08	; 8
+     ce0:	08 f0       	brcs	.+2      	; 0xce4 <DIO_enuSetPinVal+0xc>
+     ce2:	66 c0       	rjmp	.+204    	; 0xdb0 <DIO_enuSetPinVal+0xd8>
+     ce4:	42 30       	cpi	r20, 0x02	; 2
+     ce6:	08 f0       	brcs	.+2      	; 0xcea <DIO_enuSetPinVal+0x12>
+     ce8:	65 c0       	rjmp	.+202    	; 0xdb4 <DIO_enuSetPinVal+0xdc>
+	{
+		switch(Copy_u8PortID)
+     cea:	81 30       	cpi	r24, 0x01	; 1
+     cec:	e9 f0       	breq	.+58     	; 0xd28 <DIO_enuSetPinVal+0x50>
+     cee:	30 f0       	brcs	.+12     	; 0xcfc <DIO_enuSetPinVal+0x24>
+     cf0:	82 30       	cpi	r24, 0x02	; 2
+     cf2:	81 f1       	breq	.+96     	; 0xd54 <DIO_enuSetPinVal+0x7c>
+     cf4:	83 30       	cpi	r24, 0x03	; 3
+     cf6:	09 f4       	brne	.+2      	; 0xcfa <DIO_enuSetPinVal+0x22>
+     cf8:	43 c0       	rjmp	.+134    	; 0xd80 <DIO_enuSetPinVal+0xa8>
+     cfa:	5e c0       	rjmp	.+188    	; 0xdb8 <DIO_enuSetPinVal+0xe0>
+		{
+			case DIO_PORTA:
+			PORTA &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     cfc:	81 e0       	ldi	r24, 0x01	; 1
+     cfe:	90 e0       	ldi	r25, 0x00	; 0
+     d00:	06 2e       	mov	r0, r22
+     d02:	02 c0       	rjmp	.+4      	; 0xd08 <DIO_enuSetPinVal+0x30>
+     d04:	88 0f       	add	r24, r24
+     d06:	99 1f       	adc	r25, r25
+     d08:	0a 94       	dec	r0
+     d0a:	e2 f7       	brpl	.-8      	; 0xd04 <DIO_enuSetPinVal+0x2c>
+     d0c:	80 95       	com	r24
+     d0e:	2b b3       	in	r18, 0x1b	; 27
+     d10:	28 23       	and	r18, r24
+			PORTA |=  (Copy_u8Value << Copy_u8PinID);
+     d12:	84 2f       	mov	r24, r20
+     d14:	90 e0       	ldi	r25, 0x00	; 0
+     d16:	02 c0       	rjmp	.+4      	; 0xd1c <DIO_enuSetPinVal+0x44>
+     d18:	88 0f       	add	r24, r24
+     d1a:	99 1f       	adc	r25, r25
+     d1c:	6a 95       	dec	r22
+     d1e:	e2 f7       	brpl	.-8      	; 0xd18 <DIO_enuSetPinVal+0x40>
+     d20:	82 2b       	or	r24, r18
+     d22:	8b bb       	out	0x1b, r24	; 27
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     d24:	80 e0       	ldi	r24, 0x00	; 0
+		switch(Copy_u8PortID)
+		{
+			case DIO_PORTA:
+			PORTA &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTA |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     d26:	08 95       	ret
+			
+			case DIO_PORTB:
+			PORTB &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     d28:	21 e0       	ldi	r18, 0x01	; 1
+     d2a:	30 e0       	ldi	r19, 0x00	; 0
+     d2c:	06 2e       	mov	r0, r22
+     d2e:	02 c0       	rjmp	.+4      	; 0xd34 <DIO_enuSetPinVal+0x5c>
+     d30:	22 0f       	add	r18, r18
+     d32:	33 1f       	adc	r19, r19
+     d34:	0a 94       	dec	r0
+     d36:	e2 f7       	brpl	.-8      	; 0xd30 <DIO_enuSetPinVal+0x58>
+     d38:	20 95       	com	r18
+     d3a:	88 b3       	in	r24, 0x18	; 24
+     d3c:	28 23       	and	r18, r24
+			PORTB |=  (Copy_u8Value << Copy_u8PinID);
+     d3e:	84 2f       	mov	r24, r20
+     d40:	90 e0       	ldi	r25, 0x00	; 0
+     d42:	02 c0       	rjmp	.+4      	; 0xd48 <DIO_enuSetPinVal+0x70>
+     d44:	88 0f       	add	r24, r24
+     d46:	99 1f       	adc	r25, r25
+     d48:	6a 95       	dec	r22
+     d4a:	e2 f7       	brpl	.-8      	; 0xd44 <DIO_enuSetPinVal+0x6c>
+     d4c:	82 2b       	or	r24, r18
+     d4e:	88 bb       	out	0x18, r24	; 24
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     d50:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTB:
+			PORTB &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTB |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     d52:	08 95       	ret
+			
+			case DIO_PORTC:
+			PORTC &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     d54:	21 e0       	ldi	r18, 0x01	; 1
+     d56:	30 e0       	ldi	r19, 0x00	; 0
+     d58:	06 2e       	mov	r0, r22
+     d5a:	02 c0       	rjmp	.+4      	; 0xd60 <DIO_enuSetPinVal+0x88>
+     d5c:	22 0f       	add	r18, r18
+     d5e:	33 1f       	adc	r19, r19
+     d60:	0a 94       	dec	r0
+     d62:	e2 f7       	brpl	.-8      	; 0xd5c <DIO_enuSetPinVal+0x84>
+     d64:	20 95       	com	r18
+     d66:	85 b3       	in	r24, 0x15	; 21
+     d68:	28 23       	and	r18, r24
+			PORTC |=  (Copy_u8Value << Copy_u8PinID);
+     d6a:	84 2f       	mov	r24, r20
+     d6c:	90 e0       	ldi	r25, 0x00	; 0
+     d6e:	02 c0       	rjmp	.+4      	; 0xd74 <DIO_enuSetPinVal+0x9c>
+     d70:	88 0f       	add	r24, r24
+     d72:	99 1f       	adc	r25, r25
+     d74:	6a 95       	dec	r22
+     d76:	e2 f7       	brpl	.-8      	; 0xd70 <DIO_enuSetPinVal+0x98>
+     d78:	82 2b       	or	r24, r18
+     d7a:	85 bb       	out	0x15, r24	; 21
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     d7c:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTC:
+			PORTC &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTC |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     d7e:	08 95       	ret
+			
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+     d80:	21 e0       	ldi	r18, 0x01	; 1
+     d82:	30 e0       	ldi	r19, 0x00	; 0
+     d84:	06 2e       	mov	r0, r22
+     d86:	02 c0       	rjmp	.+4      	; 0xd8c <DIO_enuSetPinVal+0xb4>
+     d88:	22 0f       	add	r18, r18
+     d8a:	33 1f       	adc	r19, r19
+     d8c:	0a 94       	dec	r0
+     d8e:	e2 f7       	brpl	.-8      	; 0xd88 <DIO_enuSetPinVal+0xb0>
+     d90:	20 95       	com	r18
+     d92:	82 b3       	in	r24, 0x12	; 18
+     d94:	28 23       	and	r18, r24
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+     d96:	84 2f       	mov	r24, r20
+     d98:	90 e0       	ldi	r25, 0x00	; 0
+     d9a:	02 c0       	rjmp	.+4      	; 0xda0 <DIO_enuSetPinVal+0xc8>
+     d9c:	88 0f       	add	r24, r24
+     d9e:	99 1f       	adc	r25, r25
+     da0:	6a 95       	dec	r22
+     da2:	e2 f7       	brpl	.-8      	; 0xd9c <DIO_enuSetPinVal+0xc4>
+     da4:	82 2b       	or	r24, r18
+     da6:	82 bb       	out	0x12, r24	; 18
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     da8:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+			
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+     daa:	08 95       	ret
+		}
+		Local_enuErrorState = ES_OK;
+	}
+	else
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+     dac:	83 e0       	ldi	r24, 0x03	; 3
+     dae:	08 95       	ret
+     db0:	83 e0       	ldi	r24, 0x03	; 3
+     db2:	08 95       	ret
+     db4:	83 e0       	ldi	r24, 0x03	; 3
+     db6:	08 95       	ret
+			case DIO_PORTD:
+			PORTD &= ~(DIO_MASK_BIT << Copy_u8PinID);
+			PORTD |=  (Copy_u8Value << Copy_u8PinID);
+			break;
+		}
+		Local_enuErrorState = ES_OK;
+     db8:	80 e0       	ldi	r24, 0x00	; 0
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+	
+	return Local_enuErrorState;
+}
+     dba:	08 95       	ret
+
+00000dbc <DIO_enuGetPinVal>:
+**/
+ES_t DIO_enuGetPinVal(u8 Copy_u8PortID, u8 Copy_u8PinID, u8 *Copy_pu8Value)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	if(Copy_pu8Value != NULL)
+     dbc:	41 15       	cp	r20, r1
+     dbe:	51 05       	cpc	r21, r1
+     dc0:	e1 f1       	breq	.+120    	; 0xe3a <DIO_enuGetPinVal+0x7e>
+	{
+		if(Copy_u8PortID <= DIO_PORTD && Copy_u8PinID <= DIO_PIN7)
+     dc2:	84 30       	cpi	r24, 0x04	; 4
+     dc4:	e0 f5       	brcc	.+120    	; 0xe3e <DIO_enuGetPinVal+0x82>
+     dc6:	68 30       	cpi	r22, 0x08	; 8
+     dc8:	e0 f5       	brcc	.+120    	; 0xe42 <DIO_enuGetPinVal+0x86>
+		{
+			switch(Copy_u8PortID)
+     dca:	81 30       	cpi	r24, 0x01	; 1
+     dcc:	91 f0       	breq	.+36     	; 0xdf2 <DIO_enuGetPinVal+0x36>
+     dce:	28 f0       	brcs	.+10     	; 0xdda <DIO_enuGetPinVal+0x1e>
+     dd0:	82 30       	cpi	r24, 0x02	; 2
+     dd2:	d9 f0       	breq	.+54     	; 0xe0a <DIO_enuGetPinVal+0x4e>
+     dd4:	83 30       	cpi	r24, 0x03	; 3
+     dd6:	29 f1       	breq	.+74     	; 0xe22 <DIO_enuGetPinVal+0x66>
+     dd8:	36 c0       	rjmp	.+108    	; 0xe46 <DIO_enuGetPinVal+0x8a>
+			{
+				case DIO_PORTA:
+				*Copy_pu8Value = ((PINA >> Copy_u8PinID) & DIO_MASK_BIT);
+     dda:	89 b3       	in	r24, 0x19	; 25
+     ddc:	90 e0       	ldi	r25, 0x00	; 0
+     dde:	02 c0       	rjmp	.+4      	; 0xde4 <DIO_enuGetPinVal+0x28>
+     de0:	95 95       	asr	r25
+     de2:	87 95       	ror	r24
+     de4:	6a 95       	dec	r22
+     de6:	e2 f7       	brpl	.-8      	; 0xde0 <DIO_enuGetPinVal+0x24>
+     de8:	81 70       	andi	r24, 0x01	; 1
+     dea:	fa 01       	movw	r30, r20
+     dec:	80 83       	st	Z, r24
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+		Local_enuErrorState = ES_OK;
+     dee:	80 e0       	ldi	r24, 0x00	; 0
+		{
+			switch(Copy_u8PortID)
+			{
+				case DIO_PORTA:
+				*Copy_pu8Value = ((PINA >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+     df0:	08 95       	ret
+				
+				case DIO_PORTB:
+				*Copy_pu8Value = ((PINB >> Copy_u8PinID) & DIO_MASK_BIT);
+     df2:	86 b3       	in	r24, 0x16	; 22
+     df4:	90 e0       	ldi	r25, 0x00	; 0
+     df6:	02 c0       	rjmp	.+4      	; 0xdfc <DIO_enuGetPinVal+0x40>
+     df8:	95 95       	asr	r25
+     dfa:	87 95       	ror	r24
+     dfc:	6a 95       	dec	r22
+     dfe:	e2 f7       	brpl	.-8      	; 0xdf8 <DIO_enuGetPinVal+0x3c>
+     e00:	81 70       	andi	r24, 0x01	; 1
+     e02:	fa 01       	movw	r30, r20
+     e04:	80 83       	st	Z, r24
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+		Local_enuErrorState = ES_OK;
+     e06:	80 e0       	ldi	r24, 0x00	; 0
+				*Copy_pu8Value = ((PINA >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+				
+				case DIO_PORTB:
+				*Copy_pu8Value = ((PINB >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+     e08:	08 95       	ret
+				
+				case DIO_PORTC:
+				*Copy_pu8Value = ((PINC >> Copy_u8PinID) & DIO_MASK_BIT);
+     e0a:	83 b3       	in	r24, 0x13	; 19
+     e0c:	90 e0       	ldi	r25, 0x00	; 0
+     e0e:	02 c0       	rjmp	.+4      	; 0xe14 <DIO_enuGetPinVal+0x58>
+     e10:	95 95       	asr	r25
+     e12:	87 95       	ror	r24
+     e14:	6a 95       	dec	r22
+     e16:	e2 f7       	brpl	.-8      	; 0xe10 <DIO_enuGetPinVal+0x54>
+     e18:	81 70       	andi	r24, 0x01	; 1
+     e1a:	fa 01       	movw	r30, r20
+     e1c:	80 83       	st	Z, r24
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+		Local_enuErrorState = ES_OK;
+     e1e:	80 e0       	ldi	r24, 0x00	; 0
+				*Copy_pu8Value = ((PINB >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+				
+				case DIO_PORTC:
+				*Copy_pu8Value = ((PINC >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+     e20:	08 95       	ret
+				
+				case DIO_PORTD:
+				*Copy_pu8Value = ((PIND >> Copy_u8PinID) & DIO_MASK_BIT);
+     e22:	80 b3       	in	r24, 0x10	; 16
+     e24:	90 e0       	ldi	r25, 0x00	; 0
+     e26:	02 c0       	rjmp	.+4      	; 0xe2c <DIO_enuGetPinVal+0x70>
+     e28:	95 95       	asr	r25
+     e2a:	87 95       	ror	r24
+     e2c:	6a 95       	dec	r22
+     e2e:	e2 f7       	brpl	.-8      	; 0xe28 <DIO_enuGetPinVal+0x6c>
+     e30:	81 70       	andi	r24, 0x01	; 1
+     e32:	fa 01       	movw	r30, r20
+     e34:	80 83       	st	Z, r24
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+		Local_enuErrorState = ES_OK;
+     e36:	80 e0       	ldi	r24, 0x00	; 0
+				*Copy_pu8Value = ((PINC >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+				
+				case DIO_PORTD:
+				*Copy_pu8Value = ((PIND >> Copy_u8PinID) & DIO_MASK_BIT);
+				break;
+     e38:	08 95       	ret
+		}
+		Local_enuErrorState = ES_OK;
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     e3a:	82 e0       	ldi	r24, 0x02	; 2
+     e3c:	08 95       	ret
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+		Local_enuErrorState = ES_OK;
+     e3e:	80 e0       	ldi	r24, 0x00	; 0
+     e40:	08 95       	ret
+     e42:	80 e0       	ldi	r24, 0x00	; 0
+     e44:	08 95       	ret
+     e46:	80 e0       	ldi	r24, 0x00	; 0
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+	
+	return Local_enuErrorState;
+}
+     e48:	08 95       	ret
+
+00000e4a <EXTI_enuInit>:
+	{
+		Local_enuErrorState = ES_OUT_OF_RANGE;
+	}
+	
+	return Local_enuErrorState;
+}
+     e4a:	ac 01       	movw	r20, r24
+     e4c:	89 2b       	or	r24, r25
+     e4e:	09 f0       	breq	.+2      	; 0xe52 <EXTI_enuInit+0x8>
+     e50:	86 c0       	rjmp	.+268    	; 0xf5e <EXTI_enuInit+0x114>
+     e52:	82 e0       	ldi	r24, 0x02	; 2
+     e54:	08 95       	ret
+     e56:	e9 2f       	mov	r30, r25
+     e58:	f0 e0       	ldi	r31, 0x00	; 0
+     e5a:	9f 01       	movw	r18, r30
+     e5c:	22 0f       	add	r18, r18
+     e5e:	33 1f       	adc	r19, r19
+     e60:	e2 0f       	add	r30, r18
+     e62:	f3 1f       	adc	r31, r19
+     e64:	e4 0f       	add	r30, r20
+     e66:	f5 1f       	adc	r31, r21
+     e68:	20 81       	ld	r18, Z
+     e6a:	21 30       	cpi	r18, 0x01	; 1
+     e6c:	81 f1       	breq	.+96     	; 0xece <EXTI_enuInit+0x84>
+     e6e:	20 f0       	brcs	.+8      	; 0xe78 <EXTI_enuInit+0x2e>
+     e70:	22 30       	cpi	r18, 0x02	; 2
+     e72:	09 f4       	brne	.+2      	; 0xe76 <EXTI_enuInit+0x2c>
+     e74:	57 c0       	rjmp	.+174    	; 0xf24 <EXTI_enuInit+0xda>
+     e76:	6a c0       	rjmp	.+212    	; 0xf4c <EXTI_enuInit+0x102>
+     e78:	21 81       	ldd	r18, Z+1	; 0x01
+     e7a:	21 11       	cpse	r18, r1
+     e7c:	6e c0       	rjmp	.+220    	; 0xf5a <EXTI_enuInit+0x110>
+     e7e:	25 b7       	in	r18, 0x35	; 53
+     e80:	2c 7f       	andi	r18, 0xFC	; 252
+     e82:	25 bf       	out	0x35, r18	; 53
+     e84:	22 81       	ldd	r18, Z+2	; 0x02
+     e86:	21 30       	cpi	r18, 0x01	; 1
+     e88:	69 f0       	breq	.+26     	; 0xea4 <EXTI_enuInit+0x5a>
+     e8a:	28 f0       	brcs	.+10     	; 0xe96 <EXTI_enuInit+0x4c>
+     e8c:	22 30       	cpi	r18, 0x02	; 2
+     e8e:	89 f0       	breq	.+34     	; 0xeb2 <EXTI_enuInit+0x68>
+     e90:	23 30       	cpi	r18, 0x03	; 3
+     e92:	b1 f0       	breq	.+44     	; 0xec0 <EXTI_enuInit+0x76>
+     e94:	5d c0       	rjmp	.+186    	; 0xf50 <EXTI_enuInit+0x106>
+     e96:	25 b7       	in	r18, 0x35	; 53
+     e98:	2e 7f       	andi	r18, 0xFE	; 254
+     e9a:	25 bf       	out	0x35, r18	; 53
+     e9c:	25 b7       	in	r18, 0x35	; 53
+     e9e:	2d 7f       	andi	r18, 0xFD	; 253
+     ea0:	25 bf       	out	0x35, r18	; 53
+     ea2:	5b c0       	rjmp	.+182    	; 0xf5a <EXTI_enuInit+0x110>
+     ea4:	25 b7       	in	r18, 0x35	; 53
+     ea6:	21 60       	ori	r18, 0x01	; 1
+     ea8:	25 bf       	out	0x35, r18	; 53
+     eaa:	25 b7       	in	r18, 0x35	; 53
+     eac:	2d 7f       	andi	r18, 0xFD	; 253
+     eae:	25 bf       	out	0x35, r18	; 53
+     eb0:	54 c0       	rjmp	.+168    	; 0xf5a <EXTI_enuInit+0x110>
+     eb2:	25 b7       	in	r18, 0x35	; 53
+     eb4:	2e 7f       	andi	r18, 0xFE	; 254
+     eb6:	25 bf       	out	0x35, r18	; 53
+     eb8:	25 b7       	in	r18, 0x35	; 53
+     eba:	22 60       	ori	r18, 0x02	; 2
+     ebc:	25 bf       	out	0x35, r18	; 53
+     ebe:	4d c0       	rjmp	.+154    	; 0xf5a <EXTI_enuInit+0x110>
+     ec0:	25 b7       	in	r18, 0x35	; 53
+     ec2:	21 60       	ori	r18, 0x01	; 1
+     ec4:	25 bf       	out	0x35, r18	; 53
+     ec6:	25 b7       	in	r18, 0x35	; 53
+     ec8:	22 60       	ori	r18, 0x02	; 2
+     eca:	25 bf       	out	0x35, r18	; 53
+     ecc:	46 c0       	rjmp	.+140    	; 0xf5a <EXTI_enuInit+0x110>
+     ece:	21 81       	ldd	r18, Z+1	; 0x01
+     ed0:	21 11       	cpse	r18, r1
+     ed2:	43 c0       	rjmp	.+134    	; 0xf5a <EXTI_enuInit+0x110>
+     ed4:	25 b7       	in	r18, 0x35	; 53
+     ed6:	23 7f       	andi	r18, 0xF3	; 243
+     ed8:	25 bf       	out	0x35, r18	; 53
+     eda:	22 81       	ldd	r18, Z+2	; 0x02
+     edc:	21 30       	cpi	r18, 0x01	; 1
+     ede:	69 f0       	breq	.+26     	; 0xefa <EXTI_enuInit+0xb0>
+     ee0:	28 f0       	brcs	.+10     	; 0xeec <EXTI_enuInit+0xa2>
+     ee2:	22 30       	cpi	r18, 0x02	; 2
+     ee4:	89 f0       	breq	.+34     	; 0xf08 <EXTI_enuInit+0xbe>
+     ee6:	23 30       	cpi	r18, 0x03	; 3
+     ee8:	b1 f0       	breq	.+44     	; 0xf16 <EXTI_enuInit+0xcc>
+     eea:	34 c0       	rjmp	.+104    	; 0xf54 <EXTI_enuInit+0x10a>
+     eec:	25 b7       	in	r18, 0x35	; 53
+     eee:	2b 7f       	andi	r18, 0xFB	; 251
+     ef0:	25 bf       	out	0x35, r18	; 53
+     ef2:	25 b7       	in	r18, 0x35	; 53
+     ef4:	27 7f       	andi	r18, 0xF7	; 247
+     ef6:	25 bf       	out	0x35, r18	; 53
+     ef8:	30 c0       	rjmp	.+96     	; 0xf5a <EXTI_enuInit+0x110>
+     efa:	25 b7       	in	r18, 0x35	; 53
+     efc:	24 60       	ori	r18, 0x04	; 4
+     efe:	25 bf       	out	0x35, r18	; 53
+     f00:	25 b7       	in	r18, 0x35	; 53
+     f02:	27 7f       	andi	r18, 0xF7	; 247
+     f04:	25 bf       	out	0x35, r18	; 53
+     f06:	29 c0       	rjmp	.+82     	; 0xf5a <EXTI_enuInit+0x110>
+     f08:	25 b7       	in	r18, 0x35	; 53
+     f0a:	2b 7f       	andi	r18, 0xFB	; 251
+     f0c:	25 bf       	out	0x35, r18	; 53
+     f0e:	25 b7       	in	r18, 0x35	; 53
+     f10:	28 60       	ori	r18, 0x08	; 8
+     f12:	25 bf       	out	0x35, r18	; 53
+     f14:	22 c0       	rjmp	.+68     	; 0xf5a <EXTI_enuInit+0x110>
+     f16:	25 b7       	in	r18, 0x35	; 53
+     f18:	24 60       	ori	r18, 0x04	; 4
+     f1a:	25 bf       	out	0x35, r18	; 53
+     f1c:	25 b7       	in	r18, 0x35	; 53
+     f1e:	28 60       	ori	r18, 0x08	; 8
+     f20:	25 bf       	out	0x35, r18	; 53
+     f22:	1b c0       	rjmp	.+54     	; 0xf5a <EXTI_enuInit+0x110>
+     f24:	21 81       	ldd	r18, Z+1	; 0x01
+     f26:	21 11       	cpse	r18, r1
+     f28:	18 c0       	rjmp	.+48     	; 0xf5a <EXTI_enuInit+0x110>
+     f2a:	24 b7       	in	r18, 0x34	; 52
+     f2c:	2f 7b       	andi	r18, 0xBF	; 191
+     f2e:	24 bf       	out	0x34, r18	; 52
+     f30:	22 81       	ldd	r18, Z+2	; 0x02
+     f32:	22 30       	cpi	r18, 0x02	; 2
+     f34:	19 f0       	breq	.+6      	; 0xf3c <EXTI_enuInit+0xf2>
+     f36:	23 30       	cpi	r18, 0x03	; 3
+     f38:	29 f0       	breq	.+10     	; 0xf44 <EXTI_enuInit+0xfa>
+     f3a:	0e c0       	rjmp	.+28     	; 0xf58 <EXTI_enuInit+0x10e>
+     f3c:	24 b7       	in	r18, 0x34	; 52
+     f3e:	2f 7b       	andi	r18, 0xBF	; 191
+     f40:	24 bf       	out	0x34, r18	; 52
+     f42:	0b c0       	rjmp	.+22     	; 0xf5a <EXTI_enuInit+0x110>
+     f44:	24 b7       	in	r18, 0x34	; 52
+     f46:	20 64       	ori	r18, 0x40	; 64
+     f48:	24 bf       	out	0x34, r18	; 52
+     f4a:	07 c0       	rjmp	.+14     	; 0xf5a <EXTI_enuInit+0x110>
+     f4c:	83 e0       	ldi	r24, 0x03	; 3
+     f4e:	05 c0       	rjmp	.+10     	; 0xf5a <EXTI_enuInit+0x110>
+     f50:	83 e0       	ldi	r24, 0x03	; 3
+     f52:	03 c0       	rjmp	.+6      	; 0xf5a <EXTI_enuInit+0x110>
+     f54:	83 e0       	ldi	r24, 0x03	; 3
+     f56:	01 c0       	rjmp	.+2      	; 0xf5a <EXTI_enuInit+0x110>
+     f58:	83 e0       	ldi	r24, 0x03	; 3
+     f5a:	9f 5f       	subi	r25, 0xFF	; 255
+     f5c:	02 c0       	rjmp	.+4      	; 0xf62 <EXTI_enuInit+0x118>
+     f5e:	90 e0       	ldi	r25, 0x00	; 0
+     f60:	81 e0       	ldi	r24, 0x01	; 1
+     f62:	93 30       	cpi	r25, 0x03	; 3
+     f64:	08 f4       	brcc	.+2      	; 0xf68 <EXTI_enuInit+0x11e>
+     f66:	77 cf       	rjmp	.-274    	; 0xe56 <EXTI_enuInit+0xc>
+     f68:	08 95       	ret
+
+00000f6a <EXTI_enuEnable>:
+     f6a:	83 30       	cpi	r24, 0x03	; 3
+     f6c:	f0 f4       	brcc	.+60     	; 0xfaa <EXTI_enuEnable+0x40>
+     f6e:	81 30       	cpi	r24, 0x01	; 1
+     f70:	61 f0       	breq	.+24     	; 0xf8a <EXTI_enuEnable+0x20>
+     f72:	18 f0       	brcs	.+6      	; 0xf7a <EXTI_enuEnable+0x10>
+     f74:	82 30       	cpi	r24, 0x02	; 2
+     f76:	89 f0       	breq	.+34     	; 0xf9a <EXTI_enuEnable+0x30>
+     f78:	1a c0       	rjmp	.+52     	; 0xfae <EXTI_enuEnable+0x44>
+     f7a:	8b b7       	in	r24, 0x3b	; 59
+     f7c:	8f 7b       	andi	r24, 0xBF	; 191
+     f7e:	8b bf       	out	0x3b, r24	; 59
+     f80:	8b b7       	in	r24, 0x3b	; 59
+     f82:	80 64       	ori	r24, 0x40	; 64
+     f84:	8b bf       	out	0x3b, r24	; 59
+     f86:	81 e0       	ldi	r24, 0x01	; 1
+     f88:	08 95       	ret
+     f8a:	8b b7       	in	r24, 0x3b	; 59
+     f8c:	8f 77       	andi	r24, 0x7F	; 127
+     f8e:	8b bf       	out	0x3b, r24	; 59
+     f90:	8b b7       	in	r24, 0x3b	; 59
+     f92:	80 68       	ori	r24, 0x80	; 128
+     f94:	8b bf       	out	0x3b, r24	; 59
+     f96:	81 e0       	ldi	r24, 0x01	; 1
+     f98:	08 95       	ret
+     f9a:	8b b7       	in	r24, 0x3b	; 59
+     f9c:	8f 7d       	andi	r24, 0xDF	; 223
+     f9e:	8b bf       	out	0x3b, r24	; 59
+     fa0:	8b b7       	in	r24, 0x3b	; 59
+     fa2:	80 62       	ori	r24, 0x20	; 32
+     fa4:	8b bf       	out	0x3b, r24	; 59
+     fa6:	81 e0       	ldi	r24, 0x01	; 1
+     fa8:	08 95       	ret
+     faa:	83 e0       	ldi	r24, 0x03	; 3
+     fac:	08 95       	ret
+     fae:	81 e0       	ldi	r24, 0x01	; 1
+     fb0:	08 95       	ret
+
+00000fb2 <EXTI_enuCallBackFunc>:
+
+ES_t EXTI_enuCallBackFunc(volatile void (*Copy_PFunc)(void*), volatile void *Copy_PvidAppParameter, EXTI_ID_t Copy_enuEXTI_Id)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	if(Copy_PFunc != NULL)
+     fb2:	00 97       	sbiw	r24, 0x00	; 0
+     fb4:	89 f0       	breq	.+34     	; 0xfd8 <EXTI_enuCallBackFunc+0x26>
+	{
+		if(Copy_enuEXTI_Id < MAX_NUM_EXTI)
+     fb6:	43 30       	cpi	r20, 0x03	; 3
+     fb8:	88 f4       	brcc	.+34     	; 0xfdc <EXTI_enuCallBackFunc+0x2a>
+		{
+			EXTI_APFunc[Copy_enuEXTI_Id] = Copy_PFunc;
+     fba:	50 e0       	ldi	r21, 0x00	; 0
+     fbc:	44 0f       	add	r20, r20
+     fbe:	55 1f       	adc	r21, r21
+     fc0:	fa 01       	movw	r30, r20
+     fc2:	e7 56       	subi	r30, 0x67	; 103
+     fc4:	ff 4f       	sbci	r31, 0xFF	; 255
+     fc6:	91 83       	std	Z+1, r25	; 0x01
+     fc8:	80 83       	st	Z, r24
+			EXTI_APvidGenericParameters[Copy_enuEXTI_Id] = Copy_PvidAppParameter;
+     fca:	fa 01       	movw	r30, r20
+     fcc:	ed 56       	subi	r30, 0x6D	; 109
+     fce:	ff 4f       	sbci	r31, 0xFF	; 255
+     fd0:	71 83       	std	Z+1, r23	; 0x01
+     fd2:	60 83       	st	Z, r22
+			Local_enuErrorState = ES_OK;
+     fd4:	80 e0       	ldi	r24, 0x00	; 0
+     fd6:	08 95       	ret
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+		}
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+     fd8:	82 e0       	ldi	r24, 0x02	; 2
+     fda:	08 95       	ret
+			EXTI_APvidGenericParameters[Copy_enuEXTI_Id] = Copy_PvidAppParameter;
+			Local_enuErrorState = ES_OK;
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_OF_RANGE;
+     fdc:	83 e0       	ldi	r24, 0x03	; 3
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+	
+	return Local_enuErrorState;
+}
+     fde:	08 95       	ret
+
+00000fe0 <__vector_1>:
+
+/* ISR for EXTI0 */
+ISR(VECT_INT0)
+{	
+     fe0:	1f 92       	push	r1
+     fe2:	0f 92       	push	r0
+     fe4:	0f b6       	in	r0, 0x3f	; 63
+     fe6:	0f 92       	push	r0
+     fe8:	11 24       	eor	r1, r1
+     fea:	2f 93       	push	r18
+     fec:	3f 93       	push	r19
+     fee:	4f 93       	push	r20
+     ff0:	5f 93       	push	r21
+     ff2:	6f 93       	push	r22
+     ff4:	7f 93       	push	r23
+     ff6:	8f 93       	push	r24
+     ff8:	9f 93       	push	r25
+     ffa:	af 93       	push	r26
+     ffc:	bf 93       	push	r27
+     ffe:	ef 93       	push	r30
+    1000:	ff 93       	push	r31
+	if(EXTI_APFunc[EXTI0] != NULL)
+    1002:	e0 91 99 00 	lds	r30, 0x0099	; 0x800099 <EXTI_APFunc>
+    1006:	f0 91 9a 00 	lds	r31, 0x009A	; 0x80009a <EXTI_APFunc+0x1>
+    100a:	30 97       	sbiw	r30, 0x00	; 0
+    100c:	29 f0       	breq	.+10     	; 0x1018 <__vector_1+0x38>
+	{
+		EXTI_APFunc[EXTI0](EXTI_APvidGenericParameters[EXTI0]);
+    100e:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <EXTI_APvidGenericParameters>
+    1012:	90 91 94 00 	lds	r25, 0x0094	; 0x800094 <EXTI_APvidGenericParameters+0x1>
+    1016:	09 95       	icall
+	}
+}
+    1018:	ff 91       	pop	r31
+    101a:	ef 91       	pop	r30
+    101c:	bf 91       	pop	r27
+    101e:	af 91       	pop	r26
+    1020:	9f 91       	pop	r25
+    1022:	8f 91       	pop	r24
+    1024:	7f 91       	pop	r23
+    1026:	6f 91       	pop	r22
+    1028:	5f 91       	pop	r21
+    102a:	4f 91       	pop	r20
+    102c:	3f 91       	pop	r19
+    102e:	2f 91       	pop	r18
+    1030:	0f 90       	pop	r0
+    1032:	0f be       	out	0x3f, r0	; 63
+    1034:	0f 90       	pop	r0
+    1036:	1f 90       	pop	r1
+    1038:	18 95       	reti
+
+0000103a <__vector_2>:
+
+/* ISR for EXTI1 */
+ISR(VECT_INT1)
+{
+    103a:	1f 92       	push	r1
+    103c:	0f 92       	push	r0
+    103e:	0f b6       	in	r0, 0x3f	; 63
+    1040:	0f 92       	push	r0
+    1042:	11 24       	eor	r1, r1
+    1044:	2f 93       	push	r18
+    1046:	3f 93       	push	r19
+    1048:	4f 93       	push	r20
+    104a:	5f 93       	push	r21
+    104c:	6f 93       	push	r22
+    104e:	7f 93       	push	r23
+    1050:	8f 93       	push	r24
+    1052:	9f 93       	push	r25
+    1054:	af 93       	push	r26
+    1056:	bf 93       	push	r27
+    1058:	ef 93       	push	r30
+    105a:	ff 93       	push	r31
+	if(EXTI_APFunc[EXTI1] != NULL)
+    105c:	e0 91 9b 00 	lds	r30, 0x009B	; 0x80009b <EXTI_APFunc+0x2>
+    1060:	f0 91 9c 00 	lds	r31, 0x009C	; 0x80009c <EXTI_APFunc+0x3>
+    1064:	30 97       	sbiw	r30, 0x00	; 0
+    1066:	29 f0       	breq	.+10     	; 0x1072 <__vector_2+0x38>
+	{
+		EXTI_APFunc[EXTI1](EXTI_APvidGenericParameters[EXTI1]);
+    1068:	80 91 95 00 	lds	r24, 0x0095	; 0x800095 <EXTI_APvidGenericParameters+0x2>
+    106c:	90 91 96 00 	lds	r25, 0x0096	; 0x800096 <EXTI_APvidGenericParameters+0x3>
+    1070:	09 95       	icall
+	}
+}
+    1072:	ff 91       	pop	r31
+    1074:	ef 91       	pop	r30
+    1076:	bf 91       	pop	r27
+    1078:	af 91       	pop	r26
+    107a:	9f 91       	pop	r25
+    107c:	8f 91       	pop	r24
+    107e:	7f 91       	pop	r23
+    1080:	6f 91       	pop	r22
+    1082:	5f 91       	pop	r21
+    1084:	4f 91       	pop	r20
+    1086:	3f 91       	pop	r19
+    1088:	2f 91       	pop	r18
+    108a:	0f 90       	pop	r0
+    108c:	0f be       	out	0x3f, r0	; 63
+    108e:	0f 90       	pop	r0
+    1090:	1f 90       	pop	r1
+    1092:	18 95       	reti
+
+00001094 <__vector_3>:
+
+/* ISR for EXTI2 */
+ISR(VECT_INT2)
+{	
+    1094:	1f 92       	push	r1
+    1096:	0f 92       	push	r0
+    1098:	0f b6       	in	r0, 0x3f	; 63
+    109a:	0f 92       	push	r0
+    109c:	11 24       	eor	r1, r1
+    109e:	2f 93       	push	r18
+    10a0:	3f 93       	push	r19
+    10a2:	4f 93       	push	r20
+    10a4:	5f 93       	push	r21
+    10a6:	6f 93       	push	r22
+    10a8:	7f 93       	push	r23
+    10aa:	8f 93       	push	r24
+    10ac:	9f 93       	push	r25
+    10ae:	af 93       	push	r26
+    10b0:	bf 93       	push	r27
+    10b2:	ef 93       	push	r30
+    10b4:	ff 93       	push	r31
+	if(EXTI_APFunc[EXTI2] != NULL)
+    10b6:	e0 91 9d 00 	lds	r30, 0x009D	; 0x80009d <EXTI_APFunc+0x4>
+    10ba:	f0 91 9e 00 	lds	r31, 0x009E	; 0x80009e <EXTI_APFunc+0x5>
+    10be:	30 97       	sbiw	r30, 0x00	; 0
+    10c0:	29 f0       	breq	.+10     	; 0x10cc <__vector_3+0x38>
+	{
+		EXTI_APFunc[EXTI2](EXTI_APvidGenericParameters[EXTI2]);
+    10c2:	80 91 97 00 	lds	r24, 0x0097	; 0x800097 <EXTI_APvidGenericParameters+0x4>
+    10c6:	90 91 98 00 	lds	r25, 0x0098	; 0x800098 <EXTI_APvidGenericParameters+0x5>
+    10ca:	09 95       	icall
+	}
+    10cc:	ff 91       	pop	r31
+    10ce:	ef 91       	pop	r30
+    10d0:	bf 91       	pop	r27
+    10d2:	af 91       	pop	r26
+    10d4:	9f 91       	pop	r25
+    10d6:	8f 91       	pop	r24
+    10d8:	7f 91       	pop	r23
+    10da:	6f 91       	pop	r22
+    10dc:	5f 91       	pop	r21
+    10de:	4f 91       	pop	r20
+    10e0:	3f 91       	pop	r19
+    10e2:	2f 91       	pop	r18
+    10e4:	0f 90       	pop	r0
+    10e6:	0f be       	out	0x3f, r0	; 63
+    10e8:	0f 90       	pop	r0
+    10ea:	1f 90       	pop	r1
+    10ec:	18 95       	reti
+
+000010ee <GIE_enuGloable_Interrupt_Enable>:
+
+ES_t GIE_enuGloable_Interrupt_Enable(void)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	SREG &= ~(MASK_BIT << GIE_I);
+    10ee:	8f b7       	in	r24, 0x3f	; 63
+    10f0:	8f 77       	andi	r24, 0x7F	; 127
+    10f2:	8f bf       	out	0x3f, r24	; 63
+	SREG |= (MASK_BIT << GIE_I);
+    10f4:	8f b7       	in	r24, 0x3f	; 63
+    10f6:	80 68       	ori	r24, 0x80	; 128
+    10f8:	8f bf       	out	0x3f, r24	; 63
+	Local_enuErrorState = ES_OK;
+	
+	return Local_enuErrorState;
+}
+    10fa:	80 e0       	ldi	r24, 0x00	; 0
+    10fc:	08 95       	ret
+
+000010fe <I2C_enuInitMaster>:
+		Local_enuErrorState = ES_OK;
+	else if(SLAVE_READ_RECIEVE_ADDRESS)
+		Local_enuErrorState = ES_OK;
+
+	return Local_enuErrorState;
+}
+    10fe:	81 b1       	in	r24, 0x01	; 1
+    1100:	8c 7f       	andi	r24, 0xFC	; 252
+    1102:	81 b9       	out	0x01, r24	; 1
+    1104:	8f ed       	ldi	r24, 0xDF	; 223
+    1106:	80 b9       	out	0x00, r24	; 0
+    1108:	86 b7       	in	r24, 0x36	; 54
+    110a:	84 60       	ori	r24, 0x04	; 4
+    110c:	86 bf       	out	0x36, r24	; 54
+    110e:	80 e0       	ldi	r24, 0x00	; 0
+    1110:	08 95       	ret
+
+00001112 <I2C_enuStartCondition>:
+    1112:	86 b7       	in	r24, 0x36	; 54
+    1114:	80 62       	ori	r24, 0x20	; 32
+    1116:	86 bf       	out	0x36, r24	; 54
+    1118:	86 b7       	in	r24, 0x36	; 54
+    111a:	80 68       	ori	r24, 0x80	; 128
+    111c:	86 bf       	out	0x36, r24	; 54
+    111e:	06 b6       	in	r0, 0x36	; 54
+    1120:	07 fe       	sbrs	r0, 7
+    1122:	fd cf       	rjmp	.-6      	; 0x111e <I2C_enuStartCondition+0xc>
+    1124:	81 b1       	in	r24, 0x01	; 1
+    1126:	88 7f       	andi	r24, 0xF8	; 248
+    1128:	88 30       	cpi	r24, 0x08	; 8
+    112a:	11 f0       	breq	.+4      	; 0x1130 <I2C_enuStartCondition+0x1e>
+    112c:	81 e0       	ldi	r24, 0x01	; 1
+    112e:	08 95       	ret
+    1130:	80 e0       	ldi	r24, 0x00	; 0
+    1132:	08 95       	ret
+
+00001134 <I2C_enuStopCondition>:
+    1134:	86 b7       	in	r24, 0x36	; 54
+    1136:	80 61       	ori	r24, 0x10	; 16
+    1138:	86 bf       	out	0x36, r24	; 54
+    113a:	86 b7       	in	r24, 0x36	; 54
+    113c:	80 68       	ori	r24, 0x80	; 128
+    113e:	86 bf       	out	0x36, r24	; 54
+    1140:	80 e0       	ldi	r24, 0x00	; 0
+    1142:	08 95       	ret
+
+00001144 <I2C_enuSendSlaveAddress>:
+    1144:	88 23       	and	r24, r24
+    1146:	14 f0       	brlt	.+4      	; 0x114c <I2C_enuSendSlaveAddress+0x8>
+    1148:	88 0f       	add	r24, r24
+    114a:	83 b9       	out	0x03, r24	; 3
+    114c:	62 30       	cpi	r22, 0x02	; 2
+    114e:	18 f4       	brcc	.+6      	; 0x1156 <I2C_enuSendSlaveAddress+0x12>
+    1150:	83 b1       	in	r24, 0x03	; 3
+    1152:	68 2b       	or	r22, r24
+    1154:	63 b9       	out	0x03, r22	; 3
+    1156:	86 b7       	in	r24, 0x36	; 54
+    1158:	8f 7d       	andi	r24, 0xDF	; 223
+    115a:	86 bf       	out	0x36, r24	; 54
+    115c:	86 b7       	in	r24, 0x36	; 54
+    115e:	80 68       	ori	r24, 0x80	; 128
+    1160:	86 bf       	out	0x36, r24	; 54
+    1162:	06 b6       	in	r0, 0x36	; 54
+    1164:	07 fe       	sbrs	r0, 7
+    1166:	fd cf       	rjmp	.-6      	; 0x1162 <I2C_enuSendSlaveAddress+0x1e>
+    1168:	81 b1       	in	r24, 0x01	; 1
+    116a:	88 7f       	andi	r24, 0xF8	; 248
+    116c:	88 31       	cpi	r24, 0x18	; 24
+    116e:	31 f0       	breq	.+12     	; 0x117c <I2C_enuSendSlaveAddress+0x38>
+    1170:	81 b1       	in	r24, 0x01	; 1
+    1172:	88 7f       	andi	r24, 0xF8	; 248
+    1174:	80 34       	cpi	r24, 0x40	; 64
+    1176:	21 f0       	breq	.+8      	; 0x1180 <I2C_enuSendSlaveAddress+0x3c>
+    1178:	81 e0       	ldi	r24, 0x01	; 1
+    117a:	08 95       	ret
+    117c:	80 e0       	ldi	r24, 0x00	; 0
+    117e:	08 95       	ret
+    1180:	80 e0       	ldi	r24, 0x00	; 0
+    1182:	08 95       	ret
+
+00001184 <I2C_enuMasterSendData>:
+
+ES_t I2C_enuMasterSendData	(u8 Copy_u8Data)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	TWDR=Copy_u8Data;
+    1184:	83 b9       	out	0x03, r24	; 3
+	CLEAR_FLAG;
+    1186:	86 b7       	in	r24, 0x36	; 54
+    1188:	80 68       	ori	r24, 0x80	; 128
+    118a:	86 bf       	out	0x36, r24	; 54
+	while (WAIT_FLAG);
+    118c:	06 b6       	in	r0, 0x36	; 54
+    118e:	07 fe       	sbrs	r0, 7
+    1190:	fd cf       	rjmp	.-6      	; 0x118c <I2C_enuMasterSendData+0x8>
+	if (MASTER_DATA_TRANSMIT)
+    1192:	81 b1       	in	r24, 0x01	; 1
+    1194:	88 7f       	andi	r24, 0xF8	; 248
+    1196:	88 32       	cpi	r24, 0x28	; 40
+    1198:	11 f0       	breq	.+4      	; 0x119e <I2C_enuMasterSendData+0x1a>
+
+
+
+ES_t I2C_enuMasterSendData	(u8 Copy_u8Data)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+    119a:	81 e0       	ldi	r24, 0x01	; 1
+    119c:	08 95       	ret
+
+	TWDR=Copy_u8Data;
+	CLEAR_FLAG;
+	while (WAIT_FLAG);
+	if (MASTER_DATA_TRANSMIT)
+		Local_enuErrorState = ES_OK;
+    119e:	80 e0       	ldi	r24, 0x00	; 0
+
+	return Local_enuErrorState;
+}
+    11a0:	08 95       	ret
+
+000011a2 <TIMER0_enuInit>:
+	}
+	
+	TIMSK |= (MASK_BIT << TOIE0);
+	
+	return Local_enuErrorState;
+}
+    11a2:	83 b7       	in	r24, 0x33	; 51
+    11a4:	87 7b       	andi	r24, 0xB7	; 183
+    11a6:	83 bf       	out	0x33, r24	; 51
+    11a8:	83 b7       	in	r24, 0x33	; 51
+    11aa:	80 64       	ori	r24, 0x40	; 64
+    11ac:	83 bf       	out	0x33, r24	; 51
+    11ae:	83 b7       	in	r24, 0x33	; 51
+    11b0:	88 60       	ori	r24, 0x08	; 8
+    11b2:	83 bf       	out	0x33, r24	; 51
+    11b4:	83 b7       	in	r24, 0x33	; 51
+    11b6:	88 7f       	andi	r24, 0xF8	; 248
+    11b8:	83 bf       	out	0x33, r24	; 51
+    11ba:	83 b7       	in	r24, 0x33	; 51
+    11bc:	8e 7f       	andi	r24, 0xFE	; 254
+    11be:	83 bf       	out	0x33, r24	; 51
+    11c0:	83 b7       	in	r24, 0x33	; 51
+    11c2:	82 60       	ori	r24, 0x02	; 2
+    11c4:	83 bf       	out	0x33, r24	; 51
+    11c6:	83 b7       	in	r24, 0x33	; 51
+    11c8:	8b 7f       	andi	r24, 0xFB	; 251
+    11ca:	83 bf       	out	0x33, r24	; 51
+    11cc:	83 b7       	in	r24, 0x33	; 51
+    11ce:	8f 7c       	andi	r24, 0xCF	; 207
+    11d0:	83 bf       	out	0x33, r24	; 51
+    11d2:	83 b7       	in	r24, 0x33	; 51
+    11d4:	8f 7e       	andi	r24, 0xEF	; 239
+    11d6:	83 bf       	out	0x33, r24	; 51
+    11d8:	83 b7       	in	r24, 0x33	; 51
+    11da:	80 62       	ori	r24, 0x20	; 32
+    11dc:	83 bf       	out	0x33, r24	; 51
+    11de:	80 e0       	ldi	r24, 0x00	; 0
+    11e0:	08 95       	ret
+
+000011e2 <TIMER0_enuGeneratePWM>:
+	#error "OC0 has a wrong configuration"
+	#endif	
+	
+	#elif TIMER0_MODE == FAST_PWM
+	#if OC0_MODE == NON_INVERTED
+	TIMER0_f32OC0Value = (Copy_u8DutyCycle * TIMER0_NO_OVF_COUNTS) / (PRESENTAGE_100);
+    11e2:	90 e0       	ldi	r25, 0x00	; 0
+    11e4:	a0 e0       	ldi	r26, 0x00	; 0
+    11e6:	b0 e0       	ldi	r27, 0x00	; 0
+    11e8:	66 27       	eor	r22, r22
+    11ea:	78 2f       	mov	r23, r24
+    11ec:	89 2f       	mov	r24, r25
+    11ee:	9a 2f       	mov	r25, r26
+    11f0:	0e 94 71 0a 	call	0x14e2	; 0x14e2 <__floatunsisf>
+    11f4:	20 e0       	ldi	r18, 0x00	; 0
+    11f6:	30 e0       	ldi	r19, 0x00	; 0
+    11f8:	48 ec       	ldi	r20, 0xC8	; 200
+    11fa:	52 e4       	ldi	r21, 0x42	; 66
+    11fc:	0e 94 d0 09 	call	0x13a0	; 0x13a0 <__divsf3>
+    1200:	60 93 9f 00 	sts	0x009F, r22	; 0x80009f <TIMER0_f32OC0Value>
+    1204:	70 93 a0 00 	sts	0x00A0, r23	; 0x8000a0 <TIMER0_f32OC0Value+0x1>
+    1208:	80 93 a1 00 	sts	0x00A1, r24	; 0x8000a1 <TIMER0_f32OC0Value+0x2>
+    120c:	90 93 a2 00 	sts	0x00A2, r25	; 0x8000a2 <TIMER0_f32OC0Value+0x3>
+	#else
+	#error "OC0 has a wrong configuration"
+	#endif
+	#endif
+	
+	OCR0 = TIMER0_f32OC0Value;	
+    1210:	0e 94 42 0a 	call	0x1484	; 0x1484 <__fixunssfsi>
+    1214:	6c bf       	out	0x3c, r22	; 60
+	
+	return Local_enuErrorState;
+}
+    1216:	80 e0       	ldi	r24, 0x00	; 0
+    1218:	08 95       	ret
+
+0000121a <TIMER1_enuInit>:
+
+	TIMSK |= (MASK_BIT << TICIE1);
+
+	Local_enuErrorState = ES_OK;
+	return Local_enuErrorState;
+}
+    121a:	8f b5       	in	r24, 0x2f	; 47
+    121c:	8c 7f       	andi	r24, 0xFC	; 252
+    121e:	8f bd       	out	0x2f, r24	; 47
+    1220:	8e b5       	in	r24, 0x2e	; 46
+    1222:	87 7e       	andi	r24, 0xE7	; 231
+    1224:	8e bd       	out	0x2e, r24	; 46
+    1226:	8f b5       	in	r24, 0x2f	; 47
+    1228:	81 60       	ori	r24, 0x01	; 1
+    122a:	8f bd       	out	0x2f, r24	; 47
+    122c:	8f b5       	in	r24, 0x2f	; 47
+    122e:	8d 7f       	andi	r24, 0xFD	; 253
+    1230:	8f bd       	out	0x2f, r24	; 47
+    1232:	8e b5       	in	r24, 0x2e	; 46
+    1234:	88 60       	ori	r24, 0x08	; 8
+    1236:	8e bd       	out	0x2e, r24	; 46
+    1238:	8e b5       	in	r24, 0x2e	; 46
+    123a:	8f 7e       	andi	r24, 0xEF	; 239
+    123c:	8e bd       	out	0x2e, r24	; 46
+    123e:	8e b5       	in	r24, 0x2e	; 46
+    1240:	88 7f       	andi	r24, 0xF8	; 248
+    1242:	8e bd       	out	0x2e, r24	; 46
+    1244:	8e b5       	in	r24, 0x2e	; 46
+    1246:	8e 7f       	andi	r24, 0xFE	; 254
+    1248:	8e bd       	out	0x2e, r24	; 46
+    124a:	8e b5       	in	r24, 0x2e	; 46
+    124c:	82 60       	ori	r24, 0x02	; 2
+    124e:	8e bd       	out	0x2e, r24	; 46
+    1250:	8e b5       	in	r24, 0x2e	; 46
+    1252:	8b 7f       	andi	r24, 0xFB	; 251
+    1254:	8e bd       	out	0x2e, r24	; 46
+    1256:	8f b5       	in	r24, 0x2f	; 47
+    1258:	8f 7b       	andi	r24, 0xBF	; 191
+    125a:	8f bd       	out	0x2f, r24	; 47
+    125c:	8f b5       	in	r24, 0x2f	; 47
+    125e:	80 68       	ori	r24, 0x80	; 128
+    1260:	8f bd       	out	0x2f, r24	; 47
+    1262:	8f b5       	in	r24, 0x2f	; 47
+    1264:	8f 7e       	andi	r24, 0xEF	; 239
+    1266:	8f bd       	out	0x2f, r24	; 47
+    1268:	8f b5       	in	r24, 0x2f	; 47
+    126a:	80 62       	ori	r24, 0x20	; 32
+    126c:	8f bd       	out	0x2f, r24	; 47
+    126e:	81 e0       	ldi	r24, 0x01	; 1
+    1270:	08 95       	ret
+
+00001272 <TIMER1_enuGeneratePWM_OCR1A>:
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	#if OC1A_MODE == OCRA_NON_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1A = ((u32)Copy_u8DutyCycle*256)/100;
+    1272:	90 e0       	ldi	r25, 0x00	; 0
+    1274:	a0 e0       	ldi	r26, 0x00	; 0
+    1276:	b0 e0       	ldi	r27, 0x00	; 0
+    1278:	66 27       	eor	r22, r22
+    127a:	78 2f       	mov	r23, r24
+    127c:	89 2f       	mov	r24, r25
+    127e:	9a 2f       	mov	r25, r26
+    1280:	24 e6       	ldi	r18, 0x64	; 100
+    1282:	30 e0       	ldi	r19, 0x00	; 0
+    1284:	40 e0       	ldi	r20, 0x00	; 0
+    1286:	50 e0       	ldi	r21, 0x00	; 0
+    1288:	0e 94 ff 0a 	call	0x15fe	; 0x15fe <__udivmodsi4>
+    128c:	3b bd       	out	0x2b, r19	; 43
+    128e:	2a bd       	out	0x2a, r18	; 42
+	#error "Timer 1 OCRA Mode error For PWM"
+	Local_enuErrorState = ES_OK;
+	#endif
+	
+	return Local_enuErrorState;
+}
+    1290:	80 e0       	ldi	r24, 0x00	; 0
+    1292:	08 95       	ret
+
+00001294 <TIMER1_enuGeneratePWM_OCR1B>:
+ES_t TIMER1_enuGeneratePWM_OCR1B(u8 Copy_u8DutyCycle)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	#if OC1B_MODE == OCRB_NON_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1B = ((u32)Copy_u8DutyCycle*256)/100;
+    1294:	90 e0       	ldi	r25, 0x00	; 0
+    1296:	a0 e0       	ldi	r26, 0x00	; 0
+    1298:	b0 e0       	ldi	r27, 0x00	; 0
+    129a:	66 27       	eor	r22, r22
+    129c:	78 2f       	mov	r23, r24
+    129e:	89 2f       	mov	r24, r25
+    12a0:	9a 2f       	mov	r25, r26
+    12a2:	24 e6       	ldi	r18, 0x64	; 100
+    12a4:	30 e0       	ldi	r19, 0x00	; 0
+    12a6:	40 e0       	ldi	r20, 0x00	; 0
+    12a8:	50 e0       	ldi	r21, 0x00	; 0
+    12aa:	0e 94 ff 0a 	call	0x15fe	; 0x15fe <__udivmodsi4>
+    12ae:	39 bd       	out	0x29, r19	; 41
+    12b0:	28 bd       	out	0x28, r18	; 40
+	#error "Timer 1 OCRB Mode error For PWM"
+	Local_enuErrorState = ES_OK;
+	#endif
+		
+	return Local_enuErrorState;
+}
+    12b2:	80 e0       	ldi	r24, 0x00	; 0
+    12b4:	08 95       	ret
+
+000012b6 <TIMER2_enuInit>:
+ES_t TIMER2_enuInit(void)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	/* Mask the two bits of Wave Generation Mode */
+	TCCR2 &= WGM_MASK;
+    12b6:	85 b5       	in	r24, 0x25	; 37
+    12b8:	87 7b       	andi	r24, 0xB7	; 183
+    12ba:	85 bd       	out	0x25, r24	; 37
+	TCCR2 &= ~(MASK_BIT << TCCR2_WGM21	);
+	#elif TIMER2_MODE == CTC
+	TCCR2 &= ~(MASK_BIT << TCCR2_WGM20);
+	TCCR2 |=  (MASK_BIT <<TCCR2_WGM21	);
+	#elif TIMER2_MODE== FAST_PWM
+	TCCR2 |=  (MASK_BIT << TCCR2_WGM20);
+    12bc:	85 b5       	in	r24, 0x25	; 37
+    12be:	80 64       	ori	r24, 0x40	; 64
+    12c0:	85 bd       	out	0x25, r24	; 37
+	TCCR2 |=  (MASK_BIT << TCCR2_WGM21	);
+    12c2:	85 b5       	in	r24, 0x25	; 37
+    12c4:	88 60       	ori	r24, 0x08	; 8
+    12c6:	85 bd       	out	0x25, r24	; 37
+	#else
+	#error "Timer2 Mode has a wrong configuration"
+	#endif
+
+	/* Mask the three bits of Timer0 Prescaler */
+	TCCR2 &= PRESCALER_MASK;
+    12c8:	85 b5       	in	r24, 0x25	; 37
+    12ca:	88 7f       	andi	r24, 0xF8	; 248
+    12cc:	85 bd       	out	0x25, r24	; 37
+	#elif TIMER2_PRES == PRES_NO
+	TCCR2 |=  (MASK_BIT << TCCR2_CS20	);
+	TCCR2 &= ~(MASK_BIT << TCCR2_CS21	);
+	TCCR2 &= ~(MASK_BIT << TCCR2_CS22	);
+	#elif TIMER2_PRES == PRES_8
+	TCCR2 &= ~(MASK_BIT <<TCCR2_CS20	);
+    12ce:	85 b5       	in	r24, 0x25	; 37
+    12d0:	8e 7f       	andi	r24, 0xFE	; 254
+    12d2:	85 bd       	out	0x25, r24	; 37
+	TCCR2 |=  (MASK_BIT <<TCCR2_CS21	);
+    12d4:	85 b5       	in	r24, 0x25	; 37
+    12d6:	82 60       	ori	r24, 0x02	; 2
+    12d8:	85 bd       	out	0x25, r24	; 37
+	TCCR2 &= ~(MASK_BIT <<TCCR2_CS22	);
+    12da:	85 b5       	in	r24, 0x25	; 37
+    12dc:	8b 7f       	andi	r24, 0xFB	; 251
+    12de:	85 bd       	out	0x25, r24	; 37
+	#else
+	#error "Timer2 Prescaler has a wrong configuration"
+	#endif
+
+	/* Mask the two bits of Output Compare Pin (OC2) */
+	TCCR2 &= COM_OC2_MASK;
+    12e0:	85 b5       	in	r24, 0x25	; 37
+    12e2:	8f 7c       	andi	r24, 0xCF	; 207
+    12e4:	85 bd       	out	0x25, r24	; 37
+	TCCR2 |=  (MASK_BIT << TCCR2_COM21);
+	#elif (OC2_MODE == SET_OC2 && (TIMER2_MODE == CTC))
+	TCCR2 |=  (MASK_BIT << TCCR2_COM20);
+	TCCR2 |=  (MASK_BIT << TCCR2_COM21);
+	#elif ((OC2_MODE == NON_INVERTED) && (TIMER2_MODE == PHCO_PWM || TIMER2_MODE == FAST_PWM))
+	TCCR2 &= ~(MASK_BIT << TCCR2_COM20);
+    12e6:	85 b5       	in	r24, 0x25	; 37
+    12e8:	8f 7e       	andi	r24, 0xEF	; 239
+    12ea:	85 bd       	out	0x25, r24	; 37
+	TCCR2 |=  (MASK_BIT << TCCR2_COM21);
+    12ec:	85 b5       	in	r24, 0x25	; 37
+    12ee:	80 62       	ori	r24, 0x20	; 32
+    12f0:	85 bd       	out	0x25, r24	; 37
+	#endif
+
+	Local_enuErrorState = ES_OK;
+
+	return Local_enuErrorState;
+}
+    12f2:	80 e0       	ldi	r24, 0x00	; 0
+    12f4:	08 95       	ret
+
+000012f6 <TIMER2_enuGeneratePWM>:
+	#error "OC2 has a wrong configuration"
+	#endif
+
+	#elif TIMER2_MODE == FAST_PWM
+	#if OC2_MODE == NON_INVERTED
+	TIMER2_f32OC2Value = (Copy_u8DutyCycle * TIMER2_NO_OVF_COUNTS) / (PRESENTAGE_100);
+    12f6:	90 e0       	ldi	r25, 0x00	; 0
+    12f8:	a0 e0       	ldi	r26, 0x00	; 0
+    12fa:	b0 e0       	ldi	r27, 0x00	; 0
+    12fc:	66 27       	eor	r22, r22
+    12fe:	78 2f       	mov	r23, r24
+    1300:	89 2f       	mov	r24, r25
+    1302:	9a 2f       	mov	r25, r26
+    1304:	0e 94 71 0a 	call	0x14e2	; 0x14e2 <__floatunsisf>
+    1308:	20 e0       	ldi	r18, 0x00	; 0
+    130a:	30 e0       	ldi	r19, 0x00	; 0
+    130c:	48 ec       	ldi	r20, 0xC8	; 200
+    130e:	52 e4       	ldi	r21, 0x42	; 66
+    1310:	0e 94 d0 09 	call	0x13a0	; 0x13a0 <__divsf3>
+    1314:	60 93 a3 00 	sts	0x00A3, r22	; 0x8000a3 <TIMER2_f32OC2Value>
+    1318:	70 93 a4 00 	sts	0x00A4, r23	; 0x8000a4 <TIMER2_f32OC2Value+0x1>
+    131c:	80 93 a5 00 	sts	0x00A5, r24	; 0x8000a5 <TIMER2_f32OC2Value+0x2>
+    1320:	90 93 a6 00 	sts	0x00A6, r25	; 0x8000a6 <TIMER2_f32OC2Value+0x3>
+	#else
+	#error "OC2 has a wrong configuration"
+	#endif
+	#endif
+
+	OCR2 = TIMER2_f32OC2Value;
+    1324:	0e 94 42 0a 	call	0x1484	; 0x1484 <__fixunssfsi>
+    1328:	63 bd       	out	0x23, r22	; 35
+
+	return Local_enuErrorState;
+}
+    132a:	80 e0       	ldi	r24, 0x00	; 0
+    132c:	08 95       	ret
+
+0000132e <Communication_enuInitMaster>:
+	ES_t Local_enuErrorState = ES_NOK;
+
+	Local_enuErrorState = I2C_enuInitSlave();
+
+	return Local_enuErrorState;
+}
+    132e:	0e 94 7f 08 	call	0x10fe	; 0x10fe <I2C_enuInitMaster>
+    1332:	08 95       	ret
+
+00001334 <Communication_enuSendFrame>:
+
+ES_t Communication_enuSendFrame(Communication_Frame_t *Copy_uniSentFrame)
+{
+    1334:	0f 93       	push	r16
+    1336:	1f 93       	push	r17
+    1338:	cf 93       	push	r28
+    133a:	df 93       	push	r29
+    133c:	ec 01       	movw	r28, r24
+	ES_t Local_enuErrorState = ES_NOK;
+
+	Local_enuErrorState = I2C_enuStartCondition();
+    133e:	0e 94 89 08 	call	0x1112	; 0x1112 <I2C_enuStartCondition>
+
+	Copy_uniSentFrame->Check_Sum = Copy_uniSentFrame->Temp + Copy_uniSentFrame->Humi + Copy_uniSentFrame->Soil + Copy_uniSentFrame->LDRI + Copy_uniSentFrame->State;
+    1342:	58 81       	ld	r21, Y
+    1344:	99 81       	ldd	r25, Y+1	; 0x01
+    1346:	4a 81       	ldd	r20, Y+2	; 0x02
+    1348:	3b 81       	ldd	r19, Y+3	; 0x03
+    134a:	2c 81       	ldd	r18, Y+4	; 0x04
+    134c:	95 0f       	add	r25, r21
+    134e:	94 0f       	add	r25, r20
+    1350:	93 0f       	add	r25, r19
+    1352:	92 0f       	add	r25, r18
+    1354:	9d 83       	std	Y+5, r25	; 0x05
+
+	if(Local_enuErrorState == ES_OK)
+    1356:	81 11       	cpse	r24, r1
+    1358:	18 c0       	rjmp	.+48     	; 0x138a <Communication_enuSendFrame+0x56>
+	{
+		Local_enuErrorState = I2C_enuSendSlaveAddress(Slave_Address, 0);
+    135a:	60 e0       	ldi	r22, 0x00	; 0
+    135c:	81 e0       	ldi	r24, 0x01	; 1
+    135e:	0e 94 a2 08 	call	0x1144	; 0x1144 <I2C_enuSendSlaveAddress>
+    1362:	18 2f       	mov	r17, r24
+
+		if(Local_enuErrorState == ES_OK)
+    1364:	88 23       	and	r24, r24
+    1366:	69 f0       	breq	.+26     	; 0x1382 <Communication_enuSendFrame+0x4e>
+				}
+			}
+		}
+		else
+		{
+			Local_enuErrorState = ES_NOK;
+    1368:	11 e0       	ldi	r17, 0x01	; 1
+    136a:	12 c0       	rjmp	.+36     	; 0x1390 <Communication_enuSendFrame+0x5c>
+
+		if(Local_enuErrorState == ES_OK)
+		{
+			for(u8 Local_u8Iterator = 0; Local_u8Iterator < 6; Local_u8Iterator++)
+			{
+				Local_enuErrorState = I2C_enuMasterSendData(Copy_uniSentFrame->Data[Local_u8Iterator]);
+    136c:	fe 01       	movw	r30, r28
+    136e:	e0 0f       	add	r30, r16
+    1370:	f1 1d       	adc	r31, r1
+    1372:	80 81       	ld	r24, Z
+    1374:	0e 94 c2 08 	call	0x1184	; 0x1184 <I2C_enuMasterSendData>
+    1378:	18 2f       	mov	r17, r24
+				if(Local_enuErrorState == ES_OK)
+    137a:	81 11       	cpse	r24, r1
+    137c:	08 c0       	rjmp	.+16     	; 0x138e <Communication_enuSendFrame+0x5a>
+	{
+		Local_enuErrorState = I2C_enuSendSlaveAddress(Slave_Address, 0);
+
+		if(Local_enuErrorState == ES_OK)
+		{
+			for(u8 Local_u8Iterator = 0; Local_u8Iterator < 6; Local_u8Iterator++)
+    137e:	0f 5f       	subi	r16, 0xFF	; 255
+    1380:	01 c0       	rjmp	.+2      	; 0x1384 <Communication_enuSendFrame+0x50>
+    1382:	00 e0       	ldi	r16, 0x00	; 0
+    1384:	06 30       	cpi	r16, 0x06	; 6
+    1386:	90 f3       	brcs	.-28     	; 0x136c <Communication_enuSendFrame+0x38>
+    1388:	03 c0       	rjmp	.+6      	; 0x1390 <Communication_enuSendFrame+0x5c>
+
+
+	}
+	else
+	{
+		Local_enuErrorState = ES_NOK;
+    138a:	11 e0       	ldi	r17, 0x01	; 1
+    138c:	01 c0       	rjmp	.+2      	; 0x1390 <Communication_enuSendFrame+0x5c>
+				{
+					continue;
+				}
+				else
+				{
+					Local_enuErrorState = ES_NOK;
+    138e:	11 e0       	ldi	r17, 0x01	; 1
+	else
+	{
+		Local_enuErrorState = ES_NOK;
+	}
+
+	I2C_enuStopCondition();
+    1390:	0e 94 9a 08 	call	0x1134	; 0x1134 <I2C_enuStopCondition>
+
+	return Local_enuErrorState;
+}
+    1394:	81 2f       	mov	r24, r17
+    1396:	df 91       	pop	r29
+    1398:	cf 91       	pop	r28
+    139a:	1f 91       	pop	r17
+    139c:	0f 91       	pop	r16
+    139e:	08 95       	ret
+
+000013a0 <__divsf3>:
+    13a0:	0e 94 e4 09 	call	0x13c8	; 0x13c8 <__divsf3x>
+    13a4:	0c 94 c5 0a 	jmp	0x158a	; 0x158a <__fp_round>
+    13a8:	0e 94 be 0a 	call	0x157c	; 0x157c <__fp_pscB>
+    13ac:	58 f0       	brcs	.+22     	; 0x13c4 <__divsf3+0x24>
+    13ae:	0e 94 b7 0a 	call	0x156e	; 0x156e <__fp_pscA>
+    13b2:	40 f0       	brcs	.+16     	; 0x13c4 <__divsf3+0x24>
+    13b4:	29 f4       	brne	.+10     	; 0x13c0 <__divsf3+0x20>
+    13b6:	5f 3f       	cpi	r21, 0xFF	; 255
+    13b8:	29 f0       	breq	.+10     	; 0x13c4 <__divsf3+0x24>
+    13ba:	0c 94 ae 0a 	jmp	0x155c	; 0x155c <__fp_inf>
+    13be:	51 11       	cpse	r21, r1
+    13c0:	0c 94 f9 0a 	jmp	0x15f2	; 0x15f2 <__fp_szero>
+    13c4:	0c 94 b4 0a 	jmp	0x1568	; 0x1568 <__fp_nan>
+
+000013c8 <__divsf3x>:
+    13c8:	0e 94 d6 0a 	call	0x15ac	; 0x15ac <__fp_split3>
+    13cc:	68 f3       	brcs	.-38     	; 0x13a8 <__divsf3+0x8>
+
+000013ce <__divsf3_pse>:
+    13ce:	99 23       	and	r25, r25
+    13d0:	b1 f3       	breq	.-20     	; 0x13be <__divsf3+0x1e>
+    13d2:	55 23       	and	r21, r21
+    13d4:	91 f3       	breq	.-28     	; 0x13ba <__divsf3+0x1a>
+    13d6:	95 1b       	sub	r25, r21
+    13d8:	55 0b       	sbc	r21, r21
+    13da:	bb 27       	eor	r27, r27
+    13dc:	aa 27       	eor	r26, r26
+    13de:	62 17       	cp	r22, r18
+    13e0:	73 07       	cpc	r23, r19
+    13e2:	84 07       	cpc	r24, r20
+    13e4:	38 f0       	brcs	.+14     	; 0x13f4 <__divsf3_pse+0x26>
+    13e6:	9f 5f       	subi	r25, 0xFF	; 255
+    13e8:	5f 4f       	sbci	r21, 0xFF	; 255
+    13ea:	22 0f       	add	r18, r18
+    13ec:	33 1f       	adc	r19, r19
+    13ee:	44 1f       	adc	r20, r20
+    13f0:	aa 1f       	adc	r26, r26
+    13f2:	a9 f3       	breq	.-22     	; 0x13de <__divsf3_pse+0x10>
+    13f4:	35 d0       	rcall	.+106    	; 0x1460 <__divsf3_pse+0x92>
+    13f6:	0e 2e       	mov	r0, r30
+    13f8:	3a f0       	brmi	.+14     	; 0x1408 <__divsf3_pse+0x3a>
+    13fa:	e0 e8       	ldi	r30, 0x80	; 128
+    13fc:	32 d0       	rcall	.+100    	; 0x1462 <__divsf3_pse+0x94>
+    13fe:	91 50       	subi	r25, 0x01	; 1
+    1400:	50 40       	sbci	r21, 0x00	; 0
+    1402:	e6 95       	lsr	r30
+    1404:	00 1c       	adc	r0, r0
+    1406:	ca f7       	brpl	.-14     	; 0x13fa <__divsf3_pse+0x2c>
+    1408:	2b d0       	rcall	.+86     	; 0x1460 <__divsf3_pse+0x92>
+    140a:	fe 2f       	mov	r31, r30
+    140c:	29 d0       	rcall	.+82     	; 0x1460 <__divsf3_pse+0x92>
+    140e:	66 0f       	add	r22, r22
+    1410:	77 1f       	adc	r23, r23
+    1412:	88 1f       	adc	r24, r24
+    1414:	bb 1f       	adc	r27, r27
+    1416:	26 17       	cp	r18, r22
+    1418:	37 07       	cpc	r19, r23
+    141a:	48 07       	cpc	r20, r24
+    141c:	ab 07       	cpc	r26, r27
+    141e:	b0 e8       	ldi	r27, 0x80	; 128
+    1420:	09 f0       	breq	.+2      	; 0x1424 <__divsf3_pse+0x56>
+    1422:	bb 0b       	sbc	r27, r27
+    1424:	80 2d       	mov	r24, r0
+    1426:	bf 01       	movw	r22, r30
+    1428:	ff 27       	eor	r31, r31
+    142a:	93 58       	subi	r25, 0x83	; 131
+    142c:	5f 4f       	sbci	r21, 0xFF	; 255
+    142e:	3a f0       	brmi	.+14     	; 0x143e <__divsf3_pse+0x70>
+    1430:	9e 3f       	cpi	r25, 0xFE	; 254
+    1432:	51 05       	cpc	r21, r1
+    1434:	78 f0       	brcs	.+30     	; 0x1454 <__divsf3_pse+0x86>
+    1436:	0c 94 ae 0a 	jmp	0x155c	; 0x155c <__fp_inf>
+    143a:	0c 94 f9 0a 	jmp	0x15f2	; 0x15f2 <__fp_szero>
+    143e:	5f 3f       	cpi	r21, 0xFF	; 255
+    1440:	e4 f3       	brlt	.-8      	; 0x143a <__divsf3_pse+0x6c>
+    1442:	98 3e       	cpi	r25, 0xE8	; 232
+    1444:	d4 f3       	brlt	.-12     	; 0x143a <__divsf3_pse+0x6c>
+    1446:	86 95       	lsr	r24
+    1448:	77 95       	ror	r23
+    144a:	67 95       	ror	r22
+    144c:	b7 95       	ror	r27
+    144e:	f7 95       	ror	r31
+    1450:	9f 5f       	subi	r25, 0xFF	; 255
+    1452:	c9 f7       	brne	.-14     	; 0x1446 <__divsf3_pse+0x78>
+    1454:	88 0f       	add	r24, r24
+    1456:	91 1d       	adc	r25, r1
+    1458:	96 95       	lsr	r25
+    145a:	87 95       	ror	r24
+    145c:	97 f9       	bld	r25, 7
+    145e:	08 95       	ret
+    1460:	e1 e0       	ldi	r30, 0x01	; 1
+    1462:	66 0f       	add	r22, r22
+    1464:	77 1f       	adc	r23, r23
+    1466:	88 1f       	adc	r24, r24
+    1468:	bb 1f       	adc	r27, r27
+    146a:	62 17       	cp	r22, r18
+    146c:	73 07       	cpc	r23, r19
+    146e:	84 07       	cpc	r24, r20
+    1470:	ba 07       	cpc	r27, r26
+    1472:	20 f0       	brcs	.+8      	; 0x147c <__divsf3_pse+0xae>
+    1474:	62 1b       	sub	r22, r18
+    1476:	73 0b       	sbc	r23, r19
+    1478:	84 0b       	sbc	r24, r20
+    147a:	ba 0b       	sbc	r27, r26
+    147c:	ee 1f       	adc	r30, r30
+    147e:	88 f7       	brcc	.-30     	; 0x1462 <__divsf3_pse+0x94>
+    1480:	e0 95       	com	r30
+    1482:	08 95       	ret
+
+00001484 <__fixunssfsi>:
+    1484:	0e 94 de 0a 	call	0x15bc	; 0x15bc <__fp_splitA>
+    1488:	88 f0       	brcs	.+34     	; 0x14ac <__fixunssfsi+0x28>
+    148a:	9f 57       	subi	r25, 0x7F	; 127
+    148c:	98 f0       	brcs	.+38     	; 0x14b4 <__fixunssfsi+0x30>
+    148e:	b9 2f       	mov	r27, r25
+    1490:	99 27       	eor	r25, r25
+    1492:	b7 51       	subi	r27, 0x17	; 23
+    1494:	b0 f0       	brcs	.+44     	; 0x14c2 <__fixunssfsi+0x3e>
+    1496:	e1 f0       	breq	.+56     	; 0x14d0 <__fixunssfsi+0x4c>
+    1498:	66 0f       	add	r22, r22
+    149a:	77 1f       	adc	r23, r23
+    149c:	88 1f       	adc	r24, r24
+    149e:	99 1f       	adc	r25, r25
+    14a0:	1a f0       	brmi	.+6      	; 0x14a8 <__fixunssfsi+0x24>
+    14a2:	ba 95       	dec	r27
+    14a4:	c9 f7       	brne	.-14     	; 0x1498 <__fixunssfsi+0x14>
+    14a6:	14 c0       	rjmp	.+40     	; 0x14d0 <__fixunssfsi+0x4c>
+    14a8:	b1 30       	cpi	r27, 0x01	; 1
+    14aa:	91 f0       	breq	.+36     	; 0x14d0 <__fixunssfsi+0x4c>
+    14ac:	0e 94 f8 0a 	call	0x15f0	; 0x15f0 <__fp_zero>
+    14b0:	b1 e0       	ldi	r27, 0x01	; 1
+    14b2:	08 95       	ret
+    14b4:	0c 94 f8 0a 	jmp	0x15f0	; 0x15f0 <__fp_zero>
+    14b8:	67 2f       	mov	r22, r23
+    14ba:	78 2f       	mov	r23, r24
+    14bc:	88 27       	eor	r24, r24
+    14be:	b8 5f       	subi	r27, 0xF8	; 248
+    14c0:	39 f0       	breq	.+14     	; 0x14d0 <__fixunssfsi+0x4c>
+    14c2:	b9 3f       	cpi	r27, 0xF9	; 249
+    14c4:	cc f3       	brlt	.-14     	; 0x14b8 <__fixunssfsi+0x34>
+    14c6:	86 95       	lsr	r24
+    14c8:	77 95       	ror	r23
+    14ca:	67 95       	ror	r22
+    14cc:	b3 95       	inc	r27
+    14ce:	d9 f7       	brne	.-10     	; 0x14c6 <__fixunssfsi+0x42>
+    14d0:	3e f4       	brtc	.+14     	; 0x14e0 <__fixunssfsi+0x5c>
+    14d2:	90 95       	com	r25
+    14d4:	80 95       	com	r24
+    14d6:	70 95       	com	r23
+    14d8:	61 95       	neg	r22
+    14da:	7f 4f       	sbci	r23, 0xFF	; 255
+    14dc:	8f 4f       	sbci	r24, 0xFF	; 255
+    14de:	9f 4f       	sbci	r25, 0xFF	; 255
+    14e0:	08 95       	ret
+
+000014e2 <__floatunsisf>:
+    14e2:	e8 94       	clt
+    14e4:	09 c0       	rjmp	.+18     	; 0x14f8 <__floatsisf+0x12>
+
+000014e6 <__floatsisf>:
+    14e6:	97 fb       	bst	r25, 7
+    14e8:	3e f4       	brtc	.+14     	; 0x14f8 <__floatsisf+0x12>
+    14ea:	90 95       	com	r25
+    14ec:	80 95       	com	r24
+    14ee:	70 95       	com	r23
+    14f0:	61 95       	neg	r22
+    14f2:	7f 4f       	sbci	r23, 0xFF	; 255
+    14f4:	8f 4f       	sbci	r24, 0xFF	; 255
+    14f6:	9f 4f       	sbci	r25, 0xFF	; 255
+    14f8:	99 23       	and	r25, r25
+    14fa:	a9 f0       	breq	.+42     	; 0x1526 <__floatsisf+0x40>
+    14fc:	f9 2f       	mov	r31, r25
+    14fe:	96 e9       	ldi	r25, 0x96	; 150
+    1500:	bb 27       	eor	r27, r27
+    1502:	93 95       	inc	r25
+    1504:	f6 95       	lsr	r31
+    1506:	87 95       	ror	r24
+    1508:	77 95       	ror	r23
+    150a:	67 95       	ror	r22
+    150c:	b7 95       	ror	r27
+    150e:	f1 11       	cpse	r31, r1
+    1510:	f8 cf       	rjmp	.-16     	; 0x1502 <__floatsisf+0x1c>
+    1512:	fa f4       	brpl	.+62     	; 0x1552 <__floatsisf+0x6c>
+    1514:	bb 0f       	add	r27, r27
+    1516:	11 f4       	brne	.+4      	; 0x151c <__floatsisf+0x36>
+    1518:	60 ff       	sbrs	r22, 0
+    151a:	1b c0       	rjmp	.+54     	; 0x1552 <__floatsisf+0x6c>
+    151c:	6f 5f       	subi	r22, 0xFF	; 255
+    151e:	7f 4f       	sbci	r23, 0xFF	; 255
+    1520:	8f 4f       	sbci	r24, 0xFF	; 255
+    1522:	9f 4f       	sbci	r25, 0xFF	; 255
+    1524:	16 c0       	rjmp	.+44     	; 0x1552 <__floatsisf+0x6c>
+    1526:	88 23       	and	r24, r24
+    1528:	11 f0       	breq	.+4      	; 0x152e <__floatsisf+0x48>
+    152a:	96 e9       	ldi	r25, 0x96	; 150
+    152c:	11 c0       	rjmp	.+34     	; 0x1550 <__floatsisf+0x6a>
+    152e:	77 23       	and	r23, r23
+    1530:	21 f0       	breq	.+8      	; 0x153a <__floatsisf+0x54>
+    1532:	9e e8       	ldi	r25, 0x8E	; 142
+    1534:	87 2f       	mov	r24, r23
+    1536:	76 2f       	mov	r23, r22
+    1538:	05 c0       	rjmp	.+10     	; 0x1544 <__floatsisf+0x5e>
+    153a:	66 23       	and	r22, r22
+    153c:	71 f0       	breq	.+28     	; 0x155a <__floatsisf+0x74>
+    153e:	96 e8       	ldi	r25, 0x86	; 134
+    1540:	86 2f       	mov	r24, r22
+    1542:	70 e0       	ldi	r23, 0x00	; 0
+    1544:	60 e0       	ldi	r22, 0x00	; 0
+    1546:	2a f0       	brmi	.+10     	; 0x1552 <__floatsisf+0x6c>
+    1548:	9a 95       	dec	r25
+    154a:	66 0f       	add	r22, r22
+    154c:	77 1f       	adc	r23, r23
+    154e:	88 1f       	adc	r24, r24
+    1550:	da f7       	brpl	.-10     	; 0x1548 <__floatsisf+0x62>
+    1552:	88 0f       	add	r24, r24
+    1554:	96 95       	lsr	r25
+    1556:	87 95       	ror	r24
+    1558:	97 f9       	bld	r25, 7
+    155a:	08 95       	ret
+
+0000155c <__fp_inf>:
+    155c:	97 f9       	bld	r25, 7
+    155e:	9f 67       	ori	r25, 0x7F	; 127
+    1560:	80 e8       	ldi	r24, 0x80	; 128
+    1562:	70 e0       	ldi	r23, 0x00	; 0
+    1564:	60 e0       	ldi	r22, 0x00	; 0
+    1566:	08 95       	ret
+
+00001568 <__fp_nan>:
+    1568:	9f ef       	ldi	r25, 0xFF	; 255
+    156a:	80 ec       	ldi	r24, 0xC0	; 192
+    156c:	08 95       	ret
+
+0000156e <__fp_pscA>:
+    156e:	00 24       	eor	r0, r0
+    1570:	0a 94       	dec	r0
+    1572:	16 16       	cp	r1, r22
+    1574:	17 06       	cpc	r1, r23
+    1576:	18 06       	cpc	r1, r24
+    1578:	09 06       	cpc	r0, r25
+    157a:	08 95       	ret
+
+0000157c <__fp_pscB>:
+    157c:	00 24       	eor	r0, r0
+    157e:	0a 94       	dec	r0
+    1580:	12 16       	cp	r1, r18
+    1582:	13 06       	cpc	r1, r19
+    1584:	14 06       	cpc	r1, r20
+    1586:	05 06       	cpc	r0, r21
+    1588:	08 95       	ret
+
+0000158a <__fp_round>:
+    158a:	09 2e       	mov	r0, r25
+    158c:	03 94       	inc	r0
+    158e:	00 0c       	add	r0, r0
+    1590:	11 f4       	brne	.+4      	; 0x1596 <__fp_round+0xc>
+    1592:	88 23       	and	r24, r24
+    1594:	52 f0       	brmi	.+20     	; 0x15aa <__fp_round+0x20>
+    1596:	bb 0f       	add	r27, r27
+    1598:	40 f4       	brcc	.+16     	; 0x15aa <__fp_round+0x20>
+    159a:	bf 2b       	or	r27, r31
+    159c:	11 f4       	brne	.+4      	; 0x15a2 <__fp_round+0x18>
+    159e:	60 ff       	sbrs	r22, 0
+    15a0:	04 c0       	rjmp	.+8      	; 0x15aa <__fp_round+0x20>
+    15a2:	6f 5f       	subi	r22, 0xFF	; 255
+    15a4:	7f 4f       	sbci	r23, 0xFF	; 255
+    15a6:	8f 4f       	sbci	r24, 0xFF	; 255
+    15a8:	9f 4f       	sbci	r25, 0xFF	; 255
+    15aa:	08 95       	ret
+
+000015ac <__fp_split3>:
+    15ac:	57 fd       	sbrc	r21, 7
+    15ae:	90 58       	subi	r25, 0x80	; 128
+    15b0:	44 0f       	add	r20, r20
+    15b2:	55 1f       	adc	r21, r21
+    15b4:	59 f0       	breq	.+22     	; 0x15cc <__fp_splitA+0x10>
+    15b6:	5f 3f       	cpi	r21, 0xFF	; 255
+    15b8:	71 f0       	breq	.+28     	; 0x15d6 <__fp_splitA+0x1a>
+    15ba:	47 95       	ror	r20
+
+000015bc <__fp_splitA>:
+    15bc:	88 0f       	add	r24, r24
+    15be:	97 fb       	bst	r25, 7
+    15c0:	99 1f       	adc	r25, r25
+    15c2:	61 f0       	breq	.+24     	; 0x15dc <__fp_splitA+0x20>
+    15c4:	9f 3f       	cpi	r25, 0xFF	; 255
+    15c6:	79 f0       	breq	.+30     	; 0x15e6 <__fp_splitA+0x2a>
+    15c8:	87 95       	ror	r24
+    15ca:	08 95       	ret
+    15cc:	12 16       	cp	r1, r18
+    15ce:	13 06       	cpc	r1, r19
+    15d0:	14 06       	cpc	r1, r20
+    15d2:	55 1f       	adc	r21, r21
+    15d4:	f2 cf       	rjmp	.-28     	; 0x15ba <__fp_split3+0xe>
+    15d6:	46 95       	lsr	r20
+    15d8:	f1 df       	rcall	.-30     	; 0x15bc <__fp_splitA>
+    15da:	08 c0       	rjmp	.+16     	; 0x15ec <__fp_splitA+0x30>
+    15dc:	16 16       	cp	r1, r22
+    15de:	17 06       	cpc	r1, r23
+    15e0:	18 06       	cpc	r1, r24
+    15e2:	99 1f       	adc	r25, r25
+    15e4:	f1 cf       	rjmp	.-30     	; 0x15c8 <__fp_splitA+0xc>
+    15e6:	86 95       	lsr	r24
+    15e8:	71 05       	cpc	r23, r1
+    15ea:	61 05       	cpc	r22, r1
+    15ec:	08 94       	sec
+    15ee:	08 95       	ret
+
+000015f0 <__fp_zero>:
+    15f0:	e8 94       	clt
+
+000015f2 <__fp_szero>:
+    15f2:	bb 27       	eor	r27, r27
+    15f4:	66 27       	eor	r22, r22
+    15f6:	77 27       	eor	r23, r23
+    15f8:	cb 01       	movw	r24, r22
+    15fa:	97 f9       	bld	r25, 7
+    15fc:	08 95       	ret
+
+000015fe <__udivmodsi4>:
+    15fe:	a1 e2       	ldi	r26, 0x21	; 33
+    1600:	1a 2e       	mov	r1, r26
+    1602:	aa 1b       	sub	r26, r26
+    1604:	bb 1b       	sub	r27, r27
+    1606:	fd 01       	movw	r30, r26
+    1608:	0d c0       	rjmp	.+26     	; 0x1624 <__udivmodsi4_ep>
+
+0000160a <__udivmodsi4_loop>:
+    160a:	aa 1f       	adc	r26, r26
+    160c:	bb 1f       	adc	r27, r27
+    160e:	ee 1f       	adc	r30, r30
+    1610:	ff 1f       	adc	r31, r31
+    1612:	a2 17       	cp	r26, r18
+    1614:	b3 07       	cpc	r27, r19
+    1616:	e4 07       	cpc	r30, r20
+    1618:	f5 07       	cpc	r31, r21
+    161a:	20 f0       	brcs	.+8      	; 0x1624 <__udivmodsi4_ep>
+    161c:	a2 1b       	sub	r26, r18
+    161e:	b3 0b       	sbc	r27, r19
+    1620:	e4 0b       	sbc	r30, r20
+    1622:	f5 0b       	sbc	r31, r21
+
+00001624 <__udivmodsi4_ep>:
+    1624:	66 1f       	adc	r22, r22
+    1626:	77 1f       	adc	r23, r23
+    1628:	88 1f       	adc	r24, r24
+    162a:	99 1f       	adc	r25, r25
+    162c:	1a 94       	dec	r1
+    162e:	69 f7       	brne	.-38     	; 0x160a <__udivmodsi4_loop>
+    1630:	60 95       	com	r22
+    1632:	70 95       	com	r23
+    1634:	80 95       	com	r24
+    1636:	90 95       	com	r25
+    1638:	9b 01       	movw	r18, r22
+    163a:	ac 01       	movw	r20, r24
+    163c:	bd 01       	movw	r22, r26
+    163e:	cf 01       	movw	r24, r30
+    1640:	08 95       	ret
+
+00001642 <__divmodsi4>:
+    1642:	05 2e       	mov	r0, r21
+    1644:	97 fb       	bst	r25, 7
+    1646:	1e f4       	brtc	.+6      	; 0x164e <__divmodsi4+0xc>
+    1648:	00 94       	com	r0
+    164a:	0e 94 38 0b 	call	0x1670	; 0x1670 <__negsi2>
+    164e:	57 fd       	sbrc	r21, 7
+    1650:	07 d0       	rcall	.+14     	; 0x1660 <__divmodsi4_neg2>
+    1652:	0e 94 ff 0a 	call	0x15fe	; 0x15fe <__udivmodsi4>
+    1656:	07 fc       	sbrc	r0, 7
+    1658:	03 d0       	rcall	.+6      	; 0x1660 <__divmodsi4_neg2>
+    165a:	4e f4       	brtc	.+18     	; 0x166e <__divmodsi4_exit>
+    165c:	0c 94 38 0b 	jmp	0x1670	; 0x1670 <__negsi2>
+
+00001660 <__divmodsi4_neg2>:
+    1660:	50 95       	com	r21
+    1662:	40 95       	com	r20
+    1664:	30 95       	com	r19
+    1666:	21 95       	neg	r18
+    1668:	3f 4f       	sbci	r19, 0xFF	; 255
+    166a:	4f 4f       	sbci	r20, 0xFF	; 255
+    166c:	5f 4f       	sbci	r21, 0xFF	; 255
+
+0000166e <__divmodsi4_exit>:
+    166e:	08 95       	ret
+
+00001670 <__negsi2>:
+    1670:	90 95       	com	r25
+    1672:	80 95       	com	r24
+    1674:	70 95       	com	r23
+    1676:	61 95       	neg	r22
+    1678:	7f 4f       	sbci	r23, 0xFF	; 255
+    167a:	8f 4f       	sbci	r24, 0xFF	; 255
+    167c:	9f 4f       	sbci	r25, 0xFF	; 255
+    167e:	08 95       	ret
+
+00001680 <__mulhisi3>:
+    1680:	0e 94 48 0b 	call	0x1690	; 0x1690 <__umulhisi3>
+    1684:	33 23       	and	r19, r19
+    1686:	12 f4       	brpl	.+4      	; 0x168c <__mulhisi3+0xc>
+    1688:	8a 1b       	sub	r24, r26
+    168a:	9b 0b       	sbc	r25, r27
+    168c:	0c 94 59 0b 	jmp	0x16b2	; 0x16b2 <__usmulhisi3_tail>
+
+00001690 <__umulhisi3>:
+    1690:	a2 9f       	mul	r26, r18
+    1692:	b0 01       	movw	r22, r0
+    1694:	b3 9f       	mul	r27, r19
+    1696:	c0 01       	movw	r24, r0
+    1698:	a3 9f       	mul	r26, r19
+    169a:	70 0d       	add	r23, r0
+    169c:	81 1d       	adc	r24, r1
+    169e:	11 24       	eor	r1, r1
+    16a0:	91 1d       	adc	r25, r1
+    16a2:	b2 9f       	mul	r27, r18
+    16a4:	70 0d       	add	r23, r0
+    16a6:	81 1d       	adc	r24, r1
+    16a8:	11 24       	eor	r1, r1
+    16aa:	91 1d       	adc	r25, r1
+    16ac:	08 95       	ret
+
+000016ae <__usmulhisi3>:
+    16ae:	0e 94 48 0b 	call	0x1690	; 0x1690 <__umulhisi3>
+
+000016b2 <__usmulhisi3_tail>:
+    16b2:	b7 ff       	sbrs	r27, 7
+    16b4:	08 95       	ret
+    16b6:	82 1b       	sub	r24, r18
+    16b8:	93 0b       	sbc	r25, r19
+    16ba:	08 95       	ret
+
+000016bc <_exit>:
+    16bc:	f8 94       	cli
+
+000016be <__stop_program>:
+    16be:	ff cf       	rjmp	.-2      	; 0x16be <__stop_program>
