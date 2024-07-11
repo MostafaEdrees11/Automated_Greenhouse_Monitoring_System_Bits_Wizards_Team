@@ -1,0 +1,13 @@
+/*
+ * I2C_Communication_priv.h
+ *
+ *  Created on: Jul 8, 2024
+ *      Author: Mostafa Edrees
+ */
+
+#ifndef SERVICES_I2C_COMMUNICATION_I2C_COMMUNICATION_PRIV_H_
+#define SERVICES_I2C_COMMUNICATION_I2C_COMMUNICATION_PRIV_H_
+
+
+
+#endif /* SERVICES_I2C_COMMUNICATION_I2C_COMMUNICATION_PRIV_H_ */
