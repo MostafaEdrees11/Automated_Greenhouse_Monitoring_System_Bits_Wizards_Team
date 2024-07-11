@@ -1,21 +1,33 @@
-/**
- ******************************************************************************
- * @file           : main.c
- * @author         : Mostafa Edrees
- * @brief          : application file of Seven Segment.
- * @date           : 10/20/2023
- * @board          : ATMEGA32
- ******************************************************************************
-**/
-#define F_CPU 1000000UL
+#include "LIB/Error_States.h"
+#include "LIB/stdTypes.h"
+
+#include "APP/AGMS/AGMS_int.h"
+
+#define Slave	0
+#define Master	1
+
+#define Code	Master
 
 
-int main(void)
+#if Code == Master
+int main()
 {
+	AGMS_enuInit_AutomaticControl();
 
-    /* Replace with your application code */
-    while (1) 
-    {
-    }
+	while(1)
+	{
+		AGMS_enuRunning_AutomaticControl();
+	}
 }
 
+#elif Code == Slave
+int main()
+{
+	AGMS_enuInit_Display();
+
+	while(1)
+	{
+		AGMS_enuRunning_Display();
+	}
+}
+#endif
