@@ -101,7 +101,7 @@ ES_t LCD_enuInit(void)
 	#endif
 	
 	/* Display ON/OFF Control */
-	Local_enuErrorState = LCD_inlenuSendCommand(LCD_DisplayOn_CursorOn_Blinking);
+	Local_enuErrorState = LCD_inlenuSendCommand(LCD_DisplayOn_CursorOff_NoBlinking);
 	if(Local_enuErrorState != ES_OK)
 		return Local_enuErrorState;
 	_delay_ms(1);

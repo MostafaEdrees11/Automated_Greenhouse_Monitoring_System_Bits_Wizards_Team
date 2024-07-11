@@ -11,17 +11,12 @@
 #include "../../MCAL/DIO/DIO_int.h"
 
 /* specify the number of buzzers */
-#define BUZZER_NUM				2
+#define BUZZER_NUM				1
 
 
 /* configuration of buzzer states */
 #define BUZZER_u8ON				10
 #define BUZZER_u8OFF			11
-
-#define BUZZER_1   0
-#define BUZZER_2   1
-#define BUZZER_3   2
-
 
 typedef struct
 {

@@ -2,7 +2,7 @@
  * LDR_Prog.c
  *
  *  Created on: Jul 4, 2024
- *      Author: samar ibrahim
+ *      Author: Samar Ibrahim
  */
 
 #include "../../LIB/stdTypes.h"
@@ -49,9 +49,21 @@ ES_t LDR_enuInit(LDR_t* Copy_PstrLDRconfig) {
 /** Brief           : Get the value from the specified ADC channel.         **/
 /*****************************************************************************/
 /*****************************************************************************/
-ES_t LDR_enuGetValue(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID) {
-	 ES_t Local_enuErrorState = ES_NOK;
-	Local_enuErrorState=ADC_Read_From_Ch(Copy_pu16ReadValue,Copy_u8ChannelID);
+ES_t LDR_enuGetValue(u16 *Copy_pu16ReadValue, u8 Copy_u8ChannelID)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+
+	if(Copy_pu16ReadValue != NULL)
+	{
+		ADC_Read_From_Ch(Copy_pu16ReadValue,Copy_u8ChannelID);
+
+		Local_enuErrorState = ES_OK;
+	}
+	else
+	{
+		Local_enuErrorState = ES_NULL_POINTER;
+	}
+
 
 	return Local_enuErrorState;
 }

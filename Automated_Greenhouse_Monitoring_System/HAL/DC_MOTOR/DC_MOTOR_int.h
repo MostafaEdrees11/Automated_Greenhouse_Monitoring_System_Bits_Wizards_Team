@@ -2,12 +2,13 @@
  * DC_MOTOR_int.h
  *
  *  Created on: Jul 5, 2024
- *      Author: Mostafa Edrees
+ *      Author: Fathy Anas
  */
 
 #ifndef HAL_DC_MOTOR_DC_MOTOR_INT_H_
 #define HAL_DC_MOTOR_DC_MOTOR_INT_H_
 
+#include "DC_MOTOR_config.h"
 
 ES_t DC_MOTOR_enuInit(DC_MOTOR_t *Copy_pAstrDcMotorConfig);
 

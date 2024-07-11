@@ -7,6 +7,7 @@
 
 #include "../../LIB/Error_States.h"
 #include "../../LIB/stdTypes.h"
+#include "../../LIB/Math.h"
 
 #include "../../MCAL/ADC/ADC_config.h"
 #include "../../MCAL/ADC/ADC_int.h"
@@ -46,16 +47,7 @@ ES_t Soil_Moisture_enuGetMoisureVal(u8 Copy_u8Soil_Moisture_ID, u16 *Copy_Pu16Mo
 	{
 		if(Copy_u8Soil_Moisture_ID < Soil_Moisture_NUM)
 		{
-			ADC_enuEnable();
-			ADC_enuDisableTrigger();
-			ADC_enuSelectChannel(Soil_Moisture_AstrSoilMoistureConfig[Copy_u8Soil_Moisture_ID].Soil_Moisture_CHANNEL);
-			ADC_enuStartConversion();
-			ADC_enuDisableInterrupt();
-			ADC_enuPollingSystem();
-			ADC_enuReadADCValue(Copy_Pu16MoistureValue);
-			ADC_enuDisable();
-
-			//ADC_Read_From_Ch(Copy_Pu16MoistureValue, Soil_Moisture_AstrSoilMoistureConfig[Copy_u8Soil_Moisture_ID].Soil_Moisture_CHANNEL);
+			ADC_Read_From_Ch(Copy_Pu16MoistureValue, Soil_Moisture_AstrSoilMoistureConfig[Copy_u8Soil_Moisture_ID].Soil_Moisture_CHANNEL);
 		}
 		else
 		{

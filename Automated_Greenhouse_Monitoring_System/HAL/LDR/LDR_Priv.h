@@ -2,7 +2,7 @@
  * LDR_Priv.h
  *
  *  Created on: Jul 4, 2024
- *      Author: user
+ *      Author: Samar Ibrahim
  */
 
 #ifndef HAL_LDR_LDR_PRIV_H_

@@ -12,7 +12,7 @@
 #define LED_CONFIG_H_
 
 /* specify the number of leds */
-#define LED_NUM				8
+#define LED_NUM				3
 
 
 /* configuration of led states */
@@ -22,6 +22,15 @@
 /* configuration of led connection states*/
 #define LED_u8SINK			12
 #define LED_u8SOURCE		13
+
+typedef enum
+{
+	LED_PWM_NONE,
+	LED_PWM_OC0,
+	LED_PWM_OC1A,
+	LED_PWM_OC1B,
+	LED_PWM_OC2
+}LED_PWM_SOURCE_t;
 
 typedef struct
 {
@@ -36,6 +45,8 @@ typedef struct
 	
 	/* LED_u8InitState --> must specify according to @ref configuration of led connection states at LED_config.h */
 	u8 LED_u8InitState;	
+
+	LED_PWM_SOURCE_t LED_enuPWM;
 }LED_t;
 
 

@@ -1,13 +1,13 @@
 /*
- * DC_MOTOR_priv.h
+ * BUZZER_priv.h
  *
  *  Created on: Jul 5, 2024
  *      Author: Mostafa Edrees
  */
 
-#ifndef HAL_DC_MOTOR_DC_MOTOR_PRIV_H_
-#define HAL_DC_MOTOR_DC_MOTOR_PRIV_H_
+#ifndef HAL_BUZZER_BUZZER_PRIV_H_
+#define HAL_BUZZER_BUZZER_PRIV_H_
 
 
 
-#endif /* HAL_DC_MOTOR_DC_MOTOR_PRIV_H_ */
+#endif /* HAL_BUZZER_BUZZER_PRIV_H_ */

@@ -2,7 +2,7 @@
  * DHT11_priv.h
  *
  *  Created on: Jul 6, 2024
- *      Author: Mostafa Edrees
+ *      Author: Fathy Anas
  */
 
 #ifndef HAL_DHT11_DHT11_PRIV_H_

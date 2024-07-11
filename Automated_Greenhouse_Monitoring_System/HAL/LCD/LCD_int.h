@@ -10,7 +10,8 @@
 
 #ifndef LCD_INT_H_
 #define LCD_INT_H_
-
+#include "../../LIB/Error_States.h"
+#include "../../LIB/stdTypes.h"
 ES_t LCD_enuInit(void);
 
 ES_t LCD_enuDisplayChar(u8 Copy_u8Data);

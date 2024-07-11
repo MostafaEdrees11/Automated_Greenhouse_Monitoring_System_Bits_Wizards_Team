@@ -2,7 +2,7 @@
  * DC_MOTOR_prog.c
  *
  *  Created on: Jul 5, 2024
- *      Author: Mostafa Edrees
+ *      Author: Fathy Anas
  */
 
 
@@ -12,6 +12,8 @@
 #include "../../MCAL/DIO/DIO_int.h"
 
 #include "../../MCAL/TIMER0/TIMER0_int.h"
+#include "../../MCAL/TIMER1/TIMER1_int.h"
+#include "../../MCAL/TIMER2/TIMER2_int.h"
 
 #include "DC_MOTOR_priv.h"
 #include "DC_MOTOR_config.h"
@@ -103,9 +105,36 @@ ES_t DC_MOTOR_SetSpeed(u8 Copy_u8DcMotorID, u8 Copy_u8DcMotorSpeed)
 
 	if(Copy_u8DcMotorID < DC_MOTOR_NUM && Copy_u8DcMotorSpeed <= 100)
 	{
-		DIO_enuSetPinDirection(DIO_u8PORTB, DIO_u8PIN3, DIO_u8OUTPUT);
-		TIMER0_enuInit();
-		TIMER0_enuGeneratePWM(Copy_u8DcMotorSpeed);
+		switch(DC_MOTOR_AstrDcMotorConfig[Copy_u8DcMotorID].DC_MOTOR_enuEnPin)
+		{
+		case PWM_NONE:
+			Local_enuErrorState = ES_NOK;
+			break;
+
+		case PWM_OC0:
+			TIMER0_enuGeneratePWM(Copy_u8DcMotorSpeed);
+			Local_enuErrorState = ES_OK;
+			break;
+
+		case PWM_OC1A:
+			TIMER1_enuGeneratePWM_OCR1A(Copy_u8DcMotorSpeed);
+			Local_enuErrorState = ES_OK;
+			break;
+
+		case PWM_OC1B:
+			TIMER1_enuGeneratePWM_OCR1B(Copy_u8DcMotorSpeed);
+			Local_enuErrorState = ES_OK;
+			break;
+
+		case PWM_OC2:
+			TIMER2_enuGeneratePWM(Copy_u8DcMotorSpeed);
+			Local_enuErrorState = ES_OK;
+			break;
+
+		default:
+			Local_enuErrorState = ES_NOK;
+			break;
+		}
 	}
 	else
 	{

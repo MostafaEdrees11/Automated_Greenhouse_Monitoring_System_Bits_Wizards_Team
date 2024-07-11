@@ -2,7 +2,7 @@
  * LDR_Config.h
  *
  *  Created on: Jul 4, 2024
- *      Author: user
+ *      Author: Samar Ibrahim
  */
 
 #ifndef HAL_LDR_LDR_CONFIG_H_

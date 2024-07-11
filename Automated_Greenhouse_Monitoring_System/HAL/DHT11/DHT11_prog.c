@@ -2,7 +2,7 @@
  * DHT11_prog.c
  *
  *  Created on: Jul 6, 2024
- *      Author: Mostafa Edrees
+ *      Author: Fathy Anas
  */
 
 

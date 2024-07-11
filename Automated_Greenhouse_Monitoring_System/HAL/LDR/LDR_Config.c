@@ -2,7 +2,7 @@
  * LDR_Config.c
  *
  *  Created on: Jul 4, 2024
- *      Author: user
+ *      Author: Samar Ibrahim
  */
 
 #include "../../MCAL/ADC/ADC_int.h"
