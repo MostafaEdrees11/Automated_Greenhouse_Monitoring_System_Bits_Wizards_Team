@@ -21,6 +21,7 @@ C_DEPS :=
 SUBDIRS := \
 HAL/BUZZER \
 HAL/DC_MOTOR \
+HAL/DHT11 \
 HAL/KEYPAD \
 HAL/LCD \
 HAL/LDR \
@@ -28,6 +29,7 @@ HAL/LED \
 HAL/SEVEN_SEG \
 HAL/SWITCH \
 HAL/Soil\ Moisture\ Sensor \
+LIB \
 MCAL/ADC \
 MCAL/DIO \
 MCAL/EXTI \
@@ -37,5 +39,6 @@ MCAL/SPI \
 MCAL/TIMER0 \
 MCAL/TIMER1 \
 MCAL/USART \
+Services/I2C_Communication \
 . \
 

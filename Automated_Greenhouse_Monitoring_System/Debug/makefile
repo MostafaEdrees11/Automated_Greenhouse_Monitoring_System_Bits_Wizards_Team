@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Services/I2C_Communication/subdir.mk
 -include MCAL/USART/subdir.mk
 -include MCAL/TIMER1/subdir.mk
 -include MCAL/TIMER0/subdir.mk
@@ -17,6 +18,7 @@ RM := rm -rf
 -include MCAL/EXTI/subdir.mk
 -include MCAL/DIO/subdir.mk
 -include MCAL/ADC/subdir.mk
+-include LIB/subdir.mk
 -include HAL/Soil\ Moisture\ Sensor/subdir.mk
 -include HAL/SWITCH/subdir.mk
 -include HAL/SEVEN_SEG/subdir.mk
@@ -24,6 +26,7 @@ RM := rm -rf
 -include HAL/LDR/subdir.mk
 -include HAL/LCD/subdir.mk
 -include HAL/KEYPAD/subdir.mk
+-include HAL/DHT11/subdir.mk
 -include HAL/DC_MOTOR/subdir.mk
 -include HAL/BUZZER/subdir.mk
 -include subdir.mk
