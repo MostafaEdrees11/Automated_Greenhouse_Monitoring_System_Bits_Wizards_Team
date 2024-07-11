@@ -48,7 +48,7 @@
 
 
 
-#define SET_ECU_ADDRESS					TWAR=ECU_ADDRESS
+#define SET_ECU_ADDRESS					TWAR=((ECU_ADDRESS<<1)|0x01)
 
 
 

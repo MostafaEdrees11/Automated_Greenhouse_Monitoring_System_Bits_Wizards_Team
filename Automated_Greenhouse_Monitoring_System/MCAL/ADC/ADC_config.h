@@ -13,7 +13,7 @@
 #define ADC_CONFIG_H_
 
 /* Configuration of Reference Voltage */
-#define ADC_VOLT_REF						AVCC_REF
+#define ADC_VOLT_REF						AREF_REF
 
 /* if you use AREF_REF enter the voltage in mV (between 0 to 5000) */
 #define REFERENCE_VOLTAGE					5000UL

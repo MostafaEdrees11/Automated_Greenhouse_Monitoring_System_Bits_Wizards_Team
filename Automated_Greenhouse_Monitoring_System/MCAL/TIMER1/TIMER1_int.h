@@ -37,9 +37,9 @@ ES_t TIMER1_enuDelayMilliSecondASyn(u32 Copy_u32DelayTime_ms, void (*Copy_PFunAp
 
 ES_t TIMER1_enuSetPreload(u8 Copy_u8PreloadValue);
 
-ES_t TIMER1_enuSetOutputCompareRegisterChannelA(u8 Copy_u8OCRValue);
+ES_t TIMER1_enuSetOutputCompareRegisterChannelA(u16 Copy_u8OCRValue);
 
-ES_t TIMER1_enuSetOutputCompareRegisterChannelB(u8 Copy_u8OCRValue);
+ES_t TIMER1_enuSetOutputCompareRegisterChannelB(u16 Copy_u8OCRValue);
 
 ES_t TIMER1_enuPrepareICU(EDGE_STATE_t Copy_enuEdgeState, NOISE_CANCELER_STATE_t Copy_enuNoiseCancelerState);
 
@@ -61,7 +61,9 @@ ES_t TIMER1_enuEnableCTCInterruptChannelB(void);
 
 ES_t TIMER1_enuEnableInputCaptureUnitInterrupt(void);
 
-//ES_t TIMER1_enuGeneratePWM(u8 Copy_u8DutyCycle);
+ES_t TIMER1_enuGeneratePWM_OCR1A(u8 Copy_u8DutyCycle);
+
+ES_t TIMER1_enuGeneratePWM_OCR1B(u8 Copy_u8DutyCycle);
 
 
 #endif /* TIMER1_INT_H_ */

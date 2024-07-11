@@ -9,17 +9,27 @@
 #ifndef TIMER1_PRIV_H_
 #define TIMER1_PRIV_H_
 
+
+#include "../../LIB/Error_States.h"
+
 // TIMER1 Registers
 #define	TCCR1A					*((volatile u8 *)0x4F)
 #define TCCR1B					*((volatile u8 *)0x4E)
 #define TCNT1H					*((volatile u8 *)0x4D)
 #define TCNT1L					*((volatile u8 *)0x4C)
+
+#define OCR1A                   (*(volatile u16*)0x4A)
 #define OCR1AH					*((volatile u8 *)0x4B)
 #define OCR1AL					*((volatile u8 *)0x4A)
+
+#define OCR1B					(*(volatile u16*)0x48)
 #define OCR1BH					*((volatile u8 *)0x49)
 #define OCR1BL					*((volatile u8 *)0x48)
+
+#define ICR1					(*(volatile u16*)0x46)
 #define ICR1H					*((volatile u8 *)0x47)
 #define ICR1L					*((volatile u8 *)0x46)
+
 #define TIMSK					*((volatile u8 *)0x59)
 #define TIFR					*((volatile u8 *)0x58)
 
@@ -95,26 +105,45 @@
 #define NON_INVERTED			4
 #define INVERTED				5
 
+#define OCRB_DISCONNECTED		1
+#define OCRB_TOGGLE				2
+#define OCRB_NON_INVERTING		3
+#define OCRB_INVERTING			4
+
+#define OCRA_DISCONNECTED		1
+#define OCRA_TOGGLE				2
+#define OCRA_NON_INVERTING		3
+#define OCRA_INVERTING			4
+
+
 #define MASK_BIT				1
 
 typedef enum
 {
-	FAILLING_DETECT,
-	RISING_DETECT
-}EDGE_STATE_t;
+	TIMER1_FAILLING_DETECT,
+	TIMER1_RISING_DETECT
+}TIMER1_EDGE_STATE_t;
 
 typedef enum
 {
-	DISABLE_NOISE_CANCELER,
-	ENABLE_NOISE_CANCELER
-}NOISE_CANCELER_STATE_t;
+	TIMER1_DISABLE_NOISE_CANCELER,
+	TIMER1_ENABLE_NOISE_CANCELER
+}TIMER1_NOISE_CANCELER_STATE_t;
 
 typedef enum
 {
-	start,
-	Ton,
-	Ttotal,
-	Off
-}ICU_STATE_t;
+	TIMER1_start,
+	TIMER1_Ton,
+	TIMER1_Ttotal,
+	TIMER1_Off
+}TIMER1_ICU_STATE_t;
+
+
+#define CLR_BIT(X,N)     (X)=(X)&(~(1<<(N)))
+#define READ_BIT(X,N)          (((X)>>(N))&1)
+#define TOG_BIT(X,N)       (X)=(X)^(1<<(N))
+#define SET_BIT(X,N)       (X)=(X)|(1<<(N))
+
+
 
 #endif /* TIMER1_PRIV_H_ */

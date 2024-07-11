@@ -8,6 +8,7 @@
 #include "../../LIB/Error_States.h"
 #include "../../LIB/stdTypes.h"
 
+#include "TIMER1_int.h"
 #include "TIMER1_priv.h"
 #include "TIMER1_config.h"
 
@@ -144,7 +145,47 @@ ES_t TIMER1_enuInit(void)
 	#error "Timer1 Prescaler has a wrong configuration"
 	#endif
 	
+	/* Initialize OC1A Mode*/
+	#if   OC1A_MODE == OCRB_DISCONNECTED
+	CLR_BIT(TCCR1A,COM1A0);
+	CLR_BIT(TCCR1A,COM1A1);
 	
+	#elif OC1A_MODE == OCRB_TOGGLE
+	SET_BIT(TCCR1A,COM1A0);
+	CLR_BIT(TCCR1A,COM1A1);
+	
+	#elif OC1A_MODE == OCRB_NON_INVERTING
+	CLR_BIT(TCCR1A,COM1A0);
+	SET_BIT(TCCR1A,COM1A1);
+	
+	#elif OC1A_MODE == OCRB_INVERTING
+	SET_BIT(TCCR1A,COM1A0);
+	SET_BIT(TCCR1A,COM1A1);
+	
+	#else
+	#error "Timer1 OCRA mode wrong cmofigration"
+	#endif
+	
+	/* Initialize OC1A Mode*/
+	#if   OC1B_MODE == OCRB_DISCONNECTED
+	CLR_BIT(TCCR1A,COM1B0);
+	CLR_BIT(TCCR1A,COM1B1);
+	
+	#elif OC1B_MODE == OCRB_TOGGLE
+	SET_BIT(TCCR1A,COM1B0);
+	CLR_BIT(TCCR1A,COM1B1);
+	
+	#elif OC1B_MODE == OCRB_NON_INVERTING
+	CLR_BIT(TCCR1A,COM1B0);
+	SET_BIT(TCCR1A,COM1B1);
+	
+	#elif OC1B_MODE == OCRB_INVERTING
+	SET_BIT(TCCR1A,COM1B0);
+	SET_BIT(TCCR1A,COM1B1);
+	
+	#else
+	#error "Timer1 OCRB mode wrong cmofigration"
+	#endif
 
 	return Local_enuErrorState;	
 }
@@ -176,21 +217,23 @@ ES_t TIMER1_enuSetPreload(u8 Copy_u8PreloadValue)
 	return Local_enuErrorState;
 }
 
-ES_t TIMER1_enuSetOutputCompareRegisterChannelA(u8 Copy_u8OCRValue)
+ES_t TIMER1_enuSetOutputCompareRegisterChannelA(u16 Copy_u8OCRValue)
 {
 	ES_t Local_enuErrorState = ES_NOK;
 
-
+	OCR1A = Copy_u8OCRValue;
+	Local_enuErrorState = ES_OK;
 
 	return Local_enuErrorState;
 }
 
-ES_t TIMER1_enuSetOutputCompareRegisterChannelB(u8 Copy_u8OCRValue)
+ES_t TIMER1_enuSetOutputCompareRegisterChannelB(u16 Copy_u8OCRValue)
 {
 	ES_t Local_enuErrorState = ES_NOK;
 
-
-
+	OCR1B = Copy_u8OCRValue;
+	Local_enuErrorState = ES_OK;
+	
 	return Local_enuErrorState;
 }
 
@@ -368,6 +411,130 @@ ES_t TIMER1_enuEnableInputCaptureUnitInterrupt(void)
 	Local_enuErrorState = ES_OK;
 	return Local_enuErrorState;
 }
+
+
+
+ES_t TIMER1_enuGeneratePWM_OCR1A(u8 Copy_u8DutyCycle)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	
+	#if OC1A_MODE == OCRA_NON_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1A = ((u32)Copy_u8DutyCycle*256)/100;
+		Local_enuErrorState = ES_OK;
+
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_9B || TIMER1_MODE == TIMER1_PWM_PHCO_9B
+		OCR1A = ((u32)Copy_u8DutyCycle*512)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_10B || TIMER1_MODE == TIMER1_PWM_PHCO_10B
+		OCR1A = ((u32)Copy_u8DutyCycle*1024)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_ICR1 || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_ICR1  
+		OCR1A = ((u32)Copy_u8DutyCycle*ICR1)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#else
+		#error "Timer 1 generate PWM Mode error "
+		Local_enuErrorState = ES_OK;
+		#endif
+		
+	#elif OC1A_MODE == OCRA_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1A = (256 - (((u32)Copy_u8DutyCycle * 256)/(100)));
+		Local_enuErrorState = ES_OK;
+
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_9B || TIMER1_MODE == TIMER1_PWM_PHCO_9B
+		OCR1A = (512 - (((u32)Copy_u8DutyCycle * 512)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_10B || TIMER1_MODE == TIMER1_PWM_PHCO_10B
+		OCR1A = (1024 - (((u32)Copy_u8DutyCycle * 1024)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_ICR1 || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_ICR1
+		OCR1A = (ICR1 - (((u32)Copy_u8DutyCycle * ICR1)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#else
+		#error "Timer 1 generate PWM Mode error "
+		Local_enuErrorState = ES_OK;
+		#endif
+		
+	#else
+	#error "Timer 1 OCRA Mode error For PWM"
+	Local_enuErrorState = ES_OK;
+	#endif
+	
+	return Local_enuErrorState;
+}
+
+ES_t TIMER1_enuGeneratePWM_OCR1B(u8 Copy_u8DutyCycle)
+{
+	ES_t Local_enuErrorState = ES_NOK;
+	#if OC1B_MODE == OCRB_NON_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1B = ((u32)Copy_u8DutyCycle*256)/100;
+		Local_enuErrorState = ES_OK;
+
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_9B || TIMER1_MODE == TIMER1_PWM_PHCO_9B
+		OCR1B = ((u32)Copy_u8DutyCycle*512)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_10B || TIMER1_MODE == TIMER1_PWM_PHCO_10B
+		OCR1B = ((u32)Copy_u8DutyCycle*1024)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_ICR1 || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_ICR1
+		OCR1B = ((u32)Copy_u8DutyCycle*ICR1)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_OCR1A || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_OCR1A
+		OCR1B = ((u32)Copy_u8DutyCycle*OCR1A)/100;
+		Local_enuErrorState = ES_OK;
+		
+		#else
+		#error "Timer 1 generate PWM Mode error "
+		Local_enuErrorState = ES_OK;
+		#endif
+		
+	#elif OC1B_MODE == OCRB_INVERTING
+		#if TIMER1_MODE == TIMER1_FAST_PWM_8B || TIMER1_MODE == TIMER1_PWM_PHCO_8B
+		OCR1B = (256 - (((u32)Copy_u8DutyCycle * 256)/(100)));
+		Local_enuErrorState = ES_OK;
+
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_9B || TIMER1_MODE == TIMER1_PWM_PHCO_9B
+		OCR1B = (512 - (((u32)Copy_u8DutyCycle * 512)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_10B || TIMER1_MODE == TIMER1_PWM_PHCO_10B
+		OCR1B = (1024 - (((u32)Copy_u8DutyCycle * 1024)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_ICR1 || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_ICR1
+		OCR1B = (ICR1 - (((u32)Copy_u8DutyCycle * ICR1)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#elif TIMER1_MODE == TIMER1_FAST_PWM_TOP_OCR1A || TIMER1_MODE == TIMER1_PWM_PHCO_TOP_OCR1A
+		OCR1B = (OCR1A - (((u32)Copy_u8DutyCycle * OCR1A)/(100)));
+		Local_enuErrorState = ES_OK;
+		
+		#else
+		#error "Timer 1 generate PWM Mode error "
+		Local_enuErrorState = ES_OK;
+		#endif
+		
+	#else
+	#error "Timer 1 OCRB Mode error For PWM"
+	Local_enuErrorState = ES_OK;
+	#endif
+		
+	return Local_enuErrorState;
+}
+
+
+
 
 ISR(VECT_TIMER1_ICU)
 {

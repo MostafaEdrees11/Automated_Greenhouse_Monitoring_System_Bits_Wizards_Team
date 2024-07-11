@@ -11,6 +11,9 @@
 #ifndef EXTI_INT_H_
 #define EXTI_INT_H_
 
+#include "EXTI_priv.h"
+#include "EXTI_config.h"
+
 ES_t EXTI_enuInit(EXTI_Configuration_t *Copy_PEXTI_Config);
 ES_t EXTI_enuChange_Control_State(EXTI_ID_t Copy_enuEXTI_Id, EXTI_CTL_STATE_t Copy_enuControlState);
 ES_t EXTI_enuEnable(EXTI_ID_t Copy_enuEXTI_Id);

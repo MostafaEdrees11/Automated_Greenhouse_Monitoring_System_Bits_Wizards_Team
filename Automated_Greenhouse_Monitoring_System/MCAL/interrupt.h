@@ -19,13 +19,6 @@
 #define VECT_INT1			__vector_2
 #define VECT_INT2			__vector_3
 
-#define VECT_TIMER1_ICU			__vector_6
-#define VECT_TIMER1_CTC_ChA		__vector_7
-#define VECT_TIMER1_CTC_ChB		__vector_8
-#define VECT_TIMER1_OVF			__vector_9
-#define VECT_TIMER0_CTC			__vector_10
-#define VECT_TIMER0_OVF			__vector_11
-
 #define VECT_ADC			__vector_16
 
 #endif /* INTERRUPT_H_ */

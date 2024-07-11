@@ -7,7 +7,8 @@
 
 #ifndef MCAL_I2C_I2C_INT_H_
 #define MCAL_I2C_I2C_INT_H_
-
+#include "../../LIB/Error_States.h"
+#include "../../LIB/stdTypes.h"
 ES_t I2C_enuInitMaster	(void);
 
 ES_t I2C_enuInitSlave	(void);
