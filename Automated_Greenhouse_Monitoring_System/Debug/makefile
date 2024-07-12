@@ -8,11 +8,12 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Services/NodeRed_Communication/subdir.mk
 -include Services/I2C_Communication/subdir.mk
 -include MCAL/USART/subdir.mk
+-include MCAL/TIMER2/subdir.mk
 -include MCAL/TIMER1/subdir.mk
 -include MCAL/TIMER0/subdir.mk
--include MCAL/SPI/subdir.mk
 -include MCAL/I2C/subdir.mk
 -include MCAL/GIE/subdir.mk
 -include MCAL/EXTI/subdir.mk
@@ -20,15 +21,16 @@ RM := rm -rf
 -include MCAL/ADC/subdir.mk
 -include LIB/subdir.mk
 -include HAL/Soil\ Moisture\ Sensor/subdir.mk
--include HAL/SWITCH/subdir.mk
--include HAL/SEVEN_SEG/subdir.mk
 -include HAL/LED/subdir.mk
 -include HAL/LDR/subdir.mk
 -include HAL/LCD/subdir.mk
--include HAL/KEYPAD/subdir.mk
 -include HAL/DHT11/subdir.mk
 -include HAL/DC_MOTOR/subdir.mk
 -include HAL/BUZZER/subdir.mk
+-include APP/Sensors/subdir.mk
+-include APP/Display/subdir.mk
+-include APP/Automatic_Control/subdir.mk
+-include APP/AGMS/subdir.mk
 -include subdir.mk
 -include objects.mk
 
