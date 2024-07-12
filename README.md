@@ -89,7 +89,6 @@ We have a two leds and buzzer:
 * Soil Moisture < 10                            * Soil Moisture > 80
 * Light Intensity < 20                          * Light Intensity > 90
 ```
-![gitHub](https://github.com/MostafaEdrees11/Automated_Greenhouse_Monitoring_System_Bits_Wizards_Team/blob/master/Documetation/images/Buzzer_when_Error.mp4)
 ![gitHub](https://github.com/MostafaEdrees11/Automated_Greenhouse_Monitoring_System_Bits_Wizards_Team/blob/master/Documetation/images/Notification_for_System_Error.jpg)
 
 ___
@@ -120,8 +119,8 @@ ___
 
 ## Final Overview
 ![gitHub](https://github.com/MostafaEdrees11/Automated_Greenhouse_Monitoring_System_Bits_Wizards_Team/blob/master/Documetation/images/Proteus_with_Server_with_Mobile_App.jpg)
-You can see the video for the final output in this link [Video Project]()
-and the Report of the project [Report Link]() and the Presentation [Presentation Link](https://www.canva.com/design/DAGKqLtwIz0/0gDAwP-sjlxO_CZzNDPGyw/edit)
+You can see the video for the final output in this link [Video Project](https://drive.google.com/file/d/1DV6em05C4iQDrz7cljLsyiAW186xpFIM/view?usp=drive_link)
+and the Report of the project [Report Link](https://drive.google.com/file/d/1PHMs82VQRuUzJ2hznxDPWpNkW1eiWSmO/view?usp=drive_link) and the Presentation [Presentation Link](https://www.canva.com/design/DAGKqLtwIz0/0gDAwP-sjlxO_CZzNDPGyw/edit)
 ___
 
 ## Contributors
