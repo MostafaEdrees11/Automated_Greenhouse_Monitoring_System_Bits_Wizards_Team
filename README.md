@@ -89,6 +89,11 @@ We have a two leds and buzzer:
 * Soil Moisture < 10                            * Soil Moisture > 80
 * Light Intensity < 20                          * Light Intensity > 90
 ```
+
+
+https://github.com/user-attachments/assets/7a9f9225-761c-4231-8b52-4f02543a7522
+
+
 ![gitHub](https://github.com/MostafaEdrees11/Automated_Greenhouse_Monitoring_System_Bits_Wizards_Team/blob/master/Documetation/images/Notification_for_System_Error.jpg)
 
 ___
